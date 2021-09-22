@@ -25,9 +25,7 @@ button{
 
 /* BANNER */
 
-.banner-firulaix img{
-  width: 100%;
-}
+
   
 
 .content-calculator{
@@ -407,3 +405,18 @@ padding: 1rem 0;
     padding: 0 1.5rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+.contenido{
+  background-color: #ffa500;
+}
+
+

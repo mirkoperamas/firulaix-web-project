@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #fcc74d;
+}
+
+.navbar img{
+    width: 160px;
+}
+
+.navbar-toggler:focus{
+    outline:none;
+    border: none;
+    box-shadow: none;
+}
+
+
+.nav-link{
+    font-size: 18px;
+    font-weight: bold;
+}
