@@ -206,6 +206,7 @@
 }
 
 .content-cards-ajust mat-card {
+  width: 30%;
   margin: 0 3rem;
   padding: 2rem;
 }
@@ -217,9 +218,9 @@
 .content-cards-ajust mat-card-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   line-height: 30px;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .content-cards-ajust img {
@@ -229,6 +230,7 @@
 .column-card {
   padding: 3rem;
   margin: 2rem 0;
+  width: 70%;
 }
 
 .column-card video {
@@ -236,9 +238,45 @@
   height: 40rem;
 }
 
+
+.white-section-content{
+  padding: 4rem 2rem;
+}
+
+.white-section-title{
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.white-section-title p{
+  color: #ffa500;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+}
+
+.white-section-title h1{
+  font-size: 45px;
+  /* font-weight: bold; */
+  /* text-transform: uppercase; */
+  letter-spacing: 3px;
+  margin-bottom: 4rem;
+}
+
+.white-section-title h2{
+  margin-bottom: 5rem;
+  color: rgba(0, 0, 0, 0.794);
+}
+
 .mat-tab-group {
   margin-bottom: 80px;
 }
+
+.instructions-section{
+  margin-top: 5rem;
+}
+
 
 .card-image{
     display: flex;
@@ -247,7 +285,7 @@
 }
 
 .card-image img{
-    width: 65%;
+    width: 60%;
 }
 
 .card-text-ajust{
@@ -261,11 +299,21 @@
 }
 
 .card-text-ajust p{
-    font-size: 22px;
+    font-size: 20px;
     /* font-weight: bold; */
 }
+
 
 .fa-paint-brush {
   font-size: 45px;
 }
 
+
+.tab-group-faq{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.according-ajust{
+  margin-top: 5rem;
+}

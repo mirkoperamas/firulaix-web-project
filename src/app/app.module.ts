@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import{ LoadScriptsService } from './services/load-scripts.service';
@@ -51,7 +52,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     MatButtonModule,
     MatTabsModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ],
   providers: [LoadScriptsService, UploadService],
   bootstrap: [AppComponent]

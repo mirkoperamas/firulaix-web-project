@@ -122,7 +122,7 @@
         </div>
 
         <div class="column">
-            <mat-card  class="column-card">
+            <mat-card  class="column-card" style="display: flex; justify-content: center;">
                 <video autoplay loop muted>
                     <source src="../.././../assets/video/firu-video.mp4" type="video/mp4" />
                 </video>
@@ -133,20 +133,42 @@
 </section>
 
 
-<section id="home" style="background-color: #fff">
-    <div class="pasos-simples-content">
-        <div>
+<!-- <section id="home" style="background-color: #fff">
+    <div class="white-section-content">
+        <div class="white-section-title">
             <p>Billetera Virtual</p>
             <h1>Pasos simples para comenzar</h1>
             <h2>Sigue estos sencillos pasos para descargar tu billetera virtual. Usando Firu's, podrás lograr ahorros significativos en fee´s, tiempo y te brindará seguridad de tu dinero.</h2>
         </div>
         <mat-tab-group mat-align-tabs="center">
-            <mat-tab label="1. Instala tu billetera">Content 1</mat-tab>
+            <mat-tab label="1. Instala tu billetera">
+                <div class="instructions-section">
+                    <div class="instruction-card">
+
+                        <div class="instruction-card-circle">
+                            <div>
+                                <i class="flaticon-wallet"></i>
+                            </div>
+                        </div>
+
+                        <div class="instruction-card-title">
+                            <h2>Billeteras</h2>
+                            <p>Billeteras virtuales</p>
+                        </div>
+
+                        <div class="instruction-card-images">
+                            <img src="">
+                            <img src="">
+                        </div>
+
+                    </div>
+                </div>
+            </mat-tab>
             <mat-tab label="2. Agregate a la red BSC">Content 2</mat-tab>
             <mat-tab label="3. Agrega el contrato inteligentez">Content 3</mat-tab>
         </mat-tab-group>
     </div>
-</section>
+</section> -->
 
 
 <section id="home">
@@ -259,16 +281,162 @@
 </section>
 
 <section id="home" style="background-color: #fff">
-    <div class="pasos-simples-content">
-        <div>
+    <div class="white-section-content">
+        <div class="white-section-title">
             <h1>FAQ</h1>
             <h2>Preguntas Frecuentes</h2>
         </div>
-        <mat-tab-group mat-align-tabs="center">
-            <mat-tab label="1. General">Content 1</mat-tab>
-            <mat-tab label="2. Adquiere tus firu's">Content 2</mat-tab>
-            <mat-tab label="3. Conclusiones">Content 3</mat-tab>
-            <mat-tab label="4. En agenda">Content 4</mat-tab>
+        <mat-tab-group mat-align-tabs="center" class="tab-group-faq">
+            <mat-tab label="1. General">
+                <div class="according-ajust">
+                    <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Como me crearon?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Soy un contrato inteligente BEP20 en la blockchain de SmartChain, con estos detalles:<br>
+                        Total supply = 330 000 000 FIRU's.<br>
+                        Dígitos = 8<br>
+                        Símbolo = FIRU</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Para qué fui creado?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Soy la primera versión del proyecto FIRULAIX, con el objetivo de generar una capitalización para poder identificar a todos mis amigos caninos y felinos que tengan hogar o esten en las calles. Cuando mis amigos estén identificados, podré compartir mis billeteras virtuales con todos ellos para que puedan tener sus propios fondos, administrados por sus dueños y así podrán ser atendidos en todos los establecimientos clínicos, tiendas y aeropuertos. Con esto generar un comercio dedicado a los ánimales.</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Cómo lograré mis objetivos?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Con el capital recaudado crearemos nuestra propia blockchain para registrar los códigos de los chip´s que implantaremos a todos nuestros amigos, junto con los contratos inteligentes ERC721 conseguiremos un registro único. Está primera etapa, sera el inicio de identificación y trazabilidad de otros animales como ganados, peces, aves de granja, animales de zoológico, etc... El enfoque que tenemos es la autenticación de mis amigos caninos desde su nacimiento, haciendoles una trazabilidad de generación en generación, asegurando su raza pedigree de una manera segura y eficiente.</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Necesitas más detalles?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>La blockchain es una red super segura que nos ayudará a vincular el código de los chip´s hacia el registro principal en la blockchain y a la vez brindar a cada usuario animal una dirección que podrán usuarla para guardar mis token's FIRU's.
+                        Los chip´s que vamos a implantar son del tamaño de un grano de arroz y pueden albergar datos de valor para su identificación, ubicación y verificación a quien les pertence, imaginence si eso lo guardamos de manera segura en mi propia red en BLOKCHAIN y adicional a todo esto, tendré mi propia cryptomoneda para que todos los veterinarios, clínicas y tiendas para animales puedan recibirlas, eso lo lograremos gracias a nuestros partners que son muy importante para nosotros y forman parte de una asociación donde hay más de 200 establecimintos, junto a municiplaidades distritales, centros de atención animal, amigos de los animales y otros....</p>
+                    </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-tab>
+            <mat-tab label="2. Adquiere tus firu's">
+                <div class="according-ajust">
+                    <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Como adquirir tus firu's?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Seleccione el botón "Adquiere tus FIRU's".<br>
+                        Elije la token que intercambiaras con los FIRU's en el cuadro de intercambio descentralizado. Elije el monto y el monto de FIRU´s se calculara de acuerdo al precio de mercado.<br>
+                        Presione el botón "Approve" si lo haces por primera vez, sino el botón de "Swap" para realizar el intercambio.<br>
+                        Si deseas hacerlo directamente de la plataforma Apeswap puedes hacer click aquí.</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        ¿Como adquirir Firu's si no tengo token's de Binance Smart Chain (BSC)?
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Puede escribir al email: firulaix@firulaixcoin.finance, y puedes adquirlos con LTC, BTC, DASH u otra criptomoneda a negociar.</p>
+                    </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-tab>
+            <mat-tab label="3. Conclusiones">
+                <div class="according-ajust">
+                    <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Desarrollo del proyecto
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Un 40% de la capitalización de distribución de token´s FIRU, servirá para el desarrollo del proyecto e irá avanzando de acuerdo al capital recaudado.
+                        El capital restante será para líquidez, farming, staking de acuerdo a la sugerencia de la plataforma a listar (Apeswap) y un 10% para marketing y publicidad.</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Funcionalidad del proyecto
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>El proyecto es ejecutado para cubrir un gran segmento del sector animal, que son los caso de: Registro civil por animal, fomentar y facilitar la adopción, trazabilidad pedigree, trazabilidad de alimentos para animales, ubicación de animales extraviados, etc.</p>
+                    </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-tab>
+            <mat-tab label="4. En agenda">
+                <div class="according-ajust">
+                    <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        No se pierdan la Firu descendencia
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Firulaix tendrá una descendencia de 20 cachorros pedigree con Firulina.<br>
+                        Esta descendencia será dada en adopción a los FIRU Founder's y así daremos inicio a una raza mediante el código genético que serán mezclados por medio de sus contratos inteligentes ERC721 (NFT).</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Firu Game's
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>El desarrollo de juegos que serán recompensados con FIRU's.</p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Firu Store
+                        </mat-panel-title>
+
+                      </mat-expansion-panel-header>
+                      <p>Ansiosos de construir la tienda y abastecer a todos mis amigos.</p>
+                    </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </section>
