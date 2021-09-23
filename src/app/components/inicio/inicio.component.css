@@ -317,3 +317,35 @@
 .according-ajust{
   margin-top: 5rem;
 }
+
+
+.partners-content{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.partners-content h1{
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 3rem;
+}
+
+.partners-content-images{
+  display: flex;
+  justify-content: center;
+}
+
+
+.partners-content-images div{
+  display: flex;
+  justify-content: center;
+}
+
+
+.partners-content-images img{
+  width: 65%;
+}
