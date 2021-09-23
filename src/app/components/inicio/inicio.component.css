@@ -274,7 +274,17 @@
 }
 
 .instructions-section{
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
+  display: flex;
+  justify-content: center;
+  /* width: 98%; */
+  margin: 5rem auto 0 auto;
+}
+
+.instruction-card{
+  width: 25%;
+  border: 1px solid black;
+  margin: 0 1rem;
 }
 
 
