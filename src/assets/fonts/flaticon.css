@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?def6afa9909837859daf417d3612208e") format("truetype"),
+url("../fonts/flaticon.woff?def6afa9909837859daf417d3612208e") format("woff"),
+url("../fonts/flaticon.woff2?def6afa9909837859daf417d3612208e") format("woff2"),
+url("../fonts/flaticon.eot?def6afa9909837859daf417d3612208e#iefix") format("embedded-opentype"),
+url("../fonts/flaticon.svg?def6afa9909837859daf417d3612208e#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-correo-electronico:before {
+    content: "\f101";
+}
+.flaticon-globo:before {
+    content: "\f102";
+}
+.flaticon-wallet:before {
+    content: "\f103";
+}
+.flaticon-security:before {
+    content: "\f104";
+}
+.flaticon-download:before {
+    content: "\f105";
+}
+.flaticon-plus:before {
+    content: "\f106";
+}
+.flaticon-sun:before {
+    content: "\f107";
+}
+.flaticon-paper:before {
+    content: "\f108";
+}
+.flaticon-hacer-clic:before {
+    content: "\f109";
+}
+.flaticon-sun-1:before {
+    content: "\f10a";
+}
+.flaticon-check:before {
+    content: "\f10b";
+}
+.flaticon-forma-de-vineta:before {
+    content: "\f10c";
+}

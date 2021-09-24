@@ -34,7 +34,8 @@
   letter-spacing: 2px;
   line-height: 75px;
   margin-bottom: 2rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  color: #fff;
 }
 
 .banner-ajust p {
@@ -47,7 +48,8 @@
   text-transform: uppercase;
   padding: 0.8rem 3rem;
   margin: 2rem 2rem 0 0;
-  color: #ffa500;
+  color: #fff;
+  background-color: black;
 }
 
 /* Shape-divider */
@@ -240,7 +242,7 @@
 
 
 .white-section-content{
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
 }
 
 .white-section-title{
@@ -261,12 +263,13 @@
   /* font-weight: bold; */
   /* text-transform: uppercase; */
   letter-spacing: 3px;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .white-section-title h2{
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
   color: rgba(0, 0, 0, 0.794);
+  font-weight: lighter;
 }
 
 .mat-tab-group {
@@ -277,14 +280,115 @@
   /* margin-top: 5rem; */
   display: flex;
   justify-content: center;
-  /* width: 98%; */
+  width: 90%;
   margin: 5rem auto 0 auto;
 }
 
 .instruction-card{
   width: 25%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 0 1rem;
+}
+
+
+.card-circle{
+  width: 6.7rem;
+  height: 6.7rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px dashed transparent;
+  margin: 0 auto;
+  transition: .5s;
+}
+
+.card-circle div{
+  width: 5.5rem;
+  height: 5.5rem;
+  /* background-color: blue; */
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+
+
+.card-circle i{
+  font-size: 30px;
+  transition: .5s;
+}
+
+.instruction-card-title{
+  /* background-color: blue; */
+  text-align: center;
+  margin: 1.5rem auto;
+  height: 8rem;
+}
+
+.instruction-card-title h2{
+  text-transform: uppercase;
+  transition: .5s;
+}
+
+.instruction-card-title p{
+  font-size: 15px;
+}
+
+
+.instruction-card-images{
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.instruction-card-images img{
+  max-width: 60%;
+}
+
+.instruction-card-number div{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: black;
+  color: #fff;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .5s;
+}
+
+
+
+.instruction-card:hover .card-circle{
+  border-color: #ffa500;
+}
+
+
+.instruction-card:hover .card-circle div{
+  background-color: #ffa500;
+}
+
+
+.instruction-card:hover .card-circle i{
+  color: #fff;
+}
+
+
+.instruction-card:hover .instruction-card-title h2{
+  color: #ffa500;
+}
+
+
+.instruction-card:hover .instruction-card-number div{
+  background-color: #ffa500;
 }
 
 

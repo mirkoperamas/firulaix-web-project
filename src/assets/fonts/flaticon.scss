@@ -1,0 +1,73 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?def6afa9909837859daf417d3612208e") format("truetype"),
+url("./flaticon.woff?def6afa9909837859daf417d3612208e") format("woff"),
+url("./flaticon.woff2?def6afa9909837859daf417d3612208e") format("woff2"),
+url("./flaticon.eot?def6afa9909837859daf417d3612208e#iefix") format("embedded-opentype"),
+url("./flaticon.svg?def6afa9909837859daf417d3612208e#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "correo-electronico": "\f101",
+    "globo": "\f102",
+    "wallet": "\f103",
+    "security": "\f104",
+    "download": "\f105",
+    "plus": "\f106",
+    "sun": "\f107",
+    "paper": "\f108",
+    "hacer-clic": "\f109",
+    "sun-1": "\f10a",
+    "check": "\f10b",
+    "forma-de-vineta": "\f10c",
+);
+
+.flaticon-correo-electronico:before {
+    content: map-get($flaticon-map, "correo-electronico");
+}
+.flaticon-globo:before {
+    content: map-get($flaticon-map, "globo");
+}
+.flaticon-wallet:before {
+    content: map-get($flaticon-map, "wallet");
+}
+.flaticon-security:before {
+    content: map-get($flaticon-map, "security");
+}
+.flaticon-download:before {
+    content: map-get($flaticon-map, "download");
+}
+.flaticon-plus:before {
+    content: map-get($flaticon-map, "plus");
+}
+.flaticon-sun:before {
+    content: map-get($flaticon-map, "sun");
+}
+.flaticon-paper:before {
+    content: map-get($flaticon-map, "paper");
+}
+.flaticon-hacer-clic:before {
+    content: map-get($flaticon-map, "hacer-clic");
+}
+.flaticon-sun-1:before {
+    content: map-get($flaticon-map, "sun-1");
+}
+.flaticon-check:before {
+    content: map-get($flaticon-map, "check");
+}
+.flaticon-forma-de-vineta:before {
+    content: map-get($flaticon-map, "forma-de-vineta");
+}
