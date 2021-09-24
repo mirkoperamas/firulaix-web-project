@@ -1,6 +1,15 @@
 #home {
   width: 100%;
 }
+#home-banner {
+  background-image: url(../../../assets/firulaix-banner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .banner-content {
   display: flex;
@@ -20,7 +29,7 @@
 }
 
 .banner-image img {
-  width: 85%;
+  width: 70%;
 }
 
 .banner-ajust {
@@ -30,16 +39,23 @@
 
 .banner-ajust h1 {
   font-size: 50px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 2px;
   line-height: 75px;
   margin-bottom: 2rem;
   /* text-transform: uppercase; */
-  color: #fff;
+  color: #3575b1;
+}
+
+.banner-ajust span{
+  font-size: 55px;
+  text-transform: uppercase;
+  color: #24588b;
+  font-weight: bold;
 }
 
 .banner-ajust p {
-  color: rgba(0, 0, 0, 0.493);
+  color: #fff;
   font-size: 20px;
   line-height: 40px;
 }
@@ -48,71 +64,133 @@
   text-transform: uppercase;
   padding: 0.8rem 3rem;
   margin: 2rem 2rem 0 0;
-  color: #fff;
-  background-color: black;
+  color: #fcc74d;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 10rem;
+  border: none;
+  -webkit-box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15); 
+box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
+  transition: .5s;
 }
 
-/* Shape-divider */
-.shapedividers_com-3425 {
-  overflow: hidden;
-  position: relative;
+
+.button-main:hover{
+  background-color: #fcc74d;
+  color: #fff;
 }
-.shapedividers_com-3425::before {
-  content: "";
-  font-family: "shape divider from ShapeDividers.com";
+
+
+/* Shape-divider */
+
+
+
+
+
+
+.shapedividers_com-6105{
+  overflow:hidden;
+  position:relative;
+  }
+  .shapedividers_com-6105::before{ 
+  content:'';
+  font-family:'shape divider from ShapeDividers.com';
   position: absolute;
-  bottom: -1px;
-  left: -1px;
-  right: -1px;
-  top: -1px;
   z-index: 3;
   pointer-events: none;
   background-repeat: no-repeat;
-  background-size: 100% 90px;
-  background-position: 50% 0%;
-  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z" fill="%23fbd8c2"/><path d="M0 1c3.17.8 7.29-.38 10.04-.55 2.75-.17 9.25 1.47 12.67 1.3 3.43-.17 4.65-.84 7.05-.87 2.4-.02 5.52.88 5.52.88V0H0z" opacity=".5" fill="%23fbd8c2"/><path d="M0 1.85c2.56-.83 7.68-.3 11.79-.42 4.1-.12 6.86-.61 9.58-.28 2.73.33 5.61 1.17 8.61 1 3-.19 4.73-.82 5.3-.84V.1H0z" opacity=".5" fill="%23fbd8c2"/></svg>');
-}
-
-/* @media (min-width: 768px) {
-  .shapedividers_com-3425::before {
-    background-size: 100% 90px;
-    background-position: 50% 0%;
+  bottom: -0.1vw;
+  left: -0.1vw;
+  right: -0.1vw;
+  top: -0.1vw; 
+  transform:scaleX(1.8);
+  transform-origin: 100% 100%;
+  animation: 33s infinite alternate shape-anim-6105  linear;
+  background-size: 100% 196px;
+  background-position: 50% 100%;  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M35.28 1.67c-3.07-.55-9.27.41-16.15 0-6.87-.4-13.74-.58-19.13.1v.4h35.28z" fill="%23fcc74d"/><path d="M35.28 1.16c-3.17-.8-7.3.4-10.04.56-2.76.17-9.25-1.47-12.68-1.3-3.42.16-4.64.84-7.04.86C3.12 1.31 0 .4 0 .4v1.77h35.28z" opacity=".5" fill="%23fcc74d"/><path d="M35.28.31c-2.57.84-7.68.3-11.8.43-4.1.12-6.85.61-9.57.28C11.18.69 8.3-.16 5.3.02 2.3.22.57.85 0 .87v1.2h35.28z" opacity=".5" fill="%23fcc74d"/></svg>'); 
   }
-} */
-
-@media (min-width: 1px) {
-  .shapedividers_com-3425::before {
-    bottom: -0.1vw;
-    left: -0.1vw;
-    right: -0.1vw;
-    top: -0.1vw;
-    transform: scaleX(1.4);
-    transform-origin: 100% 100%;
-    animation: 30s infinite alternate shape-anim-3425 linear;
-    background-size: 100% 177px;
-    background-position: 50% 100%;
-    background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M35.28 1.67c-3.07-.55-9.27.41-16.15 0-6.87-.4-13.74-.58-19.13.1v.4h35.28z" fill="%23ffa500"/><path d="M35.28 1.16c-3.17-.8-7.3.4-10.04.56-2.76.17-9.25-1.47-12.68-1.3-3.42.16-4.64.84-7.04.86C3.12 1.31 0 .4 0 .4v1.77h35.28z" opacity=".5" fill="%23ffa500"/><path d="M35.28.31c-2.57.84-7.68.3-11.8.43-4.1.12-6.85.61-9.57.28C11.18.69 8.3-.16 5.3.02 2.3.22.57.85 0 .87v1.2h35.28z" opacity=".5" fill="%23ffa500"/></svg>');
+  
+  @media (min-width:2100px){
+  .shapedividers_com-6105::before{
+  background-size: 100% calc(2vw + 196px);
   }
-}
-@media (min-width: 2100px) {
-  .shapedividers_com-3425::before {
-    background-size: 100% calc(2vw + 177px);
   }
-}
-
-@keyframes shape-anim-3425 {
-  100% {
-    transform: scaleX(1.4) translateX(calc(100% - (100% / 1.4)));
+  
+  @keyframes shape-anim-6105 {
+    100% {
+      transform: scaleX(1.8) translateX(calc(100% - (100% / 1.8)));
+    }
   }
-}
+  
+     
+  
+     
+  
+     
+  
+     
+     
+     
+  
+     
+     
+  
+     
+  
+     
 
 /* CARD-BUTTONS */
 
+
+
+
+.shapedividers_com-5660{
+  overflow:hidden;
+  position:relative;
+  }
+  .shapedividers_com-5660::before{ 
+  content:'';
+  font-family:'shape divider from ShapeDividers.com';
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  bottom: -0.1vw;
+  left: -0.1vw;
+  right: -0.1vw;
+  top: -0.1vw; 
+  transform:scaleX(1.8);
+  transform-origin: 100% 0;
+  animation: 33s infinite alternate shape-anim-5660  linear;
+  background-size: 100% 150px;
+  background-position: 50% 0%;  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z" fill="%23fcc74d"/><path d="M0 1c3.17.8 7.29-.38 10.04-.55 2.75-.17 9.25 1.47 12.67 1.3 3.43-.17 4.65-.84 7.05-.87 2.4-.02 5.52.88 5.52.88V0H0z" opacity=".5" fill="%23fcc74d"/><path d="M0 1.85c2.56-.83 7.68-.3 11.79-.42 4.1-.12 6.86-.61 9.58-.28 2.73.33 5.61 1.17 8.61 1 3-.19 4.73-.82 5.3-.84V.1H0z" opacity=".5" fill="%23fcc74d"/></svg>'); 
+  }
+  
+  @media (min-width:2100px){
+  .shapedividers_com-5660::before{
+  background-size: 100% calc(2vw + 6px);
+  }
+  }
+  
+  @keyframes shape-anim-5660 {
+    100% {
+      transform: scaleX(1.8) translateX(calc(100% - (100% / 1.8)));
+    }
+  }
+  
+     
+  
+     
+  
+     
+
+
+
 .buttons-card {
   background-color: #fff;
-  border-radius: 10px;
-  width: 70%;
-  margin: 4rem auto 4rem auto;
+  border-radius: 4rem;
+  width: 80%;
+  margin: 10rem auto 4rem auto;
   padding: 2rem 0;
   color: rgba(0, 0, 0, 0.596);
 }
@@ -125,8 +203,19 @@
 
 .button {
   text-transform: uppercase;
-  padding: 0.2rem 1.5rem;
-  color: #ffa500;
+  padding: 0.4rem 1.5rem;
+  color: #fff;
+  border-radius: 10rem;
+  background-color: #fcc74d;
+  border: none;
+  -webkit-box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15); 
+box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
+  transition: .5s;
+}
+
+.button:hover{
+  background-color: #fff;
+  color: #fcc74d;
 }
 
 .content-graphics {
@@ -211,6 +300,7 @@
   width: 30%;
   margin: 0 3rem;
   padding: 2rem;
+  border-radius: 3rem;
 }
 
 .content-cards-ajust mat-card-title {
@@ -233,6 +323,7 @@
   padding: 3rem;
   margin: 2rem 0;
   width: 70%;
+  border-radius: 3rem;
 }
 
 .column-card video {
@@ -462,4 +553,31 @@
 
 .partners-content-images img{
   width: 65%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+img.zoom {
+  /* width: 350px; */
+  /* height: 200px; */
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+}
+
+.transition {
+  -webkit-transform: scale(1.8); 
+  -moz-transform: scale(1.8);
+  -o-transform: scale(1.8);
+  transform: scale(1.8);
 }

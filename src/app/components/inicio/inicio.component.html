@@ -1,13 +1,13 @@
-<section id="home" class="shapedividers_com-3425" style="background-color: #fcc74d">
+<section id="home-banner" class="shapedividers_com-6105">
     <div class="banner-content">
         <div class="banner-column">
             <div class="banner-ajust">
-                <h1>Firulaix Coin<br>tu mejor crypto amigo</h1>
+                <h1><span>Firulaix Coin</span><br>Tu mejor crypto amigo</h1>
                 <p>Identificamos a todos los animales con y sin hogar con un chip que cuenta con un código único para registrarlo con tecnología blockchain.</p>    
             
                 <div class="banner-buttons">
                     <button mat-stroked-button color="accent" class="button-main">Conoce más</button>
-                    <button mat-stroked-button color="accent" class="button-main">Copiar enlace</button>
+                    <button mat-stroked-button color="accent" class="button-main">Firu papper</button>
                 </div>
             </div>
         </div> 
@@ -18,9 +18,10 @@
     </div>
 </section>
 
-<section id="home">
+<section id="home" class="shapedividers_com-5660">
     <div class="buttons-card">
         <div class="content-buttons">
+            <button mat-stroked-button color="accent" class="button">Copiar enlace</button>
             <button mat-stroked-button color="accent" class="button">Comprar ahora en Apeswap</button>
             <button mat-stroked-button color="accent" class="button">Agregar liquidez en Apeswap</button>
             <button mat-stroked-button color="accent" class="button">Compruebe BSC scan</button>
@@ -763,6 +764,8 @@
     </div>
 </section>
 
+
+
 <section id="home" style="background-color: #f9f9f9">
     <div class="partners-content">
         <div>
@@ -775,6 +778,14 @@
             <div><img src="../.././../assets/partners/pet_travel.png"></div>
         </div>
     </div>
+</section>
+
+
+<section>
+    <div class="my_class" (click)="clickEvent()"  
+    [ngClass]="status ? 'success' : 'danger'">                
+     Some content
+</div>
 </section>
 
 
