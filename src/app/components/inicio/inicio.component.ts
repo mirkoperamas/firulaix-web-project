@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -9,16 +9,8 @@ export class InicioComponent implements OnInit {
 
   panelOpenState = false;
   
-  constructor(private el: ElementRef) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-
-  status: boolean = false;
-  
-  clickEvent(){
-    this.status = !this.status;       
-  }
-
 }

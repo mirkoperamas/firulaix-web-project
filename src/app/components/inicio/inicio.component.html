@@ -12,13 +12,30 @@
             </div>
         </div> 
 
-        <div class="banner-column banner-image">
-            <img src="../.././../assets/image-banner.png" alt="">
+        <div class="banner-column">
+            <div class="banner-image-content">
+                <img src="../.././../assets/banner/image-banner.png" class="banner-dog-main">
+                <img src="../.././../assets/banner/dog_1.png" class="dog-card-1">
+                <img src="../.././../assets/banner/dog_2.png" class="dog-card-2">
+                <img src="../.././../assets/banner/dog_3.png" class="dog-card-3">
+                <img src="../.././../assets/banner/dog_4.png" class="dog-card-4">
+                <img src="../.././../assets/banner/huellas.png" class="huella">
+                <img src="../.././../assets/banner/hueso.png" class="hueso">
+                <img src="../.././../assets/banner/albergue.png" class="albergue">
+                <img src="../.././../assets/banner/moneda.png" class="moneda-1">
+                <img src="../.././../assets/banner/moneda.png" class="moneda-2">
+                <img src="../.././../assets/banner/moneda.png" class="moneda-3">
+                <img src="../.././../assets/banner/moneda.png" class="moneda-4">
+                <!-- <img src="../.././../assets/banner/moneda.png" class="moneda-5"> -->
+                <img src="../.././../assets/banner/moneda.png" class="moneda-6">
+            </div>
+            
         </div>
     </div>
 </section>
 
-<section id="home" class="shapedividers_com-5660">
+<section id="home" class="" style="background: rgb(255,165,0);
+background: linear-gradient(0deg, rgba(255,165,0,1) 0%, rgba(255,165,0,1) 35%, rgba(252,199,77,1) 100%); padding: 5rem 0;">
     <div class="buttons-card">
         <div class="content-buttons">
             <button mat-stroked-button color="accent" class="button">Copiar enlace</button>
@@ -57,7 +74,8 @@
 </section>
 
 <section id="home">
-    <div class="section-content">
+    <div class="section-content" style="padding-bottom: 5rem; background: rgb(255,165,0);
+    background: linear-gradient(180deg, rgba(255,165,0,1) 0%, rgba(255,165,0,1) 35%, rgba(252,199,77,1) 100%);">
         <div class="column">
             <div>
                 <img src="../.././../assets/firu.png">
@@ -81,7 +99,7 @@
                     <div>
                         Este proceso hará que todos mis amigos caninos puedan ser identificados y ubicados con sus dueños. Y en el caso de no tenerlos podemos buscarle uno.
                     </div>
-                    <img src="../.././../assets/about_1.png">
+                    <img src="../.././../assets/card_section/blockchain.png">
                 </mat-card-content>               
             </mat-card>
 
@@ -91,7 +109,7 @@
                     <div>
                         Cada animal estará con el chip vinculado a un código en mi blockchain y una direccion(wallet) que les brindaremos a cada uno al momento de registrarlos.
                     </div>  
-                    <img src="../.././../assets/about_2.png">
+                    <img src="../.././../assets/card_section/chip.png">
                 </mat-card-content>               
             </mat-card>
             
@@ -101,7 +119,7 @@
                     <div>
                         Todos contarán con una dirección de mi blockchain y podrá recibir mis token’s por medio de un QR que estará en su collar y será administrado por su dueño o su futuro dueño.
                     </div>
-                    <img src="../.././../assets/about_3.png">
+                    <img src="../.././../assets/card_section/qr.png">
                 </mat-card-content>               
             </mat-card>
         </div>
@@ -110,7 +128,8 @@
 
 
 <section id="home">
-    <div class="section-content">
+    <div class="section-content adquiere-section" style="background: rgb(255,165,0);
+    background: linear-gradient(0deg, rgba(255,165,0,1) 0%, rgba(255,165,0,1) 35%, rgba(252,199,77,1) 100%); ">
         <div class="column">
             <div class="column-ajust">
                 <h1>Adquiere tus Firus</h1>
@@ -495,7 +514,7 @@
 
 
 <section id="home">
-    <div class="section-content">
+    <div class="section-content capitalizacion-section">
         <div class="column">
             <mat-card class="column-card">
                 <div class="card-image">
@@ -603,7 +622,7 @@
     </div>
 </section>
 
-<section id="home" style="background-color: #fff">
+<section id="home" style="background-color: #fff" class="faq-section">
     <div class="white-section-content">
         <div class="white-section-title">
             <h1>FAQ</h1>
@@ -772,7 +791,6 @@
             <h1>Nuestros Partners</h1>
         </div>
         <div class="partners-content-images">
-            <div><img src="../.././../assets/partners/apolobit.png"></div>
             <div><img src="../.././../assets/partners/pet_id.png"></div>
             <div><img src="../.././../assets/partners/renian.png"></div>
             <div><img src="../.././../assets/partners/pet_travel.png"></div>
@@ -780,13 +798,6 @@
     </div>
 </section>
 
-
-<section>
-    <div class="my_class" (click)="clickEvent()"  
-    [ngClass]="status ? 'success' : 'danger'">                
-     Some content
-</div>
-</section>
 
 
 <section id="section-footer">

@@ -2,7 +2,7 @@
   width: 100%;
 }
 #home-banner {
-  background-image: url(../../../assets/firulaix-banner.png);
+  background-image: url(../../../assets/banner/firulaix-banner.png);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -28,10 +28,6 @@
   align-items: center;
 }
 
-.banner-image img {
-  width: 70%;
-}
-
 .banner-ajust {
   width: 70%;
   /* border: solid 1px red; */
@@ -39,7 +35,7 @@
 
 .banner-ajust h1 {
   font-size: 50px;
-  font-weight: normal;
+  font-weight: bold;
   letter-spacing: 2px;
   line-height: 75px;
   margin-bottom: 2rem;
@@ -70,10 +66,9 @@
   border-radius: 10rem;
   border: none;
   -webkit-box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15); 
-box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   transition: .5s;
 }
-
 
 .button-main:hover{
   background-color: #fcc74d;
@@ -81,13 +76,153 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 }
 
 
+
+
+.banner-image-content{
+  /* border: 1px green solid; */
+  position: relative;
+  width: 45rem;
+  height: 45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-dog-main {
+  position: absolute;
+  width: 90%;
+  height: auto;
+}
+
+
+
+
+
+
+.dog-card-1{
+  width: 5rem;
+  position: absolute;
+  border-radius: .7rem;
+  left: 14%;
+  top: 23%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.dog-card-2{
+  width: 5rem;
+  position: absolute;
+  border-radius: .7rem;
+  left: 75%;
+  top: 80%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.dog-card-3{
+  width: 5rem;
+  position: absolute;
+  border-radius: .7rem;
+  left: 20%;
+  top: 83%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.dog-card-4{
+  width: 5rem;
+  position: absolute;
+  border-radius: .7rem;
+  left: 79%;
+  top: 31%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.huella{
+  width: 4.5rem;
+  position: absolute;
+  left: 11%;
+  top: 50%;
+  transform: rotate(-20deg);
+}
+.hueso{
+  width: 4.5rem;
+  position: absolute;
+  left: 68%;
+  top: 16%;
+  transform: translatey(0px);
+}
+.albergue{
+  width: 6rem;
+  position: absolute;
+  left: 65%;
+  top: 45%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-1{
+  width: 3rem;
+  position: absolute;
+  left: 80%;
+  top: 64%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-2{
+  width: 3.3rem;
+  position: absolute;
+  left: 50%;
+  top: 93%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-3{
+  width: 3.3rem;
+  position: absolute;
+  left: 40%;
+  top: 11%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-4{
+  width: 3.3rem;
+  position: absolute;
+  left: 11%;
+  top: 40%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-5{
+  width: 3.3rem;
+  position: absolute;
+  left: 85%;
+  top: 65%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+.moneda-6{
+  width: 3.3rem;
+  position: absolute;
+  left: 13%;
+  top: 73%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
+
+
+
+
+
+
+@keyframes dogs {
+	0% {transform: translatey(0px);}
+	50% {transform: translatey(-20px);}	
+}
+
+
+
+
+
+
+
 /* Shape-divider */
-
-
-
-
-
-
 .shapedividers_com-6105{
   overflow:hidden;
   position:relative;
@@ -121,29 +256,17 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
       transform: scaleX(1.8) translateX(calc(100% - (100% / 1.8)));
     }
   }
-  
-     
-  
-     
-  
-     
-  
-     
-     
-     
-  
-     
-     
-  
-     
-  
-     
 
-/* CARD-BUTTONS */
+     
 
 
 
 
+
+
+
+/* CARD-BUTTONS-SECTION*/
+/* Shape-divider */
 .shapedividers_com-5660{
   overflow:hidden;
   position:relative;
@@ -190,7 +313,7 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   background-color: #fff;
   border-radius: 4rem;
   width: 80%;
-  margin: 10rem auto 4rem auto;
+  margin: 0 auto;
   padding: 2rem 0;
   color: rgba(0, 0, 0, 0.596);
 }
@@ -276,12 +399,40 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 
 .column-ajust p {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.794);
+  color: #fff;
   line-height: 35px;
 }
 
 .column-ajust mat-list-item {
   color: rgba(255, 255, 255, 0.794);
+}
+
+
+
+
+.adquiere-section{
+  /* background-image: url(../../../assets/background_image_2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  padding: 8rem 0;
+
+}
+
+
+
+
+.capitalizacion-section{
+  background-image: url(../../../assets/background_image_1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
@@ -293,7 +444,7 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   max-width: 2500px;
   margin: 0 auto;
   display: flex;
-  padding: 4rem 0;
+  padding: 8rem 0;
 }
 
 .content-cards-ajust mat-card {
@@ -315,13 +466,11 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   /* text-align: justify; */
 }
 
-.content-cards-ajust img {
-  margin-left: 2rem;
-}
+
 
 .column-card {
   padding: 3rem;
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
   width: 70%;
   border-radius: 3rem;
 }
@@ -330,6 +479,18 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   width: 25rem;
   height: 40rem;
 }
+
+
+/* .faq-section{
+  background-image: url(../../../assets/background_image_2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
 
 
 .white-section-content{
@@ -552,7 +713,7 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 
 
 .partners-content-images img{
-  width: 65%;
+  width: 70%;
 }
 
 
