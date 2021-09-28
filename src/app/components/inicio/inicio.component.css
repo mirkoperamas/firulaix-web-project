@@ -121,8 +121,8 @@
   width: 5rem;
   position: absolute;
   border-radius: .7rem;
-  left: 20%;
-  top: 83%;
+  left: 13%;
+  top: 73%;
   transform: translatey(0px);
 	animation: dogs 6s ease-in-out infinite;
 }
@@ -138,8 +138,8 @@
 .huella{
   width: 4.5rem;
   position: absolute;
-  left: 11%;
-  top: 50%;
+  left: 78%;
+  top: 60%;
   transform: rotate(-20deg);
 }
 .hueso{
@@ -152,8 +152,8 @@
 .albergue{
   width: 6rem;
   position: absolute;
-  left: 65%;
-  top: 45%;
+  left: 66%;
+  top: 42%;
   transform: translatey(0px);
 	animation: dogs 6s ease-in-out infinite;
 }
@@ -197,15 +197,23 @@
   transform: translatey(0px);
 	animation: dogs 6s ease-in-out infinite;
 }
-.moneda-6{
-  width: 3.3rem;
+.firu-chip{
+  width: 5.5rem;
   position: absolute;
-  left: 13%;
-  top: 73%;
+  left: 6%;
+  top: 47%;
   transform: translatey(0px);
 	animation: dogs 6s ease-in-out infinite;
 }
 
+.wallet{
+  width: 8rem;
+  position: absolute;
+  left: 34%;
+  top: 86%;
+  transform: translatey(0px);
+	animation: dogs 6s ease-in-out infinite;
+}
 
 
 
@@ -320,13 +328,16 @@
 
 .content-buttons {
   display: flex;
-  justify-content: space-evenly;
-  padding: 1.5rem 0 2.5rem 0;
+  /* justify-content: space-evenly; */
+  margin: 3rem 1rem;
 }
 
 .button {
+  width: 20%;
+  margin: 0 .5rem;
+
   text-transform: uppercase;
-  padding: 0.4rem 1.5rem;
+  padding: 0.4rem .5rem;
   color: #fff;
   border-radius: 10rem;
   background-color: #fcc74d;
@@ -376,7 +387,7 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 
 .column-ajust {
   width: 60%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* border: 1px solid red; */
 }
 
@@ -399,63 +410,69 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 
 .column-ajust p {
   font-size: 18px;
+  font-weight: bold;
   color: #fff;
   line-height: 35px;
 }
 
 .column-ajust mat-list-item {
-  color: rgba(255, 255, 255, 0.794);
+  font-weight: bold;
+  color:#fff;
 }
 
 
 
 
 .adquiere-section{
-  /* background-image: url(../../../assets/background_image_2.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  padding: 8rem 0;
-
-}
-
-
-
-
-.capitalizacion-section{
-  background-image: url(../../../assets/background_image_1.jpg);
+  background-image: url(../../../assets/background_image_2.png);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding: 4rem 0;
+}
+
+
+
+
+.capitalizacion-section{
+  background-image: url(../../../assets/background_image_1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 5rem 0;
 }
 
 
 .section-content-cards {
-  background-color: #fcc74d;
+  /* background-color: #fcc74d; */
+  /* border: 1px solid black; */
 }
 
 .content-cards-ajust {
-  max-width: 2500px;
+  width: 80%;
+  /* max-width: 2500px; */
   margin: 0 auto;
   display: flex;
-  padding: 8rem 0;
+  padding: 2rem 0 15rem 0;
+  /* background-color: red; */
 }
 
 .content-cards-ajust mat-card {
   width: 30%;
-  margin: 0 3rem;
+  margin: 0 auto;
   padding: 2rem;
   border-radius: 3rem;
 }
 
 .content-cards-ajust mat-card-title {
   margin-bottom: 2rem;
+  color: #24588b;
 }
 
 .content-cards-ajust mat-card-content {
@@ -463,7 +480,13 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   align-items: center;
   /* justify-content: center; */
   line-height: 30px;
-  /* text-align: justify; */
+  text-align: justify;
+  color: #3575b1;
+}
+
+.content-cards-ajust img{
+  width: 7rem;
+  margin-right: 1.2rem;
 }
 
 
@@ -479,6 +502,18 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
   width: 25rem;
   height: 40rem;
 }
+
+
+.roadmap-section{
+  background-image: url(../../../assets/background_image_3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 
 /* .faq-section{
@@ -588,6 +623,11 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 .instruction-card-title p{
   font-size: 15px;
 }
+
+.instruction-card-title span{
+  color: #fff;
+}
+
 
 
 .instruction-card-images{
