@@ -99,133 +99,237 @@
 
 
 
+
+
+
+
+
+.albergue{
+  width: 6rem;
+  position: absolute;
+  left: 66%;
+  top: 42%;
+  -webkit-animation: albergue 6s ease-in-out infinite;
+	-moz-animation: albergue 6s ease-in-out infinite;
+	animation: albergue 4s ease-in-out infinite;
+}
+
+
+.huella{
+  width: 4.5rem;
+  position: absolute;
+  left: 78%;
+  top: 60%;
+  -webkit-animation: huella 6s ease-in-out infinite;
+	-moz-animation: huella 6s ease-in-out infinite;
+	animation: huella 4s ease-in-out infinite;
+}
+
+
+
+.firu-chip{
+  width: 5.5rem;
+  position: absolute;
+  left: 6%;
+  top: 47%;
+	-webkit-animation: firu-chip 6s ease-in-out infinite;
+	-moz-animation: firu-chip 6s ease-in-out infinite;
+	animation: firu-chip 6s ease-in-out infinite;
+}
+
+
 .dog-card-1{
   width: 5rem;
   position: absolute;
   border-radius: .7rem;
   left: 14%;
   top: 23%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+	-webkit-animation: dog-1 6s ease-in-out infinite;
+	-moz-animation: dog-1 6s ease-in-out infinite;
+	animation: dog-1 6s ease-in-out infinite;
 }
+
+
 .dog-card-2{
   width: 5rem;
   position: absolute;
   border-radius: .7rem;
   left: 75%;
   top: 80%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+  -webkit-animation: dog-2 4s ease-in-out infinite;
+	-moz-animation: dog-2 4s ease-in-out infinite;
+	animation: dog-2 5s ease-in-out infinite;
 }
+
+
 .dog-card-3{
   width: 5rem;
   position: absolute;
   border-radius: .7rem;
   left: 13%;
   top: 73%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+  -webkit-animation: dog-3 4s ease-in-out infinite;
+	-moz-animation: dog-3 4s ease-in-out infinite;
+	animation: dog-3 5s ease-in-out infinite;
 }
+
+
 .dog-card-4{
   width: 5rem;
   position: absolute;
   border-radius: .7rem;
   left: 79%;
   top: 31%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+  -webkit-animation: dog-3 4s ease-in-out infinite;
+	-moz-animation: dog-3 4s ease-in-out infinite;
+	animation: dog-3 6s ease-in-out infinite;
 }
-.huella{
-  width: 4.5rem;
-  position: absolute;
-  left: 78%;
-  top: 60%;
-  transform: rotate(-20deg);
-}
+
+
 .hueso{
   width: 4.5rem;
   position: absolute;
   left: 68%;
   top: 16%;
-  transform: translatey(0px);
-}
-.albergue{
-  width: 6rem;
-  position: absolute;
-  left: 66%;
-  top: 42%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.moneda-1{
-  width: 3rem;
-  position: absolute;
-  left: 80%;
-  top: 64%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.moneda-2{
-  width: 3.3rem;
-  position: absolute;
-  left: 50%;
-  top: 93%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.moneda-3{
-  width: 3.3rem;
-  position: absolute;
-  left: 40%;
-  top: 11%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.moneda-4{
-  width: 3.3rem;
-  position: absolute;
-  left: 11%;
-  top: 40%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.moneda-5{
-  width: 3.3rem;
-  position: absolute;
-  left: 85%;
-  top: 65%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
-}
-.firu-chip{
-  width: 5.5rem;
-  position: absolute;
-  left: 6%;
-  top: 47%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+  -webkit-animation: hueso 1s linear infinite;
+  -moz-animation: hueso 1s linear infinite;
+  animation: hueso 4s linear infinite;
 }
 
 .wallet{
   width: 8rem;
   position: absolute;
-  left: 34%;
-  top: 86%;
-  transform: translatey(0px);
-	animation: dogs 6s ease-in-out infinite;
+  left: 37%;
+  top: 83%;
+	-webkit-animation: wallet 4s ease-in-out infinite;
+	-moz-animation: wallet 4s ease-in-out infinite;
+	animation: wallet 4s ease-in-out infinite;
+}
+
+
+
+@-webkit-keyframes albergue {
+	0% {transform: scale(1.2);}
+	50% {transform: scale(1);}
+	100% {transform: scale(1.2);}
+}
+@-moz-keyframes albergue {
+	0% {transform: scale(1.2);}
+	50% {transform: scale(1);}
+	100% {transform: scale(1.2);}
+}
+@keyframes albergue {
+	0% {transform: scale(1.2);}
+	50% {transform: scale(1);}
+	100% {transform: scale(1.2);}
 }
 
 
 
 
+@-webkit-keyframes huella {
+	0% {transform: rotate(-30deg);}
+	100% {transform: rotate(-30deg);}
+}
+@-moz-keyframes huella {
+	0% {transform: rotate(-30deg);}
+	50% {transform: rotate(30deg);}
+	100% {transform: rotate(-30deg);}
+}
+@keyframes huella {
+	0% {transform: rotate(-30deg);}
+	50% {transform: rotate(30deg);}
+	100% {transform: rotate(-30deg);}
+}
 
-@keyframes dogs {
+
+
+@-webkit-keyframes firu-chip {
+	0% {transform: rotate(-30deg);}
+	50% {transform: rotate(30deg);}
+	100% {transform: rotate(-30deg);}
+}
+@-moz-keyframes firu-chip {
+	0% {transform: rotate(-30deg);}
+	50% {transform: rotate(30deg);}
+	100% {transform: rotate(-30deg);}
+}
+@keyframes firu-chip {
+	0% {transform: rotate(-30deg);}
+	50% {transform: rotate(30deg);}
+	100% {transform: rotate(-30deg);}
+}
+
+
+
+@-webkit-keyframes dog-1 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@-moz-keyframes dog-1 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@keyframes dog-1 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+
+
+@-webkit-keyframes dog-2 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@-moz-keyframes dog-2 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@keyframes dog-2 {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+
+
+@-webkit-keyframes dog-3 {
 	0% {transform: translatey(0px);}
-	50% {transform: translatey(-20px);}	
+	50% {transform: translatey(-20px);}
+}
+@-moz-keyframes dog-3 {
+	0% {transform: translatey(0px);}
+	50% {transform: translatey(-20px);}
+}
+@keyframes dog-3 {
+	0% {transform: translatey(0px);}
+	50% {transform: translatey(-20px);}
 }
 
 
 
+@-webkit-keyframes hueso {
+	100% {transform: rotate(360deg);}
+}
+@-moz-keyframes hueso {
+	100% {transform: rotate(360deg);}
+}
+@keyframes hueso {
+	100% {transform: rotate(360deg);}
+}
+
+
+
+
+@-webkit-keyframes wallet {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@-moz-keyframes wallet {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
+@keyframes wallet {
+	0% {transform: translateX(0px);}
+	50% {transform: translateX(-20px);}
+}
 
 
 
@@ -625,7 +729,7 @@ box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15);
 }
 
 .instruction-card-title span{
-  color: #fff;
+  color: #FF5E00;
 }
 
 
