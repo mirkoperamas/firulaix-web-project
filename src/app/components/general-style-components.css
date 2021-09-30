@@ -330,6 +330,11 @@
     .section-content-cards mat-card{
         padding: 2rem 1rem;
     }
+
+    .column video {
+        width: 22rem;
+        height: 32rem;
+      }
 }
 
 
@@ -476,6 +481,14 @@
         margin: 0;
     }
 
+
+    .card-image img{
+        width: 70%;
+    }
+
+    .column-text mat-list-item{
+        font-size: 14px;
+    }
 }
 
 
@@ -551,6 +564,61 @@
     .column-text{
         width: 80%;
     }
+
+    .section-content-cards{
+        flex-direction: column;
+    }
+
+    .section-content-cards mat-card {
+        width: 80%;
+        margin: 0 auto 2rem auto;
+        padding: 2rem;
+        border-radius: 3rem;
+    }
+
+
+    .banner-content{
+        margin-top: 5rem;
+    }
+
+    .section-content-cards{
+        padding-bottom: 4rem;
+    }
+
+    .column video {
+        width: 18rem;
+        height: 28rem;
+        margin-top: 2rem;
+    }
+
+    .column mat-card{
+        width: 65%;
+        min-width: 18rem;
+        margin-bottom: 3rem;
+    }
+
+    .card-image{
+        margin-bottom: 2rem;
+    }
+
+    .card-image img{
+        max-width: 18rem;
+        min-width: 10rem;
+    }
+
+    .card-text-ajust{
+        margin-bottom: .5rem;
+    }
+
+    .card-text p{
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .fa-paint-brush {
+        font-size: 28px;
+        margin-right: 1rem;
+      }
 }
 
 
@@ -590,14 +658,19 @@
 
 
     .graphic-item img {
-        width: 3.5rem;
+        width: 3.2rem;
         margin-right: .2rem;
     }
 
     .graphic-item h1 {
-        font-size: 20px;
+        font-size: 15px;
         margin: 0;
         line-height: 18px;
+    }
+
+    .graphic-item p {
+        font-size: 9px;
+        line-height: 20px;
     }
 }
 
@@ -645,5 +718,31 @@
     .banner-text-ajust{
         width: 98%;
         margin-bottom: 2rem;
+    }
+    .graphic-item img {
+        width: 3rem;
+        margin-right: .2rem;
+    }
+
+
+    .column-text{
+        width: 100%;
+    }
+
+    .column-text h1{
+        font-size: 30px;
+    }
+    .column-text h2{
+        font-size: 18px;
+    }
+
+    .column-text p{
+        font-size: 15px;
+    }
+
+    .column-text mat-list-item{
+        font-size: 12px;
+        line-height: 18px;
+        margin: .2rem 0;
     }
 }

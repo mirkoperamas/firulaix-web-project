@@ -485,14 +485,14 @@
 .main-section-content {
   display: flex;
   margin: 0 auto;
-  border: solid 1px green;
+  /* border: solid 1px green; */
   width: 85%;
   max-width: 2800px;
 }
 
 .column {
   width: 50%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -500,7 +500,7 @@
 
 .column-text{
   width: 80%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .column-text h1 {
@@ -528,13 +528,19 @@
   line-height: 35px;
 }
 
-.column mat-list{
-  border: 1px solid blue;
-}
 
-.column mat-list-item {
+.column-text mat-list-item {
   font-weight: bold;
   color:#fff;
+  line-height: 30px;
+  margin: .5rem 0;
+}
+
+
+.column mat-card{
+  border-radius: 30px;
+  width: 80%;
+  max-width: 40rem;
 }
 
 
@@ -579,7 +585,7 @@
 
 .section-content-cards {
   /* background-color: #fcc74d; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 80%;
   max-width: 2500px;
   margin: 0 auto;
@@ -621,7 +627,6 @@
 
 
 
-
 #pasos-simples-section{
   width: 100%;
   background-color: #fff;
@@ -659,6 +664,7 @@
   font-size: 45px;
   letter-spacing: 3px;
   margin-bottom: 6rem;
+  line-height: 40px;
 }
 
 .document-section-title h2{
@@ -800,7 +806,7 @@
 }
 
 .card-image img{
-    width: 60%;
+    width: 55%;
 }
 
 .card-text-ajust{
@@ -809,14 +815,16 @@
     margin-bottom: 2rem;
 }
 
-.card-text i{
-    margin-right: 1.5rem;
+.fa-paint-brush {
+  font-size: 35px;
+  margin-right: 1rem;
 }
 
 .card-text p{
-    font-size: 20px;
+    font-size: 17px;
     color: #000;
     font-weight: normal;
+    line-height: 30px;
 }
 
 
@@ -848,10 +856,6 @@
 
 
 
-
-.fa-paint-brush {
-  font-size: 45px;
-}
 
 
 .tab-group-faq{
