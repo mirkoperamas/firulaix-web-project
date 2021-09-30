@@ -100,15 +100,18 @@
 
 
 /* SECTION-FOOTER */
-#section-footer{
+#footer-section{
+    width: 100%;
     padding: 4rem 0;
 }
 
-.content-footer{
-    width: 80%;
+.footer-content{
+    width: 85%;
+    max-width: 2800px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
+    border: 1px solid red;
 }
 
 .footer-information{
@@ -164,7 +167,27 @@
 
 
 
+@media (min-width: 1px) and (max-width: 1700px){
+    .banner-image-content{
+        width: 35rem;
+        height: 35rem;
+    }
+}
 
+
+@media (min-width: 1px) and (max-width: 1550px){
+
+    .content-buttons {
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto 1rem auto;
+    }
+
+    .button {
+        width: 100%;
+        margin: 0 0 2rem 0 ;
+      }
+}
 
 
 @media (min-width: 1px) and (max-width: 1300px){
@@ -198,6 +221,86 @@
         width: 240px;
         float: right;
     }
+
+
+
+
+
+    .menu-content{
+        width: 95%;
+    }
+
+    .banner-content{
+        width: 95%;
+    }
+
+    .banner-text-ajust span{
+        font-size: 42px;
+      }
+
+    .banner-text-ajust h1 {
+        font-size: 32px;
+        line-height: 35px;
+        margin-bottom: 1.5rem;
+    }
+
+    .banner-text-ajust p {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .button-main {
+        padding: 0.5rem 2rem;
+    }
+
+
+    .banner-image-content{
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .albergue{
+        width: 3.3rem;
+        left: 66%;
+        top: 42%;
+    }
+      
+    .huella{
+        width: 2.8rem;
+        left: 78%;
+        top: 60%;
+    }
+      
+    .firu-chip{
+        width: 3.1rem;
+    }
+      
+    .dog-card-1{
+        width: 3.5rem;
+    }
+      
+    .dog-card-2{
+        width: 3.5rem;
+    }
+      
+    .dog-card-3{
+        width: 3.5rem;
+    } 
+      
+    .dog-card-4{
+        width: 3.5rem;
+    }
+      
+    .hueso{
+        width: 3.3rem;
+    }
+      
+    .wallet{
+        width: 4.7rem;
+    }
+
+
+    
 }
 
 
@@ -302,6 +405,19 @@
     .footer-facebook{
         margin: 0 auto;
     }
+
+
+
+    .banner-image-content{
+        width: 22rem;
+        height: 22rem;
+    }
+
+
+    .banner-content {
+        padding: 1rem 0 8rem 0;
+      }
+
 }
 
 
@@ -331,6 +447,32 @@
         margin: auto 0;
     }
 
+
+    .banner-content{
+        flex-direction: column;
+    }
+
+
+    .banner-column{
+        width: 100%;
+        align-items: center;
+    }
+
+
+    .banner-text-ajust{
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
+    .button-main {
+        padding: 0.3rem 1.5rem;
+        margin-right: .5rem;
+    }
+
+
+    #buttons-card-section{
+        padding-top: 0;
+    }
 }
 
 
@@ -362,6 +504,10 @@
     .form-column{
         width: 100%;
         padding: 1rem;
+    }
+
+    .content-buttons {
+        width: 85%;
     }
 }
 
@@ -403,5 +549,11 @@
     .qr-image img{
         width: 150px;
         margin: auto 0;
+    }
+
+
+    .banner-text-ajust{
+        width: 98%;
+        margin-bottom: 2rem;
     }
 }
