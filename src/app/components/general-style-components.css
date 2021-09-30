@@ -187,6 +187,16 @@
         width: 100%;
         margin: 0 0 2rem 0 ;
       }
+
+
+    .section-content-cards mat-card-content{
+        flex-direction: column;
+    }
+
+    .section-content-cards img{
+        padding: 0 0 1rem 0;
+        margin-right: 0;
+    }
 }
 
 
@@ -300,7 +310,26 @@
     }
 
 
+    .main-section-content{
+        width: 95%;
+    }
+
+    .column-text{
+        width: 100%;
+    }
     
+    .mi-objetivo-image img{
+        width: 80%;
+    }
+
+
+    .section-content-cards{
+        width: 90%;
+    }
+
+    .section-content-cards mat-card{
+        padding: 2rem 1rem;
+    }
 }
 
 
@@ -328,6 +357,11 @@
     .select-style{
         margin-left: .5rem;
       }
+
+    .graphic-item img {
+        width: 5.5rem;
+        margin-right: 1rem;
+    }
 }
 
 
@@ -343,6 +377,20 @@
 
     .second-text{
         margin-top: 5rem;
+    }
+
+    .column-text h1{
+        font-size: 40px;
+        margin-bottom: 1rem;
+    }
+
+    .column-text h2{
+        font-size: 20px;
+    }
+
+    .column-text p{
+        font-size: 16px;
+        line-height: 26px;
     }
 }
 
@@ -418,6 +466,16 @@
         padding: 1rem 0 8rem 0;
       }
 
+
+    .graphic-item img {
+        width: 4.5rem;
+    }
+
+    .graphic-item h1 {
+        font-size: 25px;
+        margin: 0;
+    }
+
 }
 
 
@@ -473,6 +531,26 @@
     #buttons-card-section{
         padding-top: 0;
     }
+
+    .main-section-content{
+        flex-direction: column;
+    }
+
+    .column{
+        width: 100%;
+    }
+
+    .mi-objetivo-image{
+        padding: 1rem 0;
+    }
+
+    .mi-objetivo-image img{
+        width: 50%;
+    }
+
+    .column-text{
+        width: 80%;
+    }
 }
 
 
@@ -508,6 +586,18 @@
 
     .content-buttons {
         width: 85%;
+    }
+
+
+    .graphic-item img {
+        width: 3.5rem;
+        margin-right: .2rem;
+    }
+
+    .graphic-item h1 {
+        font-size: 20px;
+        margin: 0;
+        line-height: 18px;
     }
 }
 

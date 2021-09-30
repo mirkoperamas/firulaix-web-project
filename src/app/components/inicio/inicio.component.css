@@ -468,10 +468,11 @@
 .graphic-item {
   display: flex;
   align-items: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .graphic-item img {
+  width: 8rem;
   margin-right: 1.5rem;
 }
 
@@ -502,16 +503,17 @@
   border: 1px solid blue;
 }
 
-.column h1 {
+.column-text h1 {
   font-size: 45px;
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 2rem;
+  line-height: 48px;
 }
 
-.column h2 {
+.column-text h2 {
   font-size: 25px;
   font-weight: bold;
   color: #fff;
@@ -519,9 +521,9 @@
   margin: 1rem 0 2rem 0;
 }
 
-.column p {
+.column-text p {
   font-size: 18px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #fff;
   line-height: 35px;
 }
@@ -536,6 +538,15 @@
 }
 
 
+.mi-objetivo-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mi-objetivo-image img{
+  width: 100%;
+}
 
 
 #adquiere-section{
