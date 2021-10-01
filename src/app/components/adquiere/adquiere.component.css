@@ -18,6 +18,7 @@
     display: flex;
     margin: 10rem auto 0 auto;
     width: 80%;
+    max-width: 2300px;
     display: flex;
     justify-content: space-between;
 }

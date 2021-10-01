@@ -643,7 +643,7 @@
 .document-section-content{
   padding: 8rem 0 5rem 0;
   margin: 0 auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 85%;
   max-width: 2800px;
 }
@@ -664,7 +664,7 @@
   font-size: 45px;
   letter-spacing: 3px;
   margin-bottom: 6rem;
-  line-height: 40px;
+  line-height: 50px;
 }
 
 .document-section-title h2{
@@ -679,16 +679,22 @@
 
 .instructions-section{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   width: 100%;
   margin: 5rem auto 0 auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
+
+.instruction-collection{
+  /* border: 1px solid yellow; */
+  display: flex;
+  width: 50%;
+}
+
 
 .instruction-card{
   width: 100%;
-  /* margin: 0 1rem; */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 
@@ -727,12 +733,13 @@
   margin: 1.5rem auto;
   padding: 0 1rem;
   height: 9.5rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .instruction-card-title h2{
   text-transform: uppercase;
   transition: .5s;
+  line-height: 25px;
 }
 
 .instruction-card-title p{
@@ -831,15 +838,13 @@
 
 
 
-.roadmap-section{
-  margin: 5rem 0;
-  border: 1px solid red;
+.roadmap-content{
+  width: 85%;
+  max-width: 2800px;
+  margin: 5rem auto 0 auto;
+  /* border: 1px solid red; */
 }
 
-.roadmap-title{
-  width: 85%;
-  margin: 0 auto;
-}
 
 .roadmap-title h1{
   font-size: 45px;
@@ -852,6 +857,19 @@
 .roadmap-graphic img{
   padding: 14rem 0 6rem 0;
   width: 100%;
+  position: relative;
+}
+
+.albergue-1{
+  position: absolute;
+  width: 10rem;
+  height: auto;
+}
+.albergue-2{
+  position: absolute;
+}
+.albergue-3{
+  position: absolute;
 }
 
 
@@ -861,17 +879,16 @@
 .tab-group-faq{
   /* width: 80%; */
   margin: 0 auto;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .according-ajust{
   margin-top: 5rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 mat-panel-title{
   font-size: 18px;
-  /* color: #ffa500; */
 }
 
 .according-ajust p{
@@ -907,7 +924,7 @@ mat-panel-title{
   flex-direction: column;
   justify-content: center;
   padding: 4rem 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .partners-content h1{
@@ -919,14 +936,14 @@ mat-panel-title{
 .partners-content-images{
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 
 .partners-content-images div{
   display: flex;
   justify-content: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 
