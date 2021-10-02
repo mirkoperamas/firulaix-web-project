@@ -28,6 +28,8 @@ import { ColaborarComponent } from './components/colaborar/colaborar.component';
 import { AdquiereComponent } from './components/adquiere/adquiere.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     MatTabsModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ClipboardModule
   ],
   providers: [LoadScriptsService, UploadService],
   bootstrap: [AppComponent]

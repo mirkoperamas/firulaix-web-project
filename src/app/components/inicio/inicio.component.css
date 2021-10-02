@@ -63,9 +63,9 @@
   text-transform: uppercase;
   padding: 0.8rem 3rem;
   margin: 2rem 2rem 0 0;
-  color: #fcc74d;
+  color: #fff;
   font-weight: bold;
-  background-color: #fff;
+  background-color: #fcc74d;
   border-radius: 10rem;
   border: none;
   -webkit-box-shadow: 0px 0px 11px 3px rgba(0,0,0,0.15); 
@@ -74,8 +74,8 @@
 }
 
 .button-main:hover{
-  background-color: #fcc74d;
-  color: #fff;
+  background-color: #fff;
+  color: #fcc74d;
 }
 
 
@@ -438,12 +438,18 @@
 .content-buttons {
   display: flex;
   /* justify-content: space-evenly; */
-  margin: 3rem 1rem;
+  padding: 3rem 1rem;
+}
+.content-buttons div {
+  width: 100%;
+  margin: 0 .5rem;
+}
+.content-buttons button{
+  width: 100%;
 }
 
 .button {
-  width: 100%;
-  margin: 0 .5rem;
+  /* width: 100%; */
   text-transform: uppercase;
   padding: 0.4rem .5rem;
   color: #fff;
@@ -463,6 +469,7 @@
 .content-graphics {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2rem;
 }
 
 .graphic-item {
@@ -565,6 +572,7 @@
   -o-background-size: cover;
   background-size: cover;
   padding: 5rem 0;
+  margin-top: 0;
 }
 
 
@@ -835,14 +843,21 @@
 }
 
 
-
+#roadmap-section{
+  width: 100%;
+  padding: 4rem 0;
+}
 
 
 .roadmap-content{
-  width: 85%;
+  width: 100%;
   max-width: 2800px;
-  margin: 5rem auto 0 auto;
   /* border: 1px solid red; */
+}
+
+.roadmap-title{
+  width: 85%;
+  margin: 0 auto;
 }
 
 
@@ -854,22 +869,42 @@
   letter-spacing: 3px;
 }
 
-.roadmap-graphic img{
-  padding: 14rem 0 6rem 0;
+.roadmap-image-container{
   width: 100%;
-  position: relative;
 }
 
+.roadmap-graphic{
+  /* padding: 14rem 0 6rem 0; */
+  width: 100%;
+  margin: 0 auto;
+  height: 60rem;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.pista{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 25%;
+}
 .albergue-1{
   position: absolute;
-  width: 10rem;
-  height: auto;
+  width: 20rem;
+  top: 16%;
+  left: -10%; 
 }
 .albergue-2{
   position: absolute;
+  width: 20rem;
+  top: 14%;
+  left: 90%; 
 }
 .albergue-3{
   position: absolute;
+  width: 20rem;
+  top: 37%;
+  left: 40%; 
 }
 
 

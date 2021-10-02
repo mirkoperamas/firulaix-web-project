@@ -387,6 +387,7 @@
         width: 5.5rem;
         margin-right: 1rem;
     }
+    
 }
 
 
@@ -437,6 +438,12 @@
 
     .form-calc-graphic{
         margin-bottom: 6rem;
+    }
+
+    
+    .button:hover, .button-main:hover{
+        background-color: #fcc74d;
+        color: #fff;
     }
 }
 
@@ -821,5 +828,18 @@
 
     .footer-information{
         width: 100%;
+    }
+}
+
+
+@media (min-width: 1px) and (max-width: 450px){
+    .content-graphics{
+        flex-direction: column;
+    }
+
+    .graphic-item{
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 2rem;
     }
 }

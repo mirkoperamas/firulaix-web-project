@@ -7,8 +7,49 @@
                 <p>Identificamos a todos los animales con y sin hogar con un chip que cuenta con un código único para registrarlo con tecnología blockchain.</p>    
             
                 <div class="banner-buttons">
-                    <button mat-stroked-button color="accent" class="button-main">Conoce más</button>
-                    <button mat-stroked-button color="accent" class="button-main" style="margin-right: 0">Firu papper</button>
+                    <!-- <div>
+                        <a href="">
+                            <button mat-stroked-button color="accent" class="button-main">Conoce más</button>
+                        </a>
+                    </div> -->
+
+                    <div>
+                        <button mat-stroked-button color="accent" class="button-main" data-bs-toggle="modal" data-bs-target="#modal_copy" cdkCopyToClipboard="{{copy}}">Copiar contrato</button>
+                    </div>
+
+                    <div class="modal fade" id="modal_copy" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                            </div>
+                            <div class="modal-body">
+                              <h2>Contrato: 0xe16d271322273a77ba5748df4fd9209c4bea541f <br>
+                            Copiado en el portapapeles.</h2>
+                            </div>
+            
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button mat-stroked-button color="accent" class="button-main"  data-bs-toggle="modal" data-bs-target="#modal_papper" style="margin-right: 0">Firu papper</button>
+                    </div>
+
+                    <div class="modal fade" id="modal_papper" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                            </div>
+                            <div class="modal-body">
+                              <h2>Firu papper.</h2>
+                            </div>
+            
+                          </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div> 
@@ -32,12 +73,32 @@
 
 <section id="buttons-card-section">
     <div class="buttons-card">
-        <div class="content-buttons">
-                <button mat-stroked-button color="accent" class="button">Copiar enlace</button>
-                <button mat-stroked-button color="accent" class="button">Comprar ahora en Apeswap</button>
-                <button mat-stroked-button color="accent" class="button">Agregar liquidez en Apeswap</button>
-                <button mat-stroked-button color="accent" class="button">Compruebe BSC scan</button>
-                <button mat-stroked-button color="accent" class="button">Ver soportes LP</button>
+        <div class="content-buttons">       
+            <div>
+                <a href="https://app.apeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xE16d271322273a77BA5748DF4FD9209C4bEA541F"
+                target="_blank">
+                    <button mat-stroked-button color="accent" class="button">Comprar ahora en Apeswap</button>
+                </a>
+            </div>
+                
+            <div>
+                <a href="https://app.apeswap.finance/add/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56/0xE16d271322273a77BA5748DF4FD9209C4bEA541F"
+                target="_blank">
+                    <button mat-stroked-button color="accent" class="button">Agregar liquidez en Apeswap</button>
+                </a>
+            </div>
+                
+            <div>
+                <a href="https://bscscan.com/token/0xe16d271322273a77ba5748df4fd9209c4bea541f" target="_blank">
+                    <button mat-stroked-button color="accent" class="button">Compruebe BSC scan</button>
+                </a>
+            </div>
+                
+            <div>
+                <a href="https://bscscan.com/token/0x7346aa9e4d2da243c3979664c357bdef34e14f2b" target="_blank">
+                    <button mat-stroked-button color="accent" class="button">Ver soportes LP</button>
+                </a>
+            </div>      
         </div>
 
         <div class="content-graphics">
@@ -524,7 +585,7 @@
 
 
 <section id="capitalizacion-section">
-    <div class="main-section-content ">
+    <div class="main-section-content">
         <div class="column">
             <mat-card>
                 <div class="card-image">
@@ -573,21 +634,22 @@
 </section>
 
 
-<!-- <section>
+<section id="roadmap-section">
     <div class="roadmap-content">
         <div class="roadmap-title">
             <h1>Roadmap</h1>
         </div>
 
-        <div class="roadmap-graphic">
-            <img src="../../../assets/camino-image.png">
-            <img src="../../../assets/banner/albergue.png" class="albergue-1">
-            <img src="../../../assets/banner/albergue.png" class="albergue-2">
-            <img src="../../../assets/banner/albergue.png" class="albergue-3">
+        <div class="roadmap-image-container">
+            <div class="roadmap-graphic">
+                <img src="../../../assets/huellas-pista.png" class="pista">
+                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-1"> -->
+                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-2"> -->
+                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-3"> -->
+            </div>
         </div>
-
     </div>
-</section> -->
+</section>
 
 
 

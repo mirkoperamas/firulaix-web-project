@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
 
   panelOpenState = false;
+
+  copy = '0xe16d271322273a77ba5748df4fd9209c4bea541f';
   
   constructor() { }
 
