@@ -29,6 +29,8 @@ import { AdquiereComponent } from './components/adquiere/adquiere.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
+
+import {MatDialogModule} from '@angular/material/dialog';
  
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatListModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    ClipboardModule
+    ClipboardModule,
+    MatDialogModule
   ],
   providers: [LoadScriptsService, UploadService],
   bootstrap: [AppComponent]

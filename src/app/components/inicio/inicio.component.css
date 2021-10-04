@@ -756,6 +756,7 @@
 
 .instruction-card-title span{
   color: #FF5E00;
+  cursor: pointer;
 }
 
 
