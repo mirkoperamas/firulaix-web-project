@@ -1,26 +1,13 @@
 <div style="width: 100%; display: flex; justify-content: flex-end;">
-    <div style="display: flex; flex-direction: column; position: fixed; z-index: 10000; height: 100vh; align-items: center; justify-content: center;">
-        <button class="button-move-section" (click)="buttonMoveSection('mi-objetivo-section')">
-            Objetivo
-        </button>
-        
-        <button class="button-move-section" (click)="buttonMoveSection('pasos-simples-section')">
-            Pasos
-        </button>
-        
-        <button class="button-move-section" (click)="buttonMoveSection('capitalizacion-section')">
-            Capitalizacion
-        </button>
-        
-        <button class="button-move-section" (click)="buttonMoveSection('roadmap-section')">
-            Roadmap
-        </button>
-        
-        <button class="button-move-section" (click)="buttonMoveSection('faq-section')">
-            Faq
-        </button>
+    <div style="display: flex; flex-direction: column; position: fixed; z-index: 10000; height: calc(100vh - 3.7rem); align-items: center; justify-content: center;">
+        <button class="button-section" (click)="buttonMoveSection('mi-objetivo-section')"><p>Objetivo</p></button>
+        <button class="button-section" (click)="buttonMoveSection('pasos-simples-section')"><p>Pasos</p></button>
+        <button class="button-section" (click)="buttonMoveSection('capitalizacion-section')"><p>Tokenomic</p></button>
+        <button class="button-section" (click)="buttonMoveSection('roadmap-section')"><p>Roadmap</p></button>
+        <button class="button-section" style="margin-bottom: 0;" (click)="buttonMoveSection('faq-section')"><p>Faq</p></button>
     </div>
 </div>
+
 
 <section id="background-section" class="shapedividers_com-6105">
     <div class="banner-content">
@@ -43,13 +30,13 @@
 
                     <ng-template #contratoCopy>
                         <h2 matDialogTitle>Contrato</h2>
-                        <p matDialogContent>
+                        <p matDialogContent class="alert-text">
                             Dirección de contrato: <br>
                             <span>0xe16d271322273a77ba5748df4fd9209c4bea541f</span> <br>
                             Copiado al portapapeles.
                         </p>
                         <mat-dialog-actions align="end">
-                          <button mat-button matDialogClose>Cerrar</button>
+                          <button mat-flat-button color="warn" matDialogClose>Cerrar</button>
                         </mat-dialog-actions>
                     </ng-template>
 
@@ -59,13 +46,13 @@
                         <button mat-stroked-button color="accent" class="button-main" (click)="openDialogWithRef(firuPapper)" style="margin-right: 0">Firu papper</button>
                     </div>
 
-                    <ng-template #firuPapper>
+                    <ng-template #firuPapper class="alerts">
                         <div style="width: 100rem;"></div>
 
                         <iframe src="../../../../assets/pdf/firu-papper.pdf" width="100%" height="680px"></iframe>
                         
                         <mat-dialog-actions align="end">
-                          <button mat-button matDialogClose>Cerrar</button>
+                          <button mat-flat-button color="warn"  matDialogClose>Cerrar</button>
                         </mat-dialog-actions>
                     </ng-template>
                     
@@ -430,15 +417,15 @@
 
                             <ng-template #completeInformation>
                                 <h2 matDialogTitle>Copie los textos en sus respectivas casillas</h2>
-                                <p matDialogContent>
-                                    <span>Network name: </span>Smart Chain <br>
-                                    <span>New RPC url: </span>https://bsc-dataseed.binance.org/ <br>
-                                    <span>ChainID: </span>56 <br>
-                                    <span>Symbol: </span>BNB <br>
-                                    <span>Block Explorer url: </span>https://bscscan.com
+                                <p matDialogContent class="alert-text">
+                                    Network name: <span>Smart Chain </span> <br>
+                                    New RPC url: <span>https://bsc-dataseed.binance.org/  </span><br>
+                                    ChainID: <span>56</span><br>
+                                    Symbol: <span>BNB</span><br>
+                                    Block Explorer url: <span>https://bscscan.com </span>
                                 </p>
                                 <mat-dialog-actions align="end">
-                                  <button mat-button matDialogClose>Cerrar</button>
+                                  <button mat-flat-button color="warn"  matDialogClose>Cerrar</button>
                                 </mat-dialog-actions>
                             </ng-template>
 
@@ -673,6 +660,7 @@
         <div class="column-text" style="width: 100%;">
             <div style="width: 85%; margin: 0 auto;">
                 <h1>Roadmap</h1>
+                <hr>
             </div>
         </div>
 
@@ -868,37 +856,3 @@
 
 
 
-<section id="footer-section">
-    <div class="footer-content">
-        <div class="footer-information">
-            <img src="../../../assets/logo.png" alt="">
-            <p>Soy un contrato inteligente de la Binance Smart Chain (Bep 20) y Ayudaré a todos mis amigos a tener una identidad y trazabilidad de vida registrada en mi blockchain.</p>
-            <div>
-                <a href="https://www.facebook.com/firulaixfinance" target="_blank" style="padding-left: 0;">
-                    <img src="../../../assets/fb-icon.png" alt="">
-                </a>
-
-                <a href="https://twitter.com/firulaixcoin" target="_blank">
-                    <img src="../../../assets/twitter-icon.png" alt="">
-                </a>
-
-                <a href="https://www.instagram.com/firulaixcoin/" target="_blank">
-                    <img src="../../../assets/inst-icon.png" alt="">
-                </a>
-
-                <a href="https://t.me/firulaixcoin" target="_blank">
-                    <img src="../../../assets/telegram-icon.png" alt="">
-                </a>
-
-            </div>
-        </div>
-
-        <div class="footer-facebook">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffirulaixfinance%2F&tabs=timeline&width=500&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-    </div>
-</section>
-
-<section class="footer-section-copyrigth">
-    <p>Firulaix | Todos los derechos reservados &copy;2021</p>
-</section>

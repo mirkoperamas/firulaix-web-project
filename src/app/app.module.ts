@@ -31,6 +31,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { FooterComponent } from './components/footer/footer.component';
  
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     NavigationComponent,
     ColaborarComponent,
     AdquiereComponent,
-    InicioComponent
+    InicioComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -354,7 +354,16 @@
     .column video {
         width: 22rem;
         height: 32rem;
-      }
+    }
+
+    .button-section{
+        width: 32px;
+    }
+
+    .button-section p{
+        font-size: 10px;
+        line-height: 12px;
+    }
 }
 
 
@@ -698,6 +707,16 @@
 
     .button-main{
         font-size: 15px;
+    }
+
+    .button-section{
+        width: 29px;
+    }
+
+    .button-section p{
+        font-size: 9px;
+        line-height: 10px;
+        width: 8px;
     }
 }
 
