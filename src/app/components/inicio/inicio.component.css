@@ -1,6 +1,31 @@
+.button-move-section{
+  width:22px;
+  word-wrap: break-word;
+  text-align:center;
+  line-height:20px;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 1rem;
+  line-height:15px;
+  outline: none;
+  background-color: #24588b;
+  border: 2px solid #3071b1;
+  border-right: 0;
+  color: #ffa500;
+  font-weight: bold;
+  padding: .8rem .3rem;
+  /* border-radius: 15px; */
+  border-radius: 10px 0 0 10px;
+}
+
 #home {
   width: 100%;
 }
+
+.fls{
+  width: 100%;
+}
+
 #background-section {
   width: 100%;
   background-image: url(../../../assets/banner/firulaix-banner.png);
@@ -59,10 +84,16 @@
   line-height: 40px;
 }
 
+.banner-buttons{
+  /* border: 1px solid black; */
+  display: flex;
+}
+
 .button-main {
   text-transform: uppercase;
   padding: 0.8rem 3rem;
   margin: 2rem 2rem 0 0;
+  font-size: 18px;
   color: #fff;
   font-weight: bold;
   background-color: #fcc74d;
@@ -575,6 +606,10 @@
   margin-top: 0;
 }
 
+#mi-objetivo-section{
+  width: 100%;
+  padding: 5rem 0;
+}
 
 
 
@@ -612,6 +647,9 @@
 .section-content-cards mat-card-title {
   margin-bottom: 2rem;
   color: #24588b;
+  letter-spacing: 1px;
+  line-height: 25px;
+  text-transform: uppercase;
 }
 
 .section-content-cards mat-card-content {
@@ -624,7 +662,7 @@
 }
 
 .section-content-cards img{
-  width: 7rem;
+  width: 9rem;
   margin-right: 1.2rem;
 }
 
@@ -846,13 +884,14 @@
 
 #roadmap-section{
   width: 100%;
-  padding: 4rem 0;
+  padding: 6rem 0;
 }
 
 
 .roadmap-content{
   width: 100%;
   max-width: 2800px;
+  margin: 0 auto;
   /* border: 1px solid red; */
 }
 
@@ -860,7 +899,6 @@
   width: 85%;
   margin: 0 auto;
 }
-
 
 .roadmap-title h1{
   font-size: 45px;
@@ -875,39 +913,56 @@
 }
 
 .roadmap-graphic{
-  /* padding: 14rem 0 6rem 0; */
   width: 100%;
   margin: 0 auto;
-  height: 60rem;
   position: relative;
-  /* border: 1px solid red; */
+  /* border: 1px solid black; */
 }
 
 .pista{
-  position: absolute;
   width: 100%;
   height: auto;
-  top: 25%;
-}
-.albergue-1{
-  position: absolute;
-  width: 20rem;
-  top: 16%;
-  left: -10%; 
-}
-.albergue-2{
-  position: absolute;
-  width: 20rem;
-  top: 14%;
-  left: 90%; 
-}
-.albergue-3{
-  position: absolute;
-  width: 20rem;
-  top: 37%;
-  left: 40%; 
 }
 
+
+.roadmap-text-q{
+  width: 22rem;
+  position: absolute;
+  background-color: #cea151;
+  border: 3.3px solid #6e3f2d;
+  border-radius: 20px;
+  padding: 1rem;
+  color: #fff;
+}
+
+.roadmap-text-q span{
+  color: #fcc74d;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.roadmap-text-q hr{
+  margin: .5rem 0 .8rem 0;
+}
+
+.roadmap-text-q p{
+  margin: .5rem;
+}
+
+.q-3{
+  top: 48%;
+  left: 1%;
+}
+
+.q-4{
+  top: 73%;
+  left: 38%;
+}
+
+.q-1{
+  top: 48%;
+  left: 79%;
+}
 
 
 

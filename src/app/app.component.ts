@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoadScriptsService } from './services/load-scripts.service';
 import { UploadService } from './services/upload.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -205,6 +206,7 @@ export class AppComponent implements OnInit {
   onFileChange(e?:any){
     this.uploadedFiles = e.target.files;
   }
+
 
 
   ngOnDestroy() {

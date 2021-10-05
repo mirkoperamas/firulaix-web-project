@@ -1,4 +1,27 @@
-<div>
+<div style="width: 100%; display: flex; justify-content: flex-end;">
+    <div style="display: flex; flex-direction: column; position: fixed; z-index: 10000; height: 100vh; align-items: center; justify-content: center;">
+        <button class="button-move-section" (click)="buttonMoveSection('mi-objetivo-section')">
+            Objetivo
+        </button>
+        
+        <button class="button-move-section" (click)="buttonMoveSection('pasos-simples-section')">
+            Pasos
+        </button>
+        
+        <button class="button-move-section" (click)="buttonMoveSection('capitalizacion-section')">
+            Capitalizacion
+        </button>
+        
+        <button class="button-move-section" (click)="buttonMoveSection('roadmap-section')">
+            Roadmap
+        </button>
+        
+        <button class="button-move-section" (click)="buttonMoveSection('faq-section')">
+            Faq
+        </button>
+    </div>
+</div>
+
 <section id="background-section" class="shapedividers_com-6105">
     <div class="banner-content">
         <div class="banner-column">
@@ -125,7 +148,7 @@
     </div>
 </section>
 
-<section id="home">
+<section id="mi-objetivo-section" class="fls">
     <div class="main-section-content">
         <div class="column">
             <div class="mi-objetivo-image">
@@ -647,18 +670,19 @@
 
 <section id="roadmap-section">
     <div class="roadmap-content">
-        <div class="roadmap-title">
-            <h1>Roadmap</h1>
+        <div class="column-text" style="width: 100%;">
+            <div style="width: 85%; margin: 0 auto;">
+                <h1>Roadmap</h1>
+            </div>
         </div>
 
         <div class="roadmap-image-container">
             <div class="roadmap-graphic">
-                <img src="../../../assets/huellas-pista.png" class="pista">
-                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-1"> -->
-                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-2"> -->
-                <!-- <img src="../../../assets/banner/albergue.png" class="albergue-3"> -->
+                <img src="../../../assets/huella-pistaa.png" class="pista">
             </div>
         </div>
+
+
     </div>
 </section>
 

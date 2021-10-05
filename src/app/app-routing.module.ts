@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 
 import { AdquiereComponent } from './components/adquiere/adquiere.component' ;
 import { ColaborarComponent } from './components/colaborar/colaborar.component';
@@ -28,9 +29,15 @@ const routes: Routes = [
 ];
 
 
+const routerOptions: ExtraOptions = {
+  anchorScrolling: "enabled",
+  scrollPositionRestoration: 'enabled'
+}
+
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions), BrowserModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
