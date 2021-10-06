@@ -120,15 +120,19 @@
 }
 
 .footer-information{
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
+.information-social{
+    display: flex;
+}
+
+
 .footer-information img{
-    max-width: 50%;
-    
+    max-width: 45%;
 }
 
 .footer-information p{
@@ -254,8 +258,6 @@
 
 
 
-
-
     .menu-content{
         width: 95%;
     }
@@ -363,6 +365,19 @@
     .button-section p{
         font-size: 10px;
         line-height: 12px;
+    }
+
+    .information-social{
+        flex-direction: column;
+    }
+
+    .information-social div{
+        margin-bottom: 1rem;
+    }
+
+    .footer-information a{
+        padding: 0;
+        padding-right: .5rem;
     }
 }
 
@@ -855,6 +870,7 @@
 
     .footer-information{
         width: 100%;
+
     }
 }
 
