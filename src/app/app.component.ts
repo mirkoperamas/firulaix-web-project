@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
     Validators.required
   ])
 
-  
 
 
 
@@ -50,6 +49,8 @@ export class AppComponent implements OnInit {
 
     _CargaScripts.Carga(["/meta-login"]);
   }
+
+  
 
   ngOnInit() {
     this.subscribeToForm();

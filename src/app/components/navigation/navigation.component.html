@@ -6,13 +6,20 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <select #langSelect (change)="changeLang(langSelect.value)">
+        <option value="es">Español</option>
+        <option value="en">Ingles</option>
+      </select>
+      
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav" style="margin-left: auto;">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/adquiere" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Adquirir</a>
+            <a class="nav-link" routerLink="/adquiere" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{"Adquirir" | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/colaborar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Colaboración</a>
+            <a class="nav-link" routerLink="/colaborar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{"Colaboración" | translate }}</a>
           </li>
         </ul>
       </div>

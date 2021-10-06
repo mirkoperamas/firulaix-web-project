@@ -1,7 +1,7 @@
 <div style="width: 100%; display: flex; justify-content: flex-end;">
     <div style="display: flex; flex-direction: column; position: fixed; z-index: 10000; height: calc(100vh - 3.7rem); align-items: center; justify-content: center;">
-        <button class="button-section" (click)="buttonMoveSection('mi-objetivo-section')"><p>Objetivo</p></button>
-        <button class="button-section" (click)="buttonMoveSection('pasos-simples-section')"><p>Pasos</p></button>
+        <button class="button-section" (click)="buttonMoveSection('mi-objetivo-section')"><p>{{"Objetivo" | translate}}</p></button>
+        <button class="button-section" (click)="buttonMoveSection('pasos-simples-section')"><p>{{"Pasos" | translate}}</p></button>
         <button class="button-section" (click)="buttonMoveSection('capitalizacion-section')"><p>Tokenomic</p></button>
         <button class="button-section" (click)="buttonMoveSection('roadmap-section')"><p>Roadmap</p></button>
         <button class="button-section" style="margin-bottom: 0;" (click)="buttonMoveSection('faq-section')"><p>Faq</p></button>
@@ -13,8 +13,8 @@
     <div class="banner-content">
         <div class="banner-column">
             <div class="banner-text-ajust">
-                <h1><span>Firulaix Coin</span><br>Tu mejor crypto amigo</h1>
-                <p>Identificamos a todos los animales con y sin hogar con un chip que cuenta con un código único para registrarlo con tecnología blockchain.</p>    
+                <h1><span>Firulaix Coin</span><br>{{"Tu mejor crypto amigo" | translate}}</h1>
+                <p>{{"Identificamos a todos los animales con y sin hogar con un chip que cuenta con un código único para registrarlo con tecnología blockchain." | translate}}</p>    
             
                 <div class="banner-buttons">
                     <!-- <div>
@@ -24,7 +24,7 @@
                     </div> -->
 
                     <div>
-                        <button mat-stroked-button color="accent" class="button-main" (click)="openDialogWithRef(contratoCopy)" cdkCopyToClipboard="{{copy}}">Copiar contrato</button>
+                        <button mat-stroked-button color="accent" class="button-main" (click)="openDialogWithRef(contratoCopy)" cdkCopyToClipboard="{{copy}}">{{"Copiar contrato" | translate}}</button>
                     </div>
 
 
