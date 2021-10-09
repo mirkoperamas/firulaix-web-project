@@ -221,6 +221,59 @@
     .instruction-card-title p{
         font-size: 13px;
     }
+
+
+
+
+    .card-roadmap-content{
+        padding: .2rem .7rem;
+    }
+
+
+    .t-q3{
+        top: 42%;
+      }
+      
+      .t-q4{
+        top: 62%;
+      }
+      
+      .t-q1{
+        top: 42%;
+      }
+      
+
+    .card-roadmap-circles{
+        padding: .2rem 0;
+    }
+
+    .circle-rd{
+        width: .7rem;
+        height: .7rem;
+    }
+
+    .card-roadmap-text h2{
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .card-roadmap-text span{
+        font-size: 10px;
+    }
+
+    .roadmap-text-content{
+        padding: .1rem .2rem;
+    }
+
+    .roadmap-text-content p{
+        font-size: 11px;
+        margin: 0;
+    }
+
+    .roadmap-text-content hr{
+        margin: .1rem
+      }
 }
 
 
