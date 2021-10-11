@@ -815,6 +815,13 @@
   justify-content: center;
 }
 
+.image-wallet a{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .instruction-card-images img{
