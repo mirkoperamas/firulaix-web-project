@@ -20,7 +20,6 @@
   line-height: 14px;
   margin: 0 auto;
   font-size: 12px;
-  /* font-weight: bold; */
   color: #fff;
   font-family: 'Russo One', sans-serif;
 }
@@ -35,7 +34,7 @@
 
 #background-section {
   width: 100%;
-  background-image: url(../../../assets/banner/firulaix-banner.png);
+  background-image: url(../../../assets/images/banner/firulaix-banner.png);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -604,7 +603,7 @@
 
 #adquiere-section{
   width: 100%;
-  background-image: url(../../../assets/background_image_2.png);
+  background-image: url(../../../assets/images/adquiere-firus-background.png);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -816,6 +815,13 @@
   justify-content: center;
 }
 
+.image-wallet a{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .instruction-card-images img{
@@ -895,7 +901,7 @@
 #roadmap-section{
   width: 100%;
   padding: 6rem 0;
-  background-image: url(../../../assets/background_image_1.png);
+  background-image: url(../../../assets/images/roadmap/roadmap-background.png);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -1046,6 +1052,11 @@ mat-panel-title{
 .according-ajust p{
   font-size: 16px;
   margin: 1rem 0;
+}
+
+.according-ajust a{
+  color: #FF5E00;
+  text-decoration: none;
 }
 
 .mat-expansion-panel-header.mat-expanded,

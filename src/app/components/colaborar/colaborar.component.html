@@ -4,14 +4,14 @@
 
 <div class="contenido-main-white">
     <div class="main-text">
-        <p>Contribución</p>
-        <h1>Colabora con nuestro proyecto</h1>
+        <p>{{"Contribución" | translate}}</p>
+        <h1>{{"Colabora con nuestro proyecto" | translate}}</h1>
     </div>
 
     <div class="content-forms">
         <div class="form-column">
             <div class="form-text">
-                <p>Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras siguientes cuentas del banco:</p>
+                <p>{{"Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras siguientes cuentas del banco:" | translate}}</p>
                 <div class="form-calc-accounts">
                     <p>BBVA:</p><hr>
                     <p>CCI:</p><hr>
@@ -23,10 +23,10 @@
                 <mat-card id="calculator" class="card-design">
                   <mat-card-header>
                     <mat-card-title>
-                      <p>Calculadora Firulaix</p>
+                      <p>{{"Calculadora Firulaix" | translate}}</p>
                     </mat-card-title>
                     <mat-card-subtitle>
-                      <p>equivalencia en firu's</p>
+                      <p>{{"Equivalencia en firu's" | translate}}</p>
                     </mat-card-subtitle>
                   </mat-card-header>
                   <hr />
@@ -76,7 +76,7 @@
         <div class="form-column">
 
           <div class="form-text">
-            <p>Aquí podrás visualizar tu address en caso te hayas creado una wallet en Metamask, para ello debes ingresar desde el plugin de tu navegador o haciendo click en el siguiente boton:</p>
+            <p>{{"Aquí podrás visualizar tu address en caso te hayas creado una wallet en Metamask, para ello debes ingresar desde el plugin de tu navegador o haciendo click en el siguiente boton:" | translate}}</p>
         </div>
         
         <div class="login-content card-design">
@@ -85,12 +85,12 @@
                 Conectar
             </button>
 
-              <p id="token" class="image-text">Conéctate para ver tu address aquí</p>
+              <p id="token" class="image-text">{{"Conéctate para ver tu address aquí" | translate}}</p>
         </div>
         
         <div class="no-wallet">
             <button data-bs-toggle="modal" data-bs-target="#modal_wallet" mat-flat-button color="warn">
-                ¿Aun no tienes una billetera virtual?
+                {{"¿Aun no tienes una billetera virtual?" | translate}}
             </button>
 
             <div class="modal fade" id="modal_wallet" tabindex="-1" aria-hidden="true">
@@ -98,7 +98,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title">
-                    Si aun no tiene una billetera virtual puede ver nuestro tutorial:
+                    {{"Si aun no tiene una billetera virtual puede ver nuestro tutorial:" | translate}}
                   </h4>
                   
                   <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
@@ -114,7 +114,7 @@
 
 
             <div class="form-text second-text">
-                <p>Ingresa tus datos para registrar tu colaboración y hacerte llegar tu obsequio:</p>
+                <p>{{"Ingresa tus datos para registrar tu colaboración y hacerte llegar tu obsequio:" | translate}}</p>
             </div>
 
             <mat-card class="card-design" id="formulary">
@@ -140,11 +140,11 @@
                                 <input autocomplete="off" matInput placeholder="Address" [formControl]="addressFormControl" #address/>
                                 
                                 <mat-error *ngIf="addressFormControl.hasError('minlength') && !addressFormControl.hasError('required')">
-                                    Debe ingresar un address válido
+                                    {{"Debe ingresar un address válido" | translate}}
                                 </mat-error>
             
                                 <mat-error *ngIf="addressFormControl.hasError('required')">
-                                    Este campo es requerido
+                                    {{"Este campo es requerido" | translate}}
                                 </mat-error>
                             </mat-form-field>
 
@@ -184,15 +184,13 @@
                                 </div>
                 
                                 <div class="modal fade" id="modal_address" tabindex="-1" aria-hidden="true">
-                                  <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
-                                      </div>
-                                      <div class="modal-body">
-                                      <p>Escribe el address que te proporcionan al momento de crearte una billetera virtual</p>
-                                      </div>
-                    
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                                    </div>
+                                    <div class="modal-body">
+                                     <p>{{"Escribe el address que te proporcionan al momento de crearte una billetera virtual" | translate}}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -205,16 +203,16 @@
                                 <input autocomplete="off" matInput placeholder="Email" [formControl]="emailFormControl" #email/>
         
                                 <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                    Debe ingresar un email válido
+                                    {{"Debe ingresar un email válido" | translate}}
                                 </mat-error>
               
                                 <mat-error *ngIf="emailFormControl.hasError('required')">
-                                    Este campo es requerido
+                                    {{"Este campo es requerido" | translate}}
                                 </mat-error>
                             </mat-form-field>
                         </div>
 
-                            <p class="image-text">Click dentro del recuadro para cargar una foto de tu voucher de pago</p>
+                            <p class="image-text">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
 
                             <input type="file" class="d-none" (change)="onPhotoSelected($event)" [formControl]="imageFormControl" #photoInput>
 
@@ -225,7 +223,7 @@
 
                             <div class="button-formulary">
                                 <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid"> 
-                                    Enviar
+                                    {{"Enviar" | translate}}
                                 </button>
                             </div>
         
@@ -242,27 +240,27 @@
 
 
 <section id="section-qr">
-    <div class="content-qr">
-        <div class="qr-text">
-            <div>
-                <h2>Puedes colaborar con nuestro proyecto depositando en:</h2>
-                <p>
-                    <span>Dirección de recepción:</span><br>
-                    0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2
-                </p>
-                <p>
-                    <span>Token aceptado:</span><br>
-                    cualquier BEP20 (BSC)
-                </p>
-                <p style="margin-bottom: 0;">
-                    <span>Token preferido:</span><br>
-                    FIRU
-                </p>
-            </div>      
-        </div>
+  <div class="content-qr">
+      <div class="qr-text">
+          <div>
+              <h2>{{"Puedes colaborar con nuestro proyecto depositando en:" | translate}}</h2>
+              <p>
+                  <span>{{"Dirección de recepción:" | translate}}</span><br>
+                  0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2
+              </p>
+              <p>
+                  <span>{{"Token aceptado:" | translate}}</span><br>
+                  cualquier BEP20 (BSC)
+              </p>
+              <p style="margin-bottom: 0;">
+                  <span>{{"Token preferido:" | translate}}</span><br>
+                  FIRU
+              </p>
+          </div>      
+      </div>
 
-        <div class="qr-image">
-            <img src="../../../assets/firu-qr.jpg" alt="">
-        </div>
-    </div> 
+      <div class="qr-image">
+          <img src="../../../assets/images/adquirir-page/firu-qr.jpg" alt="">
+      </div>
+  </div> 
 </section>

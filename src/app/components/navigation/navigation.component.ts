@@ -8,9 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./navigation.component.css','../general-style-components.css']
 })
 export class NavigationComponent implements OnInit {
-
+  
   langs: string[] = [];
-
 
   constructor(public translate: TranslateService) {
 
