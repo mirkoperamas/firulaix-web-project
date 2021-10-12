@@ -40,6 +40,7 @@ file: File;
 
 
 formularioRegistro = new FormGroup({
+  op: new FormControl('', [Validators.required, Validators.minLength(6)]),
   adres: new FormControl('', [Validators.required, Validators.minLength(42)]),
   correo: new FormControl('', [Validators.required, Validators.email]),
 });
@@ -49,6 +50,10 @@ formularioRegistro = new FormGroup({
 
 
 
+opFormControl = new FormControl('', [
+  Validators.required,
+  Validators.minLength(6)
+]);
 
 emailFormControl = new FormControl('', [
   Validators.required,
@@ -184,10 +189,9 @@ imageFormControl = new FormControl('', [
     }
   }
 
-
-  uploadRegister(address: HTMLInputElement, email: HTMLInputElement) {
+  uploadRegister(op: HTMLInputElement, address: HTMLInputElement, email: HTMLInputElement) {
     this.registerService
-      .createRegister(address.value, email.value, this.file)
+      .createRegister(op.value, address.value, email.value, this.file)
       .subscribe(
         res => {
           console.log(res);
@@ -205,7 +209,10 @@ imageFormControl = new FormControl('', [
   }
 
 
-
+  btnAddress(){
+    alert('hola')
+    console.log('hola')
+  }
 
   ngOnDestroy() {
     this.unsubscribe.next();

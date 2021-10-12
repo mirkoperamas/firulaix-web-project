@@ -11,8 +11,9 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  createRegister(address: string, email: string, photo: File){
+  createRegister(op: string, address: string, email: string, photo: File){
     const fd = new FormData();
+    fd.append('op', op);
     fd.append('address', address);
     fd.append('email', email);
     fd.append('register', photo);

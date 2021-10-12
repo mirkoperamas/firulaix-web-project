@@ -119,8 +119,22 @@
 
             <mat-card class="card-design" id="formulary">
                 <mat-card-content>
-                    <form (submit)="uploadRegister(address, email)">
+                    <form (submit)="uploadRegister(op, address, email)">
 
+                      <div class="form-register-camp">
+                        <mat-form-field>
+                            <input autocomplete="off" matInput placeholder="Operación" [formControl]="opFormControl" #op/>
+    
+                            <mat-error *ngIf="opFormControl.hasError('op') && !opFormControl.hasError('required')">
+                                Debe ingresar un número de operación válido
+                            </mat-error>
+          
+                            <mat-error *ngIf="opFormControl.hasError('required')">
+                                Este campo es requerido
+                            </mat-error>
+                        </mat-form-field>
+                      </div>
+                      
                         <div class="form-register-camp">
                             <mat-form-field>
                                 <input autocomplete="off" matInput placeholder="Address" [formControl]="addressFormControl" #address/>
@@ -133,6 +147,15 @@
                                     Este campo es requerido
                                 </mat-error>
                             </mat-form-field>
+
+                            <button mat-flat-button color="accent" class="button-login" id="metamask_login"
+                            style="margin-left: 5px;"
+                            type="button"
+                            (click)="btnAddress()"
+                            >
+                                <i class="fas fa-chevron-left"></i>
+                                Conectar
+                            </button>
 
                             <!-- <button mat-mini-fab color="accent" class="button-help" data-bs-target="#exampleModal2">
                                 <i class="fas fa-info"></i>
@@ -161,17 +184,17 @@
                                 </div>
                 
                                 <div class="modal fade" id="modal_address" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                                  <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                                      </div>
+                                      <div class="modal-body">
+                                      <p>Escribe el address que te proporcionan al momento de crearte una billetera virtual</p>
+                                      </div>
+                    
                                     </div>
-                                    <div class="modal-body">
-                                     <p>Escribe el address que te proporcionan al momento de crearte una billetera virtual</p>
-                                    </div>
-                  
                                   </div>
-                                </div>
                                 </div>
 
                         </div>
