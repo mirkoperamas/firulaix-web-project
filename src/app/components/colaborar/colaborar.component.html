@@ -9,7 +9,7 @@
     </div>
 
     <div class="content-forms">
-        <div class="form-column">
+      <div class="form-column">
             <div class="form-text">
                 <p>{{"Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras siguientes cuentas del banco:" | translate}}</p>
                 <div class="form-calc-accounts">
@@ -70,12 +70,12 @@
                   </mat-card-content>
                 </mat-card>
               </div>
-        </div>
+      </div>
 
 
-        <div class="form-column">
+      <div class="form-column">
 
-          <div class="form-text">
+        <div class="form-text">
             <p>{{"Aquí podrás visualizar tu address en caso te hayas creado una wallet en Metamask, para ello debes ingresar desde el plugin de tu navegador o haciendo click en el siguiente boton:" | translate}}</p>
         </div>
         
@@ -94,142 +94,107 @@
             </button>
 
             <div class="modal fade" id="modal_wallet" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">
-                    {{"Si aun no tiene una billetera virtual puede ver nuestro tutorial:" | translate}}
-                  </h4>
-                  
-                  <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">
+                      {{"Si aun no tiene una billetera virtual puede ver nuestro tutorial:" | translate}}
+                    </h4>
+                    <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                  </div>
+                  <div class="modal-body">
+                    <iframe src="https://www.youtube.com/embed/H5x7NVYWjFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; height: 350px;" allowfullscreen></iframe>
+                  </div>
                 </div>
-                <div class="modal-body">
-                  <iframe src="https://www.youtube.com/embed/H5x7NVYWjFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; height: 350px;" allowfullscreen></iframe>
-                </div>
-
               </div>
-            </div>
             </div>
         </div>
 
 
-            <div class="form-text second-text">
-                <p>{{"Ingresa tus datos para registrar tu colaboración y hacerte llegar tu obsequio:" | translate}}</p>
-            </div>
+        <div class="form-text second-text">
+          <p>{{"Ingresa tus datos para registrar tu colaboración y hacerte llegar tu obsequio:" | translate}}</p>
+        </div>
 
-            <mat-card class="card-design" id="formulary">
-                <mat-card-content>
-                    <form (submit)="uploadRegister(op, address, email)">
-
-                      <div class="form-register-camp">
-                        <mat-form-field>
-                            <input autocomplete="off" matInput placeholder="Operación" [formControl]="opFormControl" #op/>
-    
-                            <mat-error *ngIf="opFormControl.hasError('op') && !opFormControl.hasError('required')">
-                                Debe ingresar un número de operación válido
-                            </mat-error>
+        <mat-card class="card-design" id="formulary">
+          <mat-card-content>
+            <form (submit)="uploadRegister(op, address, email)">
+              <div class="form-register-camp">
+                <mat-form-field>
+                  <input autocomplete="off" matInput placeholder="Operación" [formControl]="opFormControl" #op/>
+                  <mat-error *ngIf="opFormControl.hasError('op') && !opFormControl.hasError('required')">
+                    Debe ingresar un número de operación válido
+                  </mat-error>
           
-                            <mat-error *ngIf="opFormControl.hasError('required')">
-                                Este campo es requerido
-                            </mat-error>
-                        </mat-form-field>
-                      </div>
-                      
-                        <div class="form-register-camp">
-                            <mat-form-field>
-                                <input autocomplete="off" matInput placeholder="Address" [formControl]="addressFormControl" #address/>
-                                
-                                <mat-error *ngIf="addressFormControl.hasError('minlength') && !addressFormControl.hasError('required')">
-                                    {{"Debe ingresar un address válido" | translate}}
-                                </mat-error>
+                  <mat-error *ngIf="opFormControl.hasError('required')">
+                    Este campo es requerido
+                  </mat-error>
+                </mat-form-field>
+              </div>
+          
+              <div class="form-register-camp">
+                <mat-form-field>
+                  <input autocomplete="off" matInput placeholder="Address" [formControl]="addressFormControl" #address/> 
+                  <mat-error *ngIf="addressFormControl.hasError('minlength') && !addressFormControl.hasError('required')">
+                    {{"Debe ingresar un address válido" | translate}}
+                  </mat-error>
             
-                                <mat-error *ngIf="addressFormControl.hasError('required')">
-                                    {{"Este campo es requerido" | translate}}
-                                </mat-error>
-                            </mat-form-field>
+                  <mat-error *ngIf="addressFormControl.hasError('required')">
+                    {{"Este campo es requerido" | translate}}
+                  </mat-error>
+                </mat-form-field>
 
-                            <button mat-flat-button color="accent" class="button-login" id="metamask_login"
-                            style="margin-left: 5px;"
-                            type="button"
-                            (click)="btnAddress()"
-                            >
-                                <i class="fas fa-chevron-left"></i>
-                                Conectar
-                            </button>
+                <button mat-flat-button color="accent" class="button-login" id="metamask_login"
+                  style="margin-left: 5px;"
+                  type="button">
+                    <i class="fas fa-chevron-left"></i>
+                      Conectar
+                </button>
 
-                            <!-- <button mat-mini-fab color="accent" class="button-help" data-bs-target="#exampleModal2">
-                                <i class="fas fa-info"></i>
-                            </button>
+                <div data-bs-toggle="modal" data-bs-target="#modal_address"class="button-help">
+                  <i class="fas fa-info"></i>
+                </div>
+                <div class="modal fade" id="modal_address" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{"Escribe el address que te proporcionan al momento de crearte una billetera virtual" | translate}}</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
 
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title" id="exampleModalLabel">
-                                        Si aun no tiene una billetera virtual puede ver nuestro tutorial:
-                                      </h4>
-                                      
-                                      <button mat-flat-button color="warn" data-bs-dismiss="modal" aria-label="Close">X</button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <iframe src="https://www.youtube.com/embed/H5x7NVYWjFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%; height: 350px;" allowfullscreen></iframe>
-                                    </div>
-                  
-                                  </div>
-                                </div>
-                                </div> -->
+              <div class="form-register-camp">
+                <mat-form-field>
+                  <input autocomplete="off" matInput placeholder="Email" [formControl]="emailFormControl" #email/>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    {{"Debe ingresar un email válido" | translate}}
+                  </mat-error>
 
-                                <div data-bs-toggle="modal" data-bs-target="#modal_address"class="button-help">
-                                    <i class="fas fa-info"></i>
-                                </div>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    {{"Este campo es requerido" | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <p class="image-text">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
+              <input type="file" class="d-none" (change)="onPhotoSelected($event)" [formControl]="imageFormControl" #photoInput>
                 
-                                <div class="modal fade" id="modal_address" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <div data-bs-dismiss="modal" aria-label="Close" class="close-modal">X</div>
-                                    </div>
-                                    <div class="modal-body">
-                                     <p>{{"Escribe el address que te proporcionan al momento de crearte una billetera virtual" | translate}}</p>
-                                    </div>
-                                  </div>
-                                </div>
+              <div class="image-content">
+                <img [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
+              </div>
 
-                        </div>
-        
-        
-                        <div class="form-register-camp">
-                            <mat-form-field>
-                                <input autocomplete="off" matInput placeholder="Email" [formControl]="emailFormControl" #email/>
-        
-                                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                    {{"Debe ingresar un email válido" | translate}}
-                                </mat-error>
-              
-                                <mat-error *ngIf="emailFormControl.hasError('required')">
-                                    {{"Este campo es requerido" | translate}}
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-
-                            <p class="image-text">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
-
-                            <input type="file" class="d-none" (change)="onPhotoSelected($event)" [formControl]="imageFormControl" #photoInput>
-
-                            <div class="image-content">
-                                <img [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
-                            </div>
-                            
-
-                            <div class="button-formulary">
-                                <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid"> 
-                                    {{"Enviar" | translate}}
-                                </button>
-                            </div>
-        
-                    </form>                 
-                </mat-card-content>
-            </mat-card>
+              <div class="button-formulary">
+                <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid"> 
+                  {{"Enviar" | translate}}
+                </button>
+              </div>
+            </form>                 
+          </mat-card-content>
+        </mat-card>
 
         </div>
     </div>  
