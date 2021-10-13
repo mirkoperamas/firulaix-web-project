@@ -7,8 +7,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { takeUntil } from 'rxjs/operators';
 
-import {RegisterService} from '../../services/register.service'
+import {RegisterService} from '../../services/register.service';
 
+import { MatDialog } from '@angular/material/dialog';
+
+import { TemplateRef } from '@angular/core';
 
 
  
@@ -23,6 +26,8 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./colaborar.component.css','../general-style-components.css']
 })
 export class ColaborarComponent implements OnInit {
+
+// addressValue = (<HTMLInputElement>document.getElementById('token')).value;
 
 convertorForm!: FormGroup;
 
@@ -39,11 +44,11 @@ photoSelected: string | ArrayBuffer;
 file: File;
 
 
-formularioRegistro = new FormGroup({
-  op: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  adres: new FormControl('', [Validators.required, Validators.minLength(42)]),
-  correo: new FormControl('', [Validators.required, Validators.email]),
-});
+// formularioRegistro = new FormGroup({
+//   op: new FormControl('', [Validators.required, Validators.minLength(6)]),
+//   address: new FormControl('', [Validators.required, Validators.minLength(42)]),
+//   email: new FormControl('', [Validators.required, Validators.email]),
+// });
 
 
 
@@ -74,15 +79,13 @@ imageFormControl = new FormControl('', [
 
 
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog) {
 
     this.unsubscribe = new Subject();
     this.initForm();
    }
 
-
   
-
   ngOnInit() {
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
@@ -204,15 +207,22 @@ imageFormControl = new FormControl('', [
 
 
 
-  guardar(){
-    console.log(this.formularioRegistro.value);
-  }
+  // guardar(){
+  //   console.log(this.formularioRegistro.value);
+  // }
 
 
   btnAddress(){
-    alert('hola')
-    console.log('hola')
+    alert('hola');
+    console.log('hola');
   }
+
+
+  openDialogWithRef(ref: TemplateRef<any>) {
+    this.dialog.open(ref);
+  }
+  
+  
 
   ngOnDestroy() {
     this.unsubscribe.next();

@@ -7,16 +7,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
 
-   URI = 'http://localhost:4000/api/registers'
+   URI = 'http://192.168.0.21:5500/api/knox'
 
   constructor(private http: HttpClient) { }
 
   createRegister(op: string, address: string, email: string, photo: File){
     const fd = new FormData();
-    fd.append('op', op);
-    fd.append('address', address);
-    fd.append('email', email);
-    fd.append('register', photo);
+    fd.append('operation', op);
+    fd.append('chain_address', address);
+    fd.append('e_mail', email);
+    fd.append('voucher', photo);
     return this.http.post(this.URI, fd);
 
   }
