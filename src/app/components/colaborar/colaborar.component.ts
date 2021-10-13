@@ -26,6 +26,7 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./colaborar.component.css','../general-style-components.css']
 })
 export class ColaborarComponent implements OnInit {
+ 
 
 // addressValue = (<HTMLInputElement>document.getElementById('token')).value;
 
@@ -44,20 +45,10 @@ photoSelected: string | ArrayBuffer;
 file: File;
 
 
-// formularioRegistro = new FormGroup({
-//   op: new FormControl('', [Validators.required, Validators.minLength(6)]),
-//   address: new FormControl('', [Validators.required, Validators.minLength(42)]),
-//   email: new FormControl('', [Validators.required, Validators.email]),
-// });
-
-
-
-
-
 
 opFormControl = new FormControl('', [
   Validators.required,
-  Validators.minLength(6)
+  Validators.minLength(4)
 ]);
 
 emailFormControl = new FormControl('', [
@@ -221,6 +212,8 @@ imageFormControl = new FormControl('', [
   openDialogWithRef(ref: TemplateRef<any>) {
     this.dialog.open(ref);
   }
+
+  
   
   
 

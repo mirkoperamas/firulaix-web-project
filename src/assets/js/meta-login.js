@@ -49,7 +49,9 @@ async function getAccount() {
 
 
     $('#metamask_login').text('Conectado').addClass('conected');
-    $('#token').text(accounts[0])
+    $('#token').text(accounts[0]);
+    // $('#ulala').val(accounts[0]);
+    // $('#ulala').attr("ng-reflect-value","holito");
 
    
     

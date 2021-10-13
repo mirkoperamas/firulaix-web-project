@@ -36,7 +36,7 @@
                     (submit)="submit()"
                   >
                       <div class="calc-graphic-camp">
-                          <p>From:</p>
+                          <p>{{"De:" | translate}}</p>
                           <div class="camp-from">
                               <mat-form-field>
                                 <input
@@ -50,14 +50,14 @@
                             <div class="select-style">
                               <mat-select formControlName="tipoMoneda">
                                 <mat-option value="soles">S/ Soles</mat-option>
-                                <mat-option value="dolares">$ Dolares</mat-option>
+                                <mat-option value="dolares">$ {{"Dolares" | translate}}</mat-option>
                               </mat-select>
                             </div>
                           </div>
                       </div>
     
                       <div class="calc-graphic-camp">
-                          <p>To:</p>
+                          <p>{{"Para:" | translate}}</p>
                           <mat-form-field>
                             <input
                               type="number"
@@ -108,7 +108,7 @@
             <form (submit)="uploadRegister(op, address, email)">
               <div class="form-register-camp">
                 <mat-form-field>
-                  <input autocomplete="off" matInput placeholder="Número de Operación" [formControl]="opFormControl" #op/>
+                  <input autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" [formControl]="opFormControl" #op/>
                   
                   <mat-error *ngIf="opFormControl.hasError('minlength') && !opFormControl.hasError('required')">
                     {{"Debe ingresar un número de operación válido" | translate}}
@@ -125,7 +125,7 @@
 
                 <ng-template #infoOp>
                   <p matDialogContent class="alert-text">
-                    {{"Ingrese el número de operación que figure en su billetera" | translate}}
+                    {{"Ingrese el número de operación que figure en su voucher" | translate}}
                   </p>
         
                   <mat-dialog-actions align="end">
