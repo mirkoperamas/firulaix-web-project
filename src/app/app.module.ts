@@ -40,6 +40,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 
 
@@ -73,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
+    NgxCaptchaModule,
     MatToolbarModule,
     MatIconModule,
     FormsModule,

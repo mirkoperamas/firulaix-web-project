@@ -190,12 +190,32 @@
                 <img [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
               </div>
 
+              <div style="display: flex; align-items: center; justify-content: center; margin: 2rem 0;">
+                <ngx-recaptcha2 #captchaElem
+                  [siteKey]="siteKey"
+                  [formControl]="recaptchaFormControl">
+                </ngx-recaptcha2>
+              </div>
+              
+
+              
               <div class="button-formulary">
-                <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid"> 
+                <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid || recaptchaFormControl.invalid"> 
                   {{"Enviar" | translate}}
                 </button>
               </div>
-            </form>                 
+            </form>       
+
+            
+            
+            <!-- <form [formGroup] = "aFormGroup">
+              <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form> -->
+
+            
           </mat-card-content>
         </mat-card>
 

@@ -26,6 +26,8 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./colaborar.component.css','../general-style-components.css']
 })
 export class ColaborarComponent implements OnInit {
+
+// aFormGroup: FormGroup;
  
 
 // addressValue = (<HTMLInputElement>document.getElementById('token')).value;
@@ -48,6 +50,7 @@ file: File;
 
 opFormControl = new FormControl('', [
   Validators.required,
+  // Validators.compose([Validators.min(100), Validators.minLength(4)])
   Validators.minLength(4)
 ]);
 
@@ -66,6 +69,10 @@ imageFormControl = new FormControl('', [
   Validators.required
 ])
 
+recaptchaFormControl = new FormControl('',[
+  Validators.required
+])
+
 
 
 
@@ -78,11 +85,19 @@ imageFormControl = new FormControl('', [
 
   
   ngOnInit() {
+
+    // this.aFormGroup = this.formBuilder.group({
+    //   recaptcha: ['', Validators.required]
+    // });
+    
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.resultSunat();
   }
+
+  siteKey: string = "6Ld68sscAAAAAOM01u-75ppTAjqJfrrmtaViKQq4";
+
 
   initForm(): void {
     this.convertorForm = this.formBuilder.group({
