@@ -105,16 +105,16 @@
           <hr />
 
           <mat-card-content>
-            <form (submit)="uploadRegister(op, address, email)">
+            <form (submit)="uploadRegister(op, address, email)" [formGroup]="sendForm">
               <div class="form-register-camp">
                 <mat-form-field>
-                  <input autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" [formControl]="opFormControl" #op/>
+                  <input autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" formControlName="opFormControl" #op/>
                   
-                  <mat-error *ngIf="opFormControl.hasError('minlength') && !opFormControl.hasError('required')">
+                  <mat-error *ngIf="sendForm.hasError('minlength') && !sendForm.hasError('required')">
                     {{"Debe ingresar un número de operación válido" | translate}}
                   </mat-error>
           
-                  <mat-error *ngIf="opFormControl.hasError('required')">
+                  <mat-error *ngIf="sendForm.hasError('required')">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                 </mat-form-field>
@@ -136,19 +136,19 @@
 
               <div class="form-register-camp">
                 <mat-form-field>
-                  <input autocomplete="off" matInput placeholder="Address" [formControl]="addressFormControl" #address/>
+                  <input autocomplete="off" matInput placeholder="Address" [disabled]="true" formControlName="addressFormControl" #address/>
                   
-                  <mat-error *ngIf="addressFormControl.hasError('minlength') && !addressFormControl.hasError('required')">
+                  <mat-error *ngIf="sendForm.hasError('minlength') && !sendForm.hasError('required')">
                     {{"Debe ingresar un address válido" | translate}}
                   </mat-error>
             
-                  <mat-error *ngIf="addressFormControl.hasError('required')">
+                  <mat-error *ngIf="sendForm.hasError('required')">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                  
                 </mat-form-field>
 
-                <button mat-flat-button color="accent" class="button-login" id="metamask_login" type="button">
+                <button mat-flat-button color="accent" class="button-login" id="metamask_login" type="button" [disabled]="true">
                   {{"Conectar" | translate}}
                 </button>
 
@@ -172,19 +172,19 @@
 
               <div class="form-register-camp">
                 <mat-form-field>
-                  <input autocomplete="off" matInput placeholder="Email" [formControl]="emailFormControl" #email/>
-                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  <input autocomplete="off" matInput placeholder="Email" formControlName="emailFormControl" #email/>
+                  <mat-error *ngIf="sendForm.hasError('email') && !sendForm.hasError('required')">
                     {{"Debe ingresar un email válido" | translate}}
                   </mat-error>
 
-                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                  <mat-error *ngIf="sendForm.hasError('required')">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                 </mat-form-field>
               </div>
 
               <p class="image-text">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
-              <input type="file" class="d-none" (change)="onPhotoSelected($event)" [formControl]="imageFormControl" #photoInput>
+              <input type="file" class="d-none" (change)="onPhotoSelected($event)" formControlName="imageFormControl" #photoInput/>
                 
               <div class="image-content">
                 <img [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
@@ -193,29 +193,29 @@
               <div style="display: flex; align-items: center; justify-content: center; margin: 2rem 0;">
                 <ngx-recaptcha2 #captchaElem
                   [siteKey]="siteKey"
-                  [formControl]="recaptchaFormControl">
+                  formControlName="recaptchaFormControl">
                 </ngx-recaptcha2>
               </div>
               
 
               
               <div class="button-formulary">
-                <button mat-flat-button color="accent" [disabled]="emailFormControl.invalid || addressFormControl.invalid || imageFormControl.invalid || recaptchaFormControl.invalid"> 
+                <button mat-flat-button color="accent" [disabled]="true" (click)="openDialogWithRef(registerSend)"> 
                   {{"Enviar" | translate}}
                 </button>
               </div>
+
+              <ng-template #registerSend>
+                <p matDialogContent class="alert-text">
+                  {{"Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'." | translate}}
+                </p>
+      
+                <mat-dialog-actions align="end">
+                  <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
+                </mat-dialog-actions>
+              </ng-template>
             </form>       
 
-            
-            
-            <!-- <form [formGroup] = "aFormGroup">
-              <ngx-recaptcha2 #captchaElem
-                [siteKey]="siteKey"
-                formControlName="recaptcha">
-              </ngx-recaptcha2>
-            </form> -->
-
-            
           </mat-card-content>
         </mat-card>
 

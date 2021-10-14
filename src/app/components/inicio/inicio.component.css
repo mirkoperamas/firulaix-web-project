@@ -957,7 +957,7 @@
 
 .card-roadmap-main{
   position: absolute;
-  width: 22%;
+  width: 24%;
 }
 
 
@@ -966,7 +966,7 @@
   border-image-slice: 1;
   border-radius: -3rem;
   background-color: #fcc74d;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
 }
 
 
@@ -976,13 +976,13 @@
 }
 
 .t-q4{
-  top: 65%;
-  left: 39.5%;
+  top: 62%;
+  left: 34%;
 }
 
 .t-q1{
   top: 45%;
-  left: 77%;
+  left: 74%;
 }
 
 
@@ -990,12 +990,12 @@
 .card-roadmap-circles{
   display: flex;
   justify-content: space-between;
-  padding: .5rem 0;
+  padding: .2rem 0;
 }
 
 .circle-rd{
-  width: 1rem;
-  height: 1rem;
+  width: .7rem;
+  height: .7rem;
   background-color: #b83f39;
   border-radius: 50%;
 }
@@ -1022,11 +1022,11 @@
 
 
 .roadmap-text-content{
-  padding: .5rem 1rem;
+  padding: .5rem 0;
 }
 
 .roadmap-text-content hr{
-  margin: .4rem
+  margin: .4rem 0;
 }
 
 

@@ -3,6 +3,7 @@
     "Pasos": "Steps",
     "Adquirir": "Acquire",
     "Colaboración": "Collaboration",
+    "Falta poco para que puedan adquirir sus Firu's con Fiat.": "There is little left before they can buy their Firu's with Fiat.",
     "Tu mejor crypto amigo": "Your best crypto friend",
     "Identificamos a todos los animales con y sin hogar con un chip que cuenta con un código único para registrarlo con tecnología blockchain.": "We identify all homeless and homeless animals with a chip that has a unique code to register it with blockchain technology.",
     "Copiar contrato": "Copy contract",
@@ -84,9 +85,11 @@
     "Educación del uso de la token Firu.": "Education of the use of the Firu token.",
     "Desarrollo de la blockchain firulaixcoin": "Development of the FirulaixCoin blockchain",
     "Octubre - Diciembre 2021": "October - December 2021",
-    "Desarrollo y pruebas de las NFT de registro animal.": "Development and testing of animal registry NFTs.",
-    "Desarrollo del aplicativo android.": "Android application development.",
     "Pruebas del uso de la token en tiendas y establecimientos de atención animal (veterinarias, Petshop’s,etc.).": "Evidence of the use of the token in stores and animal care establishments (veterinarians, Petshop’s, etc.).",
+    "Comenzamos con las ferias de mascotas para la educación, aumentar los holders y tener base de datos de chipeos en mascotas de nuestro ecosistema.": "We started with pet fairs for education, increase holders and have a database of pet chipping from our ecosystem.",
+    "Desarrollo de la plataforma Firu Park.": "Development of the Firu Park platform.",
+    "Creación de la 1ra galería de colección NFT para recaudación de fondos.": "Creation of the 1st NFT collection gallery for fundraising.",
+    "Desarrollo y pruebas de las NFT de registro animal.": "Development and testing of animal registry NFTs.",
     "Comercialización de la cryptomoneda firulaixcoin": "Marketing of the cryptocurrency firulaixcoin",
     "Enero 2022": "January 2022",
     "Distribuir la cryptomeneda en establecimientos.": "Distribute the cryptomeneda in establishments.",
@@ -174,5 +177,6 @@
     "Escribe el address que te proporcionan al momento de crearte una billetera virtual": "Write the address provided when creating a virtual wallet",
     "Debe ingresar un email válido": "You must enter a valid email",
     "Click dentro del recuadro para cargar una foto de tu voucher de pago": "Click inside the box to upload a photo of your payment voucher",
-    "Enviar": "Send"
+    "Enviar": "Send",
+    "Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Thank you for your collaboration, you will receive a confirmation email, check your inbox otherwise your 'spam' box."
 }

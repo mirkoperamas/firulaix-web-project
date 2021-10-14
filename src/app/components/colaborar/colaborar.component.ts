@@ -47,31 +47,52 @@ photoSelected: string | ArrayBuffer;
 file: File;
 
 
+sendForm: FormGroup = new FormGroup({
+  
+  opFormControl: new FormControl('',[
+    Validators.required,
+    Validators.minLength(4)
+  ]),
+  emailFormControl: new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]),
+  addressFormControl: new FormControl('', [
+    Validators.required,
+    Validators.minLength(42)
+  ]),
+  imageFormControl: new FormControl('', [
+    Validators.required
+  ]),
+  recaptchaFormControl: new FormControl('',[
+    Validators.required
+  ])
+});
 
-opFormControl = new FormControl('', [
-  Validators.required,
-  // Validators.compose([Validators.min(100), Validators.minLength(4)])
-  Validators.minLength(4)
-]);
 
-emailFormControl = new FormControl('', [
-  Validators.required,
-  Validators.email
-]);
+// opFormControl = new FormControl('', [
+//   Validators.required,
+//   Validators.minLength(4)
+// ]);
 
-addressFormControl = new FormControl('', [
-  Validators.required,
-  Validators.minLength(42)
-]);
+// emailFormControl = new FormControl('', [
+//   Validators.required,
+//   Validators.email
+// ]);
+
+// addressFormControl = new FormControl('', [
+//   Validators.required,
+//   Validators.minLength(42)
+// ]);
 
 
-imageFormControl = new FormControl('', [
-  Validators.required
-])
+// imageFormControl = new FormControl('', [
+//   Validators.required
+// ]);
 
-recaptchaFormControl = new FormControl('',[
-  Validators.required
-])
+// recaptchaFormControl = new FormControl('',[
+//   Validators.required
+// ]);
 
 
 
@@ -94,6 +115,8 @@ recaptchaFormControl = new FormControl('',[
     this.convertorForm.controls.resultado.disable();
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.resultSunat();
+
+    this.sendForm.disable();
   }
 
   siteKey: string = "6Ld68sscAAAAAOM01u-75ppTAjqJfrrmtaViKQq4";
