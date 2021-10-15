@@ -105,16 +105,16 @@
           <hr />
 
           <mat-card-content>
-            <form (submit)="uploadRegister(op, address, email)" [formGroup]="sendForm">
+            <form (submit)="uploadRegister(op, address, email)" [formGroup]="sendFormulary">
               <div class="form-register-camp">
                 <mat-form-field>
                   <input autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" formControlName="opFormControl" #op/>
                   
-                  <mat-error *ngIf="sendForm.hasError('minlength') && !sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('opFormControl').invalid && sendFormulary.get('opFormControl').value != 0">
                     {{"Debe ingresar un número de operación válido" | translate}}
                   </mat-error>
           
-                  <mat-error *ngIf="sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('opFormControl').value == 0">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                 </mat-form-field>
@@ -138,11 +138,11 @@
                 <mat-form-field>
                   <input autocomplete="off" matInput placeholder="Address" [disabled]="true" formControlName="addressFormControl" #address/>
                   
-                  <mat-error *ngIf="sendForm.hasError('minlength') && !sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('addressFormControl').invalid && sendFormulary.get('addressFormControl').value != 0">
                     {{"Debe ingresar un address válido" | translate}}
                   </mat-error>
             
-                  <mat-error *ngIf="sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('addressFormControl').value == 0">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                  
@@ -173,11 +173,11 @@
               <div class="form-register-camp">
                 <mat-form-field>
                   <input autocomplete="off" matInput placeholder="Email" formControlName="emailFormControl" #email/>
-                  <mat-error *ngIf="sendForm.hasError('email') && !sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('emailFormControl').invalid && sendFormulary.get('emailFormControl').value != 0">
                     {{"Debe ingresar un email válido" | translate}}
                   </mat-error>
 
-                  <mat-error *ngIf="sendForm.hasError('required')">
+                  <mat-error *ngIf="sendFormulary.get('emailFormControl').value == 0">
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                 </mat-form-field>
@@ -200,7 +200,7 @@
 
               
               <div class="button-formulary">
-                <button mat-flat-button color="accent" [disabled]="true" (click)="openDialogWithRef(registerSend)"> 
+                <button mat-flat-button color="accent" [disabled]="sendFormulary.invalid" (click)="openDialogWithRef(registerSend)"> 
                   {{"Enviar" | translate}}
                 </button>
               </div>

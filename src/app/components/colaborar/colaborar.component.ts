@@ -27,11 +27,6 @@ interface HtmlInputEvent extends Event{
 })
 export class ColaborarComponent implements OnInit {
 
-// aFormGroup: FormGroup;
- 
-
-// addressValue = (<HTMLInputElement>document.getElementById('token')).value;
-
 convertorForm!: FormGroup;
 
 unsubscribe: Subject<void>;
@@ -47,58 +42,36 @@ photoSelected: string | ArrayBuffer;
 file: File;
 
 
-sendForm: FormGroup = new FormGroup({
+// sendForm: FormGroup = new FormGroup({
   
-  opFormControl: new FormControl('',[
-    Validators.required,
-    Validators.minLength(4)
-  ]),
-  emailFormControl: new FormControl('', [
-    Validators.required,
-    Validators.email
-  ]),
-  addressFormControl: new FormControl('', [
-    Validators.required,
-    Validators.minLength(42)
-  ]),
-  imageFormControl: new FormControl('', [
-    Validators.required
-  ]),
-  recaptchaFormControl: new FormControl('',[
-    Validators.required
-  ])
-});
+//   opFormControl: new FormControl('',[
+//     Validators.required,
+//     Validators.minLength(4)
+//   ]),
+//   emailFormControl: new FormControl('', [
+//     Validators.required,
+//     Validators.email
+//   ]),
+//   addressFormControl: new FormControl('', [
+//     Validators.required,
+//     Validators.minLength(42)
+//   ]),
+//   imageFormControl: new FormControl('', [
+//     Validators.required
+//   ]),
+//   recaptchaFormControl: new FormControl('',[
+//     Validators.required
+//   ])
+// });
 
 
-// opFormControl = new FormControl('', [
-//   Validators.required,
-//   Validators.minLength(4)
-// ]);
-
-// emailFormControl = new FormControl('', [
-//   Validators.required,
-//   Validators.email
-// ]);
-
-// addressFormControl = new FormControl('', [
-//   Validators.required,
-//   Validators.minLength(42)
-// ]);
-
-
-// imageFormControl = new FormControl('', [
-//   Validators.required
-// ]);
-
-// recaptchaFormControl = new FormControl('',[
-//   Validators.required
-// ]);
+sendFormulary: FormGroup;
 
 
 
 
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog, private sendFormBuilder: FormBuilder) {
 
     this.unsubscribe = new Subject();
     this.initForm();
@@ -106,19 +79,28 @@ sendForm: FormGroup = new FormGroup({
 
   
   ngOnInit() {
-
-    // this.aFormGroup = this.formBuilder.group({
-    //   recaptcha: ['', Validators.required]
-    // });
     
+    // SUBSCRIBE FORM
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.resultSunat();
 
-    this.sendForm.disable();
+
+
+    // SEND FORM
+    // this.sendForm.disable();
+
+    this.sendFormulary = this.sendFormBuilder.group({
+      opFormControl: ['', [Validators.required, Validators.minLength(4)]],
+      emailFormControl: ['', [Validators.required, Validators.email]],
+      addressFormControl: ['', [Validators.required, Validators.minLength(42)]],
+      imageFormControl: ['', [Validators.required]],
+      recaptchaFormControl: ['', [Validators.required]],
+    })
   }
 
+  // CAPTCHA KEY
   siteKey: string = "6Ld68sscAAAAAOM01u-75ppTAjqJfrrmtaViKQq4";
 
 
@@ -128,6 +110,8 @@ sendForm: FormGroup = new FormGroup({
       tipoMoneda: ['', [Validators.required]],
       resultado: ['', [Validators.required]],
     });
+
+
   }
 
   submit() {
@@ -156,15 +140,12 @@ sendForm: FormGroup = new FormGroup({
 
             case 'dolares':
               let tcDolares: any = (+controls.valorIngresado ).toFixed(4);
-              // let tcambioDolares: any = (
-              //   +controls.valorIngresado / +tcDolares
-              // ).toFixed(4);
 
               let variableDolares: any = (tcDolares * 10000).toFixed(0);
 
               let resultDolares: any = variableDolares + '00000000000000';
 
-              this.resultFiru(resultDolares); //llamar al servicio
+              this.resultFiru(resultDolares); //llamando al servicio
               break;
 
             default:
@@ -227,18 +208,11 @@ sendForm: FormGroup = new FormGroup({
       .subscribe(
         res => {
           console.log(res);
-          // this.router.navigate(['/registers'])
         },
         err => console.log(err)
       );
     return false;
   }
-
-
-
-  // guardar(){
-  //   console.log(this.formularioRegistro.value);
-  // }
 
 
   btnAddress(){
