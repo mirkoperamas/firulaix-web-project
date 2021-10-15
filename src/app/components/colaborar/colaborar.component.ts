@@ -89,7 +89,6 @@ sendFormulary: FormGroup;
 
 
     // SEND FORM
-    // this.sendForm.disable();
 
     this.sendFormulary = this.sendFormBuilder.group({
       opFormControl: ['', [Validators.required, Validators.minLength(4)]],
@@ -98,6 +97,9 @@ sendFormulary: FormGroup;
       imageFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
     })
+
+    this.sendFormulary.disable();
+
   }
 
   // CAPTCHA KEY
