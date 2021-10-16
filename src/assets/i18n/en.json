@@ -178,5 +178,6 @@
     "Debe ingresar un email válido": "You must enter a valid email",
     "Click dentro del recuadro para cargar una foto de tu voucher de pago": "Click inside the box to upload a photo of your payment voucher",
     "Enviar": "Send",
-    "Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Thank you for your collaboration, you will receive a confirmation email, check your inbox otherwise your 'spam' box."
+    "Gracias por su colaboración, recibira un email de confirmación.": "Thank you for your collaboration, you will receive a confirmation email.",
+    "Revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Check your inbox otherwise your 'spam' box."
 }

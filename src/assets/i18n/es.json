@@ -177,5 +177,6 @@
     "Debe ingresar un email válido": "Debe ingresar un email válido",
     "Click dentro del recuadro para cargar una foto de tu voucher de pago": "Click dentro del recuadro para cargar una foto de tu voucher de pago",
     "Enviar": "Enviar",
-    "Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'."
+    "Gracias por su colaboración, recibira un email de confirmación.": "Gracias por su colaboración, recibira un email de confirmación.",
+    "Revise su bandeja de entrada de lo contrario su bandeja 'spam'.": " Revise su bandeja de entrada de lo contrario su bandeja 'spam'."
 }
