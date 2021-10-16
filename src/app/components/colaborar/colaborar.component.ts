@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import {Router} from '@angular/router'
@@ -12,6 +12,7 @@ import {RegisterService} from '../../services/register.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TemplateRef } from '@angular/core';
+import { ReCaptcha2Component } from 'ngx-captcha';
 
 
  
@@ -67,8 +68,9 @@ file: File;
 
 sendFormulary: FormGroup;
 
+imageX = 'assets/no-image-2.png';
 
-
+@ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog, private sendFormBuilder: FormBuilder) {
@@ -89,21 +91,20 @@ sendFormulary: FormGroup;
 
 
     // SEND FORM
-
     this.sendFormulary = this.sendFormBuilder.group({
       opFormControl: ['', [Validators.required, Validators.minLength(4)]],
       emailFormControl: ['', [Validators.required, Validators.email]],
       addressFormControl: ['', [Validators.required, Validators.minLength(42)]],
       imageFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
-    })
+    });
 
-    this.sendFormulary.disable();
-
+    // this.sendFormulary.disable();
   }
 
   // CAPTCHA KEY
   siteKey: string = "6Ld68sscAAAAAOM01u-75ppTAjqJfrrmtaViKQq4";
+  
 
 
   initForm(): void {
@@ -217,9 +218,10 @@ sendFormulary: FormGroup;
   }
 
 
-  btnAddress(){
-    alert('hola');
-    console.log('hola');
+  btnTest(imageX){
+    this.sendFormulary.reset();
+    (<HTMLImageElement>document.querySelector("#imagex")).src = imageX;
+    this.captchaElem.resetCaptcha();
   }
 
 
@@ -228,8 +230,7 @@ sendFormulary: FormGroup;
   }
 
   
-  
-  
+
 
   ngOnDestroy() {
     this.unsubscribe.next();

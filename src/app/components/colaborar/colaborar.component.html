@@ -148,7 +148,7 @@
                  
                 </mat-form-field>
 
-                <button mat-flat-button color="accent" class="button-login" id="metamask_login" type="button" [disabled]="true">
+                <button mat-flat-button color="accent" class="button-login" id="metamask_login" type="button">
                   {{"Conectar" | translate}}
                 </button>
 
@@ -187,7 +187,7 @@
               <input type="file" class="d-none" (change)="onPhotoSelected($event)" formControlName="imageFormControl" #photoInput/>
                 
               <div class="image-content">
-                <img [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
+                <img id="imagex" [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
               </div>
 
               <div style="display: flex; align-items: center; justify-content: center; margin: 2rem 0;">
@@ -200,14 +200,17 @@
 
               
               <div class="button-formulary">
-                <button mat-flat-button color="accent" [disabled]="true" (click)="openDialogWithRef(registerSend)"> 
+                <button mat-flat-button color="accent" [disabled]="sendFormulary.invalid" (click)="openDialogWithRef(registerSend)" (click)="btnTest(imageX)"> 
                   {{"Enviar" | translate}}
                 </button>
               </div>
 
               <ng-template #registerSend>
+                <div class="popup-width-image">
+                  <img src="../../../assets/images/popup-firu-2.png">
+                </div>
                 <p matDialogContent class="alert-text">
-                  {{"Gracias por su colaboración, recibira un email de confirmación, revise su bandeja de entrada de lo contrario su bandeja 'spam'." | translate}}
+                  {{"Gracias por su colaboración, recibira un email de confirmación." | translate}} <br>{{"Revise su bandeja de entrada de lo contrario su bandeja 'spam'." | translate}}
                 </p>
       
                 <mat-dialog-actions align="end">
