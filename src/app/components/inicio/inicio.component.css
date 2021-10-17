@@ -28,9 +28,6 @@
   width: 100%;
 }
 
-.fls{
-  width: 100%;
-}
 
 #background-section {
   width: 100%;
@@ -813,20 +810,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.image-wallet a{
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* border: 1px solid green; */
 }
 
 
 .instruction-card-images img{
   max-width: 60%;
+  /* border: solid 1px red; */
 }
+
+.instruction-card-images a{
+  /* border: 1px solid orange; */
+  max-width: 60%;
+}
+
+
+.image-wallet a{
+  /* border: 1px solid black; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+
+
+/* .image-wallet img{
+  width: 100%;
+} */
 
 .instruction-card-number div{
   width: 2rem;

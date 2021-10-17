@@ -515,7 +515,7 @@
 
     .instruction-collection{
         width: 100%;
-        margin-bottom: 8rem;
+        margin-bottom: 15rem;
     }
 
     .document-section-content{
@@ -869,6 +869,16 @@
         width: 8px;
     }
 
+
+    .instruction-card-images img{
+        max-width: 100%;
+    }
+
+
+    .instruction-card-images a{
+        max-width: 100%;
+      }
+
     .roadmap-title p {
         font-size: 10px;
     }
@@ -912,22 +922,34 @@
         width: 85%;
     }
 
+    .content-graphics{
+        flex-direction: column;
+    }
+
+    .graphic-item{
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+
+
 
     .graphic-item img {
-        width: 3.2rem;
-        margin-right: .2rem;
-    }
+        width: 6rem;
+        margin-right: .5rem;
+      }
 
-    .graphic-item h1 {
+      .graphic-item h1 {
+        font-size: 25px;
+      }
+
+      .graphic-item p {
         font-size: 15px;
-        margin: 0;
-        line-height: 18px;
-    }
+      }
 
-    .graphic-item p {
-        font-size: 9px;
-        line-height: 20px;
-    }
+
+
 
     .footer-facebook{
         width: 100%;
@@ -1030,10 +1052,7 @@
         width: 98%;
         margin-bottom: 2rem;
     }
-    .graphic-item img {
-        width: 3rem;
-        margin-right: .2rem;
-    }
+    
 
 
     .column-text{
@@ -1089,20 +1108,51 @@
 
 
 @media (min-width: 1px) and (max-width: 450px){
-    .content-graphics{
-        flex-direction: column;
-    }
-
-    .graphic-item{
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
 
     .image-content{
         width: 98%;
         
     }
+
+    .buttons-card {
+        width: 95%;
+        padding: 1rem 0;
+    }
+
+    .content-buttons{
+        width: 100%;
+    }
+
+    .content-buttons div {
+        margin: 0;
+      }
+
+
+      .graphic-item img {
+        width: 5rem;
+        margin-right: .5rem;
+    }
+
+    .graphic-item h1 {
+        font-size: 18px;
+      }
+
+      .graphic-item p {
+        font-size: 12px;
+      }
+
+
+      .section-content-cards mat-card {
+        width: 95%;
+        margin: 0 auto 2rem auto;
+        padding: 2rem;
+        border-radius: 3rem;
+    }
+
+    .instruction-card-title{
+        padding: 0 .2rem;
+        height: 14rem;
+      }
 }
 
 @media (min-height: 1px) and (max-height: 790px){
