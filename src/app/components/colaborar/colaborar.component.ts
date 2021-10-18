@@ -70,8 +70,15 @@ sendFormulary: FormGroup;
 
 imageX = 'assets/no-image-2.png';
 
-@ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
+
+@ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
+  
+
+
+emailPattern = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+
+numOpPattern = /^\d*$/;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog, private sendFormBuilder: FormBuilder) {
 
@@ -91,9 +98,11 @@ imageX = 'assets/no-image-2.png';
 
 
     // SEND FORM
+
+
     this.sendFormulary = this.sendFormBuilder.group({
-      opFormControl: ['', [Validators.required, Validators.minLength(4)]],
-      emailFormControl: ['', [Validators.required, Validators.email]],
+      opFormControl: ['', [Validators.required, Validators.pattern(this.numOpPattern)]],
+      emailFormControl: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       addressFormControl: ['', [Validators.required, Validators.minLength(42)]],
       imageFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
@@ -103,7 +112,7 @@ imageX = 'assets/no-image-2.png';
   }
 
   // CAPTCHA KEY
-  siteKey: string = "6Ld68sscAAAAAOM01u-75ppTAjqJfrrmtaViKQq4";
+  siteKey: string = "6Lcc8dscAAAAAHLqRIyxw4EhHhbPw-pZatfzKZir";
   
 
 
@@ -211,25 +220,28 @@ imageX = 'assets/no-image-2.png';
       .subscribe(
         res => {
           console.log(res);
+          this.sendFormulary.reset();
+          (<HTMLImageElement>document.querySelector("#imagex")).src = this.imageX;
+          this.captchaElem.resetCaptcha();
         },
         err => console.log(err)
       );
     return false;
+
+    
   }
 
 
-  btnTest(imageX){
-    this.sendFormulary.reset();
-    (<HTMLImageElement>document.querySelector("#imagex")).src = imageX;
-    this.captchaElem.resetCaptcha();
-  }
+  // btnClean(imageX){
+  //   this.sendFormulary.reset();
+  //   (<HTMLImageElement>document.querySelector("#imagex")).src = imageX;
+  //   this.captchaElem.resetCaptcha();
+  // }
 
 
   openDialogWithRef(ref: TemplateRef<any>) {
     this.dialog.open(ref);
   }
-
-  
 
 
   ngOnDestroy() {

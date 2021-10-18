@@ -1,7 +1,4 @@
-<div class="banner-firulaix">
-    <img src="../assets/firu-banner.jpg" alt="" />
-</div>
-
+<div style="height: 1rem;"></div>
 <div class="contenido-main-white">
     <div class="main-text">
         <p>{{"Contribución" | translate}}</p>
@@ -41,6 +38,7 @@
                               <mat-form-field>
                                 <input
                                   type="number"
+                                  onkeydown="return event.keyCode !== 69"
                                   matInput
                                   formControlName="valorIngresado"
                                   autocomplete="off"
@@ -108,7 +106,7 @@
             <form (submit)="uploadRegister(op, address, email)" [formGroup]="sendFormulary">
               <div class="form-register-camp">
                 <mat-form-field>
-                  <input autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" formControlName="opFormControl" #op/>
+                  <input type="number" onkeydown="return event.keyCode !== 69" autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" formControlName="opFormControl" #op/>
                   
                   <mat-error *ngIf="sendFormulary.get('opFormControl').invalid && sendFormulary.get('opFormControl').value != 0">
                     {{"Debe ingresar un número de operación válido" | translate}}
@@ -200,7 +198,7 @@
 
               
               <div class="button-formulary">
-                <button mat-flat-button color="accent" [disabled]="sendFormulary.invalid" (click)="openDialogWithRef(registerSend)" (click)="btnTest(imageX)"> 
+                <button mat-flat-button color="accent" [disabled]="sendFormulary.invalid" (click)="openDialogWithRef(registerSend)"> 
                   {{"Enviar" | translate}}
                 </button>
               </div>

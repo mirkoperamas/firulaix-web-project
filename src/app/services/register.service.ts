@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
 
-   URI = 'http://192.168.0.21:5500/api/knox'
+   URI = 'https://knoxapi.ml/api/knox'
 
   constructor(private http: HttpClient) { }
 
