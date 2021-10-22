@@ -22,6 +22,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import{ LoadScriptsService } from './services/load-scripts.service';
@@ -41,6 +42,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 
 
@@ -86,7 +88,8 @@ export function HttpLoaderFactory(http: HttpClient){
     MatExpansionModule,
     ClipboardModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTooltipModule
   ],
   providers: [LoadScriptsService, UploadService],
   bootstrap: [AppComponent]

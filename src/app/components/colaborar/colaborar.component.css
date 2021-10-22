@@ -19,22 +19,30 @@
   }
 
 
-  .form-calc-accounts{
-    margin: 4rem auto 4rem auto;
+  .form-text-information{
     width: 85%;
+    margin: 0 auto;
   }
 
-  .form-calc-accounts p{
-    font-size: 15px;
-    line-height: 20px;
+  .form-text-information div{
+    margin-bottom: 3rem;
+  }
+
+  .form-text-information p{
+    font-size: 18px;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .form-text-information span{
     color: #ffa500;
+    font-weight: bold;
+    font-style: normal;
   }
 
-  .form-calc-accounts hr{
-    margin-bottom: 1.5rem;
+  .form-text-information hr{
+    margin: 0 0 1rem 0;
   }
-
-
 
 
 .card-design{
@@ -107,16 +115,21 @@
 
 
 
-.select-style{
-  width: 10rem;
+.yellow-border-button{
   border: 1px solid #ffbd25;
   border-radius: 15px;
   text-align: center;
-  padding: 2rem .5rem;
-  margin-left: 2rem;
+  /* margin-left: 1rem; */
   -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
+  background-color: transparent;
+}
+
+.select-style{
+  padding: 2rem .5rem; 
+  width: 10rem;
+  margin-right: 1rem;
 }
 
 
@@ -133,12 +146,11 @@ input[type=number] {
 
 
 
-.image-text{
-  color: #00000094;
-  text-align: center;
+.text-help{
+  color: rgba(0, 0, 0, 0.63);
   font-style: italic;
   font-size: 15px;
-  margin: 1.5rem 0;
+  text-align: center;
 }
 
 .image-content{
@@ -164,11 +176,12 @@ input[type=number] {
   -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-  padding: 1rem .5rem 1rem 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: #f9f9f9;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .form-register-camp mat-form-field{
@@ -188,7 +201,7 @@ input[type=number] {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: .5rem;
+  /* margin-left: .5rem; */
   color: white;
   background-color: #ffd140;
   border-radius: 50%;
@@ -196,6 +209,9 @@ input[type=number] {
   -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
   cursor: pointer;
+  position: absolute;
+  left: 97%;
+  top: 0%;
 }
 
 .fa-info{
@@ -230,13 +246,29 @@ input[type=number] {
 }
 
 .button-login{
-  color: red;
+  color: #ff0000b0;
   text-transform: uppercase;
   font-size: 12px;
+  padding: .5rem 1rem;
+  margin-left: .5rem;
 }
 
 .conected{
-  color: green;
+  color: #008f39b0;
+}
+
+
+.paste-address{
+  display: none;
+}
+
+.address-conected{
+  display: block;
+  color: #008f39b0;
+}
+
+.text-help-conected{
+  color: #008f39b0;
 }
 
 .no-wallet{

@@ -49,7 +49,8 @@ async function getAccount() {
 
 
     $('#metamask_login').text('Conectado').addClass('conected');
-    $('#token').text(accounts[0]);
+    $('#token').text(accounts[0]).addClass('text-help-conected');
+    $('.paste-address').addClass('address-conected');
     // $('#ulala').val(accounts[0]);
     // $('#ulala').attr("value","OTRO TEXTO")
 

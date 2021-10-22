@@ -9,10 +9,18 @@
       <div class="form-column">
             <div class="form-text">
                 <p>{{"Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras siguientes cuentas del banco:" | translate}}</p>
-                <div class="form-calc-accounts">
-                    <p>BBVA:</p><hr>
-                    <p>CCI:</p><hr>
-                    <p>SWIFT:</p><hr>
+                <div class="form-text-information" style="margin: 4rem auto 4rem auto;">
+                    <div>
+                      <p><span> BCP NRO. CTA SOLES: </span>193-05291854-0-06</p><hr>
+                      <p><span> BCP NRO. CCI SOLES: </span>00219310529185400613</p><hr>
+                    </div>
+                    <div>
+                      <p><span> BCP NRO. CTA {{"DOLARES" | translate}}: </span>193-05291860-1-12</p><hr>
+                      <p><span> BCP NRO. CCI {{"DOLARES" | translate}}: </span>00219310529186011211</p><hr>
+                    </div>
+                    <div>
+                      <p><span>SWIFT: </span>BCPLPEPL</p><hr>
+                    </div>
                 </div>
             </div>
 
@@ -33,8 +41,15 @@
                     (submit)="submit()"
                   >
                       <div class="calc-graphic-camp">
-                          <p>{{"De:" | translate}}</p>
-                          <div class="camp-from">
+                        <p>{{"De:" | translate}}</p>
+                        <div class="camp-from">
+                            <div class="yellow-border-button select-style">
+                              <mat-select formControlName="tipoMoneda">
+                                <mat-option value="soles">S/ Soles</mat-option>
+                                <mat-option value="dolares">$ {{"Dolares" | translate}}</mat-option>
+                              </mat-select>
+                            </div>
+
                               <mat-form-field>
                                 <input
                                   type="number"
@@ -45,12 +60,6 @@
                                 />
                               </mat-form-field>
     
-                            <div class="select-style">
-                              <mat-select formControlName="tipoMoneda">
-                                <mat-option value="soles">S/ Soles</mat-option>
-                                <mat-option value="dolares">$ {{"Dolares" | translate}}</mat-option>
-                              </mat-select>
-                            </div>
                           </div>
                       </div>
     
@@ -67,7 +76,16 @@
                     </form>
                   </mat-card-content>
                 </mat-card>
+            </div>
+
+            <div class="form-text" style="margin-top: 3rem;">
+              <p>{{"Horarios de atención:" | translate}}</p>
+              <div class="form-text-information">
+                  <p>{{"Lunes a Viernes" | translate}} - 9:00hrs a 18:00hrs</p>
+                  <p>{{"Sábados" | translate}} - 9:00hrs a 13:00hrs</p>
+                  <p style="margin-top: 1.5rem">* {{"Cualquier colaboración fuera de los horarios establecidos, serán atendidos al siguiente día. Si es fin de semana o feriado, se atenderá el día hábil más próximo." | translate}}</p>
               </div>
+          </div>
       </div>
 
 
@@ -146,7 +164,7 @@
                  
                 </mat-form-field>
 
-                <button mat-flat-button color="accent" class="button-login" id="metamask_login" type="button">
+                <button class="button-login yellow-border-button" id="metamask_login" type="button">
                   {{"Conectar" | translate}}
                 </button>
 
@@ -162,11 +180,14 @@
                   <mat-dialog-actions align="end">
                     <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
                   </mat-dialog-actions>
-              </ng-template>
+                </ng-template>
+              </div>
+ 
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <p id="token" class="text-help" style="margin: 0">{{"Conéctate para ver tu address aquí" | translate}}</p>
+                <button type="button" (click)="pasteAddress()" class="paste-address yellow-border-button" matTooltip="¿Deseas recibir tus FIRU's en esta dirección?"><i class="fas fa-paste"></i></button>
               </div>
 
-
-              <p id="token" class="image-text">{{"Conéctate para ver tu address aquí" | translate}}</p>
 
               <div class="form-register-camp">
                 <mat-form-field>
@@ -179,10 +200,28 @@
                     {{"Este campo es requerido" | translate}}
                   </mat-error>
                 </mat-form-field>
+
+                <div class="button-help" (click)="openDialogWithRef(infoEmail)">
+                  <i class="fas fa-info"></i>
+                </div>
+
+                <ng-template #infoEmail>
+                  <p matDialogContent class="alert-text">
+                    {{"Digite un email válido para enviarle la información de la transacción de sus FIRU's" | translate}}
+                  </p>
+        
+                  <mat-dialog-actions align="end">
+                    <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
+                  </mat-dialog-actions>
+                </ng-template>
               </div>
 
-              <p class="image-text">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
-              <input type="file" class="d-none" (change)="onPhotoSelected($event)" formControlName="imageFormControl" #photoInput/>
+              <div style="margin: 1.5rem 0;">
+                <p class="text-help">{{"Click dentro del recuadro para cargar una foto de tu voucher de pago" | translate}}</p>
+              </div>
+
+              <input type="file" class="d-none" (change)="onPhotoSelected($event)" accept="image/*" formControlName="imageFormControl" #photoInput/>
+
                 
               <div class="image-content">
                 <img id="imagex" [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">

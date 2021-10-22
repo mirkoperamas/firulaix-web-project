@@ -1,18 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 import { HttpClient } from '@angular/common/http';
 
 import { takeUntil } from 'rxjs/operators';
 
-import {RegisterService} from '../../services/register.service';
+import { RegisterService } from '../../services/register.service';
 
 import { MatDialog } from '@angular/material/dialog';
 
 import { TemplateRef } from '@angular/core';
 import { ReCaptcha2Component } from 'ngx-captcha';
+
+
+
 
 
  
@@ -27,60 +30,41 @@ interface HtmlInputEvent extends Event{
   styleUrls: ['./colaborar.component.css','../general-style-components.css']
 })
 export class ColaborarComponent implements OnInit {
-
-convertorForm!: FormGroup;
-
-unsubscribe: Subject<void>;
-
-
-ventaSunat!: number;
-
-valorActualFiru!: number;
-
-
-photoSelected: string | ArrayBuffer;
-
-file: File;
-
-
-// sendForm: FormGroup = new FormGroup({
   
-//   opFormControl: new FormControl('',[
-//     Validators.required,
-//     Validators.minLength(4)
-//   ]),
-//   emailFormControl: new FormControl('', [
-//     Validators.required,
-//     Validators.email
-//   ]),
-//   addressFormControl: new FormControl('', [
-//     Validators.required,
-//     Validators.minLength(42)
-//   ]),
-//   imageFormControl: new FormControl('', [
-//     Validators.required
-//   ]),
-//   recaptchaFormControl: new FormControl('',[
-//     Validators.required
-//   ])
-// });
 
-
-sendFormulary: FormGroup;
-
+  convertorForm!: FormGroup;
+  
+  unsubscribe: Subject<void>;
+  
+  
+  ventaSunat!: number;
+  
+  valorActualFiru!: number;
+  
+  
+  photoSelected: string | ArrayBuffer;
+  
+  file: File;
+  
+  sendFormulary: FormGroup;
+  
+  filePreview: String
+  
 imageX = 'assets/no-image-2.png';
 
 
 
 @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
-  
+
 
 
 emailPattern = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
 numOpPattern = /^\d*$/;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private registerService: RegisterService, private router: Router, private dialog: MatDialog, private sendFormBuilder: FormBuilder) {
+
+
+  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private registerService: RegisterService, private sendFormBuilder: FormBuilder) {
 
     this.unsubscribe = new Subject();
     this.initForm();
@@ -109,15 +93,21 @@ numOpPattern = /^\d*$/;
     });
 
     // this.sendFormulary.disable();
+
   }
 
+
+
   // CAPTCHA KEY
+  
   siteKey: string = "6Lcc8dscAAAAAHLqRIyxw4EhHhbPw-pZatfzKZir";
   
 
 
+
+
   initForm(): void {
-    this.convertorForm = this.formBuilder.group({
+    this.convertorForm = this.calcformBuilder.group({
       valorIngresado: ['', [Validators.required]],
       tipoMoneda: ['', [Validators.required]],
       resultado: ['', [Validators.required]],
@@ -186,13 +176,13 @@ numOpPattern = /^\d*$/;
 
         },
         {
-          emitEvent: false,
+          emitEvent: false
         }
       );
     });
   }
 
-   getSunat(): Observable<any> {
+  getSunat(): Observable<any> {
     const url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat';
     return this.http.get<object>(url);
   }
@@ -243,10 +233,27 @@ numOpPattern = /^\d*$/;
     this.dialog.open(ref);
   }
 
+  pasteAddress(){
+    let addressUser : string = document.getElementById('token').innerHTML;
+    // console.log(unit)
+
+    this.sendFormulary.patchValue(
+      {
+        addressFormControl: addressUser
+      },
+      {
+        emitEvent: false
+      }
+    );
+
+  }
+
+
 
   ngOnDestroy() {
     this.unsubscribe.next();
     this.unsubscribe.complete();
   }
+  
 
 }
