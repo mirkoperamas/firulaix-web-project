@@ -1,8 +1,8 @@
 <div class="contenido-main-white">
     <div class="main-text" style="margin-bottom: 3rem;">
-        <h1>Calculo maestro de FIRU's</h1>
+        <h1>Master Firu</h1>
     </div>
-    <div class="form-column">
+    <div class="form-column master-calc">
         <div class="form-calc-graphic">
             <mat-card id="calculator" class="card-design">
               <mat-card-header>
@@ -14,29 +14,26 @@
                 </mat-card-subtitle>
               </mat-card-header>
               <hr />
-              <div style="display: flex; justify-content: space-between;">
-                <div style="background-color: #f9f9f9; display: flex; padding: 1rem; border-radius: 15px;">
-                    <div class="coin-indicator" style="margin-right: 1rem;">
-                        <div style="display: flex;">
-                            <p style="margin: 0 1rem 0 0;"><span>{{valorActualImp}} </span> BUSD per FIRU</p> 
+              <div class="calc-graphic-info_content">
+                <div class="calc-graphic-info">
+                    <div class="graphic-info-coin" style="width: 100%;">
+                        <div>
+                            <p>BUSD per FIRU: <span>{{valorActualImp}}</span></p> 
                         </div>
-                        <hr style="margin: 0;"/>
-                    </div>
-                    <div>
-                        <button type="button" class="yellow-border-button">Enviar</button>
                     </div>
                 </div>
 
-                <div style="background-color: #f9f9f9; display: flex; padding: 1rem; border-radius: 15px;">
-                    <div class="coin-indicator" style="margin-right: 1rem;">
-                        <div style="display: flex;">
-                            <p style="margin: 0 1rem 0 0;">Compra: <span>{{compraImp}}</span></p> 
-                            <p style="margin: 0;"> Venta: <span>{{ventaImp}}</span></p> 
+                <div class="calc-graphic-info calc-coin">
+                    <div class="graphic-info-coin">
+                        <div>
+                            <p>Compra: <span>{{compraImp}}</span></p> 
                         </div>
-                        <hr style="margin: 0;"/>
+                        <div>
+                          <p>Venta: <span>{{ventaImp}}</span></p> 
+                        </div>
                     </div>
                     <div>
-                        <button type="button" class="yellow-border-button">Enviar</button>
+                        <button type="button" class="yellow-border-button coin-send-button">Enviar</button>
                     </div>
                 </div>
               </div>

@@ -19,10 +19,12 @@ export class AdminManagementCalculatorComponent implements OnInit {
   compraImp!: string;
   ventaImp!: string;
 
-  valorActualImp!: number;
+  valorActualImp!: string;
 
 
   valorActualFiru!: number;
+
+  valorActualPriceFiru!: number;
 
 
   constructor(private http: HttpClient, private calcformBuilder: FormBuilder) { 
@@ -101,9 +103,10 @@ export class AdminManagementCalculatorComponent implements OnInit {
   resultFiru(value?: string) {
     this.getFiru(value).subscribe((valor) => {
       this.valorActualFiru = valor.orders[1].makerAmount;
+      this.valorActualPriceFiru = valor.price;
       console.log(this.valorActualFiru);
 
-      this.valorActualImp = (this.valorActualFiru / 100000000)*1.06;
+      this.valorActualImp = (1 / this.valorActualPriceFiru).toFixed(5);
 
       this.convertorForm.patchValue(
         {

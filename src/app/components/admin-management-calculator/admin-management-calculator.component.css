@@ -75,25 +75,43 @@
   }
   
 
-  .coin-indicator{
+  .graphic-info-coin{
+    width: 75%;
+    height: 4rem;
     background-color: #cccccc;
     border-radius: 10px;
-    padding: .2rem 1rem;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 .5rem;
   }
 
-  .coin-indicator span{
+  .graphic-info-coin p, .graphic-info-coin span{
+    margin: 0;
+  }
+
+  .graphic-info-coin span{
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     /* font-weight: bold; */
     color: red;
     font-size: 20px;
   }
 
-  
-  .calc-graphic-camp input{
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-    font-size: 40px;
-    color: #fff;
-    text-align: center;
+  .calc-graphic-info_content{
+    display: flex; 
+    justify-content: space-between;
+  }
+
+  .calc-graphic-info{
+    background-color: #f9f9f9; 
+    display: flex; 
+    padding: 1rem; 
+    border-radius: 15px; 
+    width: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
 
@@ -121,6 +139,11 @@
     margin-right: 1rem;
   }
 
+  .coin-send-button{
+    height: 4rem;
+    margin-left: 1.2rem;
+  }
+
   
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -133,5 +156,3 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-
-  

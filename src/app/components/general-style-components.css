@@ -375,6 +375,11 @@
         padding: 0;
         padding-right: .5rem;
     }
+
+    
+    .master-calc{
+        width: 85%;
+    }
 }
 
 
@@ -385,9 +390,9 @@
     }
 
     .form-column{
-        width: 48%;
         padding: 0 .5rem;
     }
+
 
     .select-style{
         margin-left: .5rem;
@@ -586,9 +591,6 @@
         margin: 0 auto;
     }
 
-    .footer-information div{
-        /* border: 1px solid red; */
-    }
 
 
     .banner-image-content{
@@ -619,6 +621,22 @@
     .column-text mat-list-item{
         font-size: 14px;
     }
+    
+    .calc-graphic-info{
+        width: 49%;
+    }
+
+    .graphic-info-coin p{
+        font-size: 12px;
+    }
+
+    .graphic-info-coin span{
+        font-size: 15px;
+    }
+
+    .coin-send-button{
+        margin-left: .5rem;
+      }
 }
 
 
@@ -805,6 +823,21 @@
     .roadmap-title span {
         font-size: 9px;
     }
+    
+    .calc-graphic-info_content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .calc-graphic-info{
+        width: 80%;
+    }
+
+    .calc-coin{
+        margin-top: 1.5rem;
+    }
+
 }
 
 
@@ -1106,6 +1139,10 @@
     .form-text-information p{
         font-size: 15px;
       }
+
+      .calc-graphic-info{
+        width: 95%;
+    }
 }
 
 @media (min-height: 1px) and (max-height: 790px){
