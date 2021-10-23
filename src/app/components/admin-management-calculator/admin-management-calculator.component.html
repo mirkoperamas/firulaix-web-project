@@ -1,0 +1,90 @@
+<div class="contenido-main-white">
+    <div class="main-text" style="margin-bottom: 3rem;">
+        <h1>Calculo maestro de FIRU's</h1>
+    </div>
+    <div class="form-column">
+        <div class="form-calc-graphic">
+            <mat-card id="calculator" class="card-design">
+              <mat-card-header>
+                <mat-card-title>
+                  <p>{{"Calculadora firulaix" | translate}}</p>
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <p>{{"Equivalencia en firu's" | translate}}</p>
+                </mat-card-subtitle>
+              </mat-card-header>
+              <hr />
+              <div style="display: flex; justify-content: space-between;">
+                <div style="background-color: #f9f9f9; display: flex; padding: 1rem; border-radius: 15px;">
+                    <div class="coin-indicator" style="margin-right: 1rem;">
+                        <div style="display: flex;">
+                            <p style="margin: 0 1rem 0 0;"><span>{{valorActualImp}} </span> BUSD per FIRU</p> 
+                        </div>
+                        <hr style="margin: 0;"/>
+                    </div>
+                    <div>
+                        <button type="button" class="yellow-border-button">Enviar</button>
+                    </div>
+                </div>
+
+                <div style="background-color: #f9f9f9; display: flex; padding: 1rem; border-radius: 15px;">
+                    <div class="coin-indicator" style="margin-right: 1rem;">
+                        <div style="display: flex;">
+                            <p style="margin: 0 1rem 0 0;">Compra: <span>{{compraImp}}</span></p> 
+                            <p style="margin: 0;"> Venta: <span>{{ventaImp}}</span></p> 
+                        </div>
+                        <hr style="margin: 0;"/>
+                    </div>
+                    <div>
+                        <button type="button" class="yellow-border-button">Enviar</button>
+                    </div>
+                </div>
+              </div>
+              <mat-card-content>
+                <form
+                [formGroup]="convertorForm"
+                (submit)="submit()"
+              >
+                  <div class="calc-graphic-camp">
+                    <p>{{"De:" | translate}}</p>
+                    <div class="camp-from">
+                        <div class="yellow-border-button select-style">
+                          <mat-select formControlName="tipoMoneda">
+                            <mat-option value="soles">S/ Soles</mat-option>
+                            <mat-option value="dolares">$ {{"Dolares" | translate}}</mat-option>
+                          </mat-select>
+                        </div>
+        
+                          <mat-form-field>
+                            <input
+                              type="number"
+                              onkeydown="return event.keyCode !== 69"
+                              matInput
+                              formControlName="valorIngresado"
+                              autocomplete="off"
+                            />
+                          </mat-form-field>
+        
+                      </div>
+                  </div>
+        
+                  <div class="calc-graphic-camp">
+                      <p>{{"Para:" | translate}}</p>
+                      <mat-form-field>
+                        <input
+                          type="number"
+                          matInput
+                          formControlName="resultado"
+                        />
+                      </mat-form-field>
+                  </div>
+
+                  <div>
+
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

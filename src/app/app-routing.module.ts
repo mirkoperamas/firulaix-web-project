@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
+import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 
 import { AdquiereComponent } from './components/adquiere/adquiere.component' ;
 import { ColaborarComponent } from './components/colaborar/colaborar.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+    path: 'admin-management-calculator',
+    component: AdminManagementCalculatorComponent
   }
 
 ];

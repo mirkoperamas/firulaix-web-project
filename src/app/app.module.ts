@@ -42,6 +42,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 
 
 
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ColaborarComponent,
     AdquiereComponent,
     InicioComponent,
-    FooterComponent
+    FooterComponent,
+    AdminManagementCalculatorComponent
   ],
   imports: [
     BrowserModule,
