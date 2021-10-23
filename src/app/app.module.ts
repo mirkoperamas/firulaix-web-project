@@ -27,7 +27,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import{ LoadScriptsService } from './services/load-scripts.service';
 
-import { UploadService } from './services/upload.service';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ColaborarComponent } from './components/colaborar/colaborar.component';
 import { AdquiereComponent } from './components/adquiere/adquiere.component';
@@ -93,7 +92,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatSlideToggleModule,
     MatTooltipModule
   ],
-  providers: [LoadScriptsService, UploadService],
+  providers: [LoadScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

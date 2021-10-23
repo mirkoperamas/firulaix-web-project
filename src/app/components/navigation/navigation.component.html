@@ -28,21 +28,8 @@
             <a class="nav-link" routerLink="/adquiere" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{"Adquirir" | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/colaborar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="openDialogWithRef(colaboraFiat)">{{"Colaboración" | translate }}</a>
+            <a class="nav-link" routerLink="/colaborar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{"Colaboración" | translate }}</a>
           </li>
-
-          <ng-template #colaboraFiat>
-            <div class="popup-width-image">
-              <img src="../../../assets/images/popup-firu-1.png">
-            </div>
-            <p matDialogContent class="alert-text">
-              {{"Falta poco para que puedan adquirir sus Firu's con Fiat." | translate}}
-            </p>
-            
-            <mat-dialog-actions align="end">
-              <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
-            </mat-dialog-actions>
-          </ng-template>
         </ul>
       </div>
     </div>

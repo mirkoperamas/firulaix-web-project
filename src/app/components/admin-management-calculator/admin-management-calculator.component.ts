@@ -125,6 +125,7 @@ export class AdminManagementCalculatorComponent implements OnInit {
     return this.http.get<object>(url);
   }
 
+
   resultSunat() {
       this.getSunat().subscribe((valor) => {
         this.compraSunat = valor.compra;
