@@ -25,12 +25,16 @@
 
                 <div class="calc-graphic-info calc-coin">
                     <div class="graphic-info-coin">
+                      <form (submit)="uploadCoin(compra, venta)">
                         <div>
-                            <p>Compra: <span>{{compraImp}}</span></p> 
+                            <!-- <p>Compra: <span #compra>{{compraImp}}</span></p>  -->
+                            <p>Compra: </p><input #compra />{{compraImp}} 
                         </div>
                         <div>
-                          <p>Venta: <span>{{ventaImp}}</span></p> 
+                          <!-- <p>Venta: <span #venta>{{ventaImp}}</span></p>  -->
+                          <p>Venta: </p> <input #venta />{{ventaImp}}
                         </div>
+                      </form>
                     </div>
                     <div>
                         <button type="button" class="yellow-border-button coin-send-button">Enviar</button>

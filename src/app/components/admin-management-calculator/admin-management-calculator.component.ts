@@ -4,6 +4,8 @@ import { takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+import { CoinUpdateService } from '../../services/coin-update.service';
+
 @Component({
   selector: 'app-admin-management-calculator',
   templateUrl: './admin-management-calculator.component.html',
@@ -27,7 +29,7 @@ export class AdminManagementCalculatorComponent implements OnInit {
   valorActualPriceFiru!: number;
 
 
-  constructor(private http: HttpClient, private calcformBuilder: FormBuilder) { 
+  constructor(private http: HttpClient, private calcformBuilder: FormBuilder, private coinUpdateService: CoinUpdateService,) { 
     this.unsubscribe = new Subject();
     this.initForm();
   }
@@ -110,7 +112,7 @@ export class AdminManagementCalculatorComponent implements OnInit {
 
       this.convertorForm.patchValue(
         {
-          resultado: (this.valorActualFiru / 100000000)*1.06,
+          resultado: (this.valorActualFiru / 100000000),
 
         },
         {
@@ -131,9 +133,25 @@ export class AdminManagementCalculatorComponent implements OnInit {
         this.compraSunat = valor.compra;
         this.ventaSunat = valor.venta;
 
-        this.compraImp = (this.compraSunat * 1.008).toFixed(4);
-        this.ventaImp = (this.ventaSunat * 1.008).toFixed(4);
+        this.compraImp = (this.compraSunat * 1.009).toFixed(4);
+        this.ventaImp = (this.ventaSunat * 1.009).toFixed(4);
     });
+  }
+
+
+
+  uploadCoin(compra: HTMLInputElement, venta: HTMLInputElement) {
+    this.coinUpdateService
+      .createCoinUpdate(compra.value, venta.value)
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      );
+    return false;
+
+    
   }
 
 
