@@ -49,6 +49,7 @@ export class ColaborarComponent implements OnInit {
   
   valorActualFiru!: number;
   
+  valorTo: number;
   
   photoSelected: string | ArrayBuffer;
   
@@ -121,6 +122,15 @@ numOpPattern = /^\d*$/;
     this.coinUpdateService.putCoinUpdate(coinChange).subscribe(upcoin => console.log(upcoin));
   }
 
+  submit() {
+    console.warn(this.convertorForm.controls);
+  }
+
+  getSunat(): Observable<any> {
+    const url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat';
+    return this.http.get<object>(url);
+  }
+
 
 
   initForm(): void {
@@ -133,76 +143,8 @@ numOpPattern = /^\d*$/;
 
   }
 
-  submit() {
-    console.warn(this.convertorForm.controls);
-  }
+  
 
-  subscribeToForm(): void {
-    this.convertorForm.valueChanges
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe((controls) => {
-        if (controls?.valorIngresado && controls?.tipoMoneda) {
-          switch (controls?.tipoMoneda) {
-            case 'soles':
-              let tcSoles: any = this.ventaImpAPI;
-              let tcambioSoles: any = (
-                +controls.valorIngresado / +tcSoles
-              ).toFixed(4);
-
-              let variableSoles: any = (tcambioSoles * 10000).toFixed(0);
-
-              let resultSoles: any = variableSoles + '00000000000000';
-
-              this.resultFiru(resultSoles); //llamar al servicio
-
-              break;
-
-            case 'dolares':
-              let tcDolares: any = (+controls.valorIngresado ).toFixed(4);
-
-              let variableDolares: any = (tcDolares * 10000).toFixed(0);
-
-              let resultDolares: any = variableDolares + '00000000000000';
-
-              this.resultFiru(resultDolares); //llamando al servicio
-              break;
-
-            default:
-              break;
-          }
-        }
-      });
-  }
-
-  getFiru(value?: string): Observable<any> {
-    const url =
-      'https://bsc.api.0x.org/swap/v1/quote?sellToken=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&buyToken=0xE16d271322273a77BA5748DF4FD9209C4bEA541F&sellAmount=' +
-      value +'&excludedSources=BakerySwap';
-
-    return this.http.get<object>(url);
-  }
-
-  resultFiru(value?: string) {
-    this.getFiru(value).subscribe((valor) => {
-      this.valorActualFiru = valor.orders[1].makerAmount;
-      console.log(this.valorActualFiru);
-
-      this.convertorForm.patchValue(
-        {
-          resultado: (this.valorActualFiru / 100000000)
-
-        },
-        {
-          emitEvent: false
-        }
-      );
-    });
-  }
-
-  getSunat(): Observable<any> {
-    const url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat';
-    return this.http.get<object>(url);
-  }
 
   resultSunat() {
     this.getSunat().subscribe((valor) => {
@@ -213,6 +155,75 @@ numOpPattern = /^\d*$/;
       this.ventaImp = (this.ventaSunat * 1.009).toFixed(4);
   });
 }
+
+subscribeToForm(): void {
+  this.convertorForm.valueChanges
+    .pipe(takeUntil(this.unsubscribe))
+    .subscribe((controls) => {
+      if (controls?.valorIngresado && controls?.tipoMoneda) {
+        switch (controls?.tipoMoneda) {
+          case 'soles':
+            let tcSoles: any = this.ventaImpAPI;
+            let tcambioSoles: any = (
+              +controls.valorIngresado / +tcSoles
+            ).toFixed(4);
+
+            let variableSoles: any = (tcambioSoles * 10000).toFixed(0);
+
+            let resultSoles: any = variableSoles + '00000000000000';
+
+            this.resultFiru(resultSoles); //llamar al servicio
+
+            break;
+
+          case 'dolares':
+            let tcDolares: any = (+controls.valorIngresado ).toFixed(4);
+
+            let variableDolares: any = (tcDolares * 10000).toFixed(0);
+
+            let resultDolares: any = variableDolares + '00000000000000';
+
+            this.resultFiru(resultDolares); //llamando al servicio
+            break;
+
+          default:
+            break;
+        }
+      }
+    });
+}
+
+openDialogWithRef(ref: TemplateRef<any>) {
+  this.dialog.open(ref);
+}
+
+
+getFiru(value?: string): Observable<any> {
+  const url =
+    'https://bsc.api.0x.org/swap/v1/quote?sellToken=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&buyToken=0xE16d271322273a77BA5748DF4FD9209C4bEA541F&sellAmount=' +
+    value +'&excludedSources=BakerySwap';
+
+  return this.http.get<object>(url);
+}
+
+resultFiru(value?: string) {
+  this.getFiru(value).subscribe((valor) => {
+    this.valorActualFiru = valor.orders[1].makerAmount;
+    // console.log(this.valorActualFiru);
+
+    this.convertorForm.patchValue(
+      {
+        resultado: (this.valorActualFiru / 100000000)
+
+      },
+      {
+        emitEvent: false
+      }
+    );
+  });
+}
+
+
 
   onPhotoSelected(event): void {
     if (event.target.files && event.target.files[0]) {
@@ -244,9 +255,7 @@ numOpPattern = /^\d*$/;
 
 
 
-  openDialogWithRef(ref: TemplateRef<any>) {
-    this.dialog.open(ref);
-  }
+  
 
   pasteAddress(){
     let addressUser : string = document.getElementById('token').innerHTML;
