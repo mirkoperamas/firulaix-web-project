@@ -25,21 +25,18 @@
 
                 <div class="calc-graphic-info calc-coin">
                     <div class="graphic-info-coin">
-                      <form (submit)="uploadCoin(compra, venta)">
                         <div>
-                            <!-- <p>Compra: <span #compra>{{compraImp}}</span></p>  -->
-                            <p>Compra: </p><input #compra />{{compraImp}} 
+                            <p>Compra: <span #compra>{{compraImp}}</span></p> 
                         </div>
                         <div>
-                          <!-- <p>Venta: <span #venta>{{ventaImp}}</span></p>  -->
-                          <p>Venta: </p> <input #venta />{{ventaImp}}
+                          <p>Venta: <span #venta>{{ventaImp}}</span></p> 
                         </div>
-                      </form>
                     </div>
                     <div>
-                        <button type="button" class="yellow-border-button coin-send-button">Enviar</button>
+                        <button type="button" class="yellow-border-button coin-send-button" (click)="addNewCoin()">Enviar</button>
                     </div>
                 </div>
+                <!-- {{coinImpAPI | json}} -->
               </div>
               <mat-card-content>
                 <form

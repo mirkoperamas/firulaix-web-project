@@ -9,6 +9,8 @@ import { takeUntil } from 'rxjs/operators';
 
 import { RegisterService } from '../../services/register.service';
 
+import { CoinUpdateService } from '../../services/coin-update.service';
+
 import { MatDialog } from '@angular/material/dialog';
 
 import { TemplateRef } from '@angular/core';
@@ -37,7 +39,13 @@ export class ColaborarComponent implements OnInit {
   unsubscribe: Subject<void>;
   
   
+  compraSunat!: number;
   ventaSunat!: number;
+  compraImp!: string;
+  ventaImp!: string;
+  coinImpAPI: string;
+  compraImpAPI: string;
+  ventaImpAPI: string;
   
   valorActualFiru!: number;
   
@@ -64,7 +72,7 @@ numOpPattern = /^\d*$/;
 
 
 
-  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private registerService: RegisterService, private sendFormBuilder: FormBuilder) {
+  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private registerService: RegisterService, private sendFormBuilder: FormBuilder, private coinUpdateService: CoinUpdateService) {
 
     this.unsubscribe = new Subject();
     this.initForm();
@@ -79,6 +87,10 @@ numOpPattern = /^\d*$/;
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.resultSunat();
 
+
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.coinImpAPI = coinres.data[coinres.data.length-1]);
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.compraImpAPI = coinres.data[coinres.data.length-1].compra);
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.ventaImpAPI = coinres.data[coinres.data.length-1].venta);
 
 
     // SEND FORM
@@ -104,6 +116,11 @@ numOpPattern = /^\d*$/;
   
 
 
+  addNewCoin(): void{
+    const coinChange = {compra: this.compraImp, venta: this.ventaImp};
+    this.coinUpdateService.putCoinUpdate(coinChange).subscribe(upcoin => console.log(upcoin));
+  }
+
 
 
   initForm(): void {
@@ -127,7 +144,7 @@ numOpPattern = /^\d*$/;
         if (controls?.valorIngresado && controls?.tipoMoneda) {
           switch (controls?.tipoMoneda) {
             case 'soles':
-              let tcSoles: any = (this.ventaSunat * 1.008).toFixed(4);
+              let tcSoles: any = this.ventaImpAPI;
               let tcambioSoles: any = (
                 +controls.valorIngresado / +tcSoles
               ).toFixed(4);
@@ -172,7 +189,7 @@ numOpPattern = /^\d*$/;
 
       this.convertorForm.patchValue(
         {
-          resultado: (this.valorActualFiru / 100000000)*1.06
+          resultado: (this.valorActualFiru / 100000000)
 
         },
         {
@@ -188,10 +205,14 @@ numOpPattern = /^\d*$/;
   }
 
   resultSunat() {
-      this.getSunat().subscribe((valor) => {
-        this.ventaSunat = valor.venta;
-    });
-  }
+    this.getSunat().subscribe((valor) => {
+      this.compraSunat = valor.compra;
+      this.ventaSunat = valor.venta;
+
+      this.compraImp = (this.compraSunat * 1.009).toFixed(4);
+      this.ventaImp = (this.ventaSunat * 1.009).toFixed(4);
+  });
+}
 
   onPhotoSelected(event): void {
     if (event.target.files && event.target.files[0]) {
@@ -222,12 +243,6 @@ numOpPattern = /^\d*$/;
   }
 
 
-  // btnClean(imageX){
-  //   this.sendFormulary.reset();
-  //   (<HTMLImageElement>document.querySelector("#imagex")).src = imageX;
-  //   this.captchaElem.resetCaptcha();
-  // }
-
 
   openDialogWithRef(ref: TemplateRef<any>) {
     this.dialog.open(ref);
@@ -235,7 +250,6 @@ numOpPattern = /^\d*$/;
 
   pasteAddress(){
     let addressUser : string = document.getElementById('token').innerHTML;
-    // console.log(unit)
 
     this.sendFormulary.patchValue(
       {

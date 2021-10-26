@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
+import { last, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,6 +20,9 @@ export class AdminManagementCalculatorComponent implements OnInit {
   ventaSunat!: number;
   compraImp!: string;
   ventaImp!: string;
+  coinImpAPI: string;
+  compraImpAPI: string;
+  ventaImpAPI: string;
 
   valorActualImp!: string;
 
@@ -27,11 +30,14 @@ export class AdminManagementCalculatorComponent implements OnInit {
   valorActualFiru!: number;
 
   valorActualPriceFiru!: number;
+  
 
+  abc: string;
 
   constructor(private http: HttpClient, private calcformBuilder: FormBuilder, private coinUpdateService: CoinUpdateService,) { 
     this.unsubscribe = new Subject();
     this.initForm();
+
   }
 
   ngOnInit(): void {
@@ -40,7 +46,13 @@ export class AdminManagementCalculatorComponent implements OnInit {
     this.convertorForm.controls.resultado.disable();
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.resultSunat();
+
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.coinImpAPI = coinres.data[coinres.data.length-1]);
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.compraImpAPI = coinres.data[coinres.data.length-1].compra);
+    this.coinUpdateService.getCoinUpdate().subscribe( coinres => this.ventaImpAPI = coinres.data[coinres.data.length-1].venta);
+
   }
+
 
   initForm(): void {
     this.convertorForm = this.calcformBuilder.group({
@@ -50,6 +62,12 @@ export class AdminManagementCalculatorComponent implements OnInit {
     });
 
 
+  }
+
+
+  addNewCoin(): void{
+    const coinChange = {compra: this.compraImp, venta: this.ventaImp};
+    this.coinUpdateService.putCoinUpdate(coinChange).subscribe(upcoin => console.log(upcoin));
   }
 
   submit() {
@@ -63,7 +81,7 @@ export class AdminManagementCalculatorComponent implements OnInit {
         if (controls?.valorIngresado && controls?.tipoMoneda) {
           switch (controls?.tipoMoneda) {
             case 'soles':
-              let tcSoles: any = (this.ventaSunat * 1.008).toFixed(4);
+              let tcSoles: any = this.ventaImpAPI;
               let tcambioSoles: any = (
                 +controls.valorIngresado / +tcSoles
               ).toFixed(4);
@@ -138,21 +156,6 @@ export class AdminManagementCalculatorComponent implements OnInit {
     });
   }
 
-
-
-  uploadCoin(compra: HTMLInputElement, venta: HTMLInputElement) {
-    this.coinUpdateService
-      .createCoinUpdate(compra.value, venta.value)
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => console.log(err)
-      );
-    return false;
-
-    
-  }
 
 
   ngOnDestroy() {
