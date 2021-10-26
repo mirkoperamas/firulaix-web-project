@@ -6,6 +6,10 @@ import { HttpClient } from '@angular/common/http';
 
 import { CoinUpdateService } from '../../services/coin-update.service';
 
+import { TemplateRef } from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-admin-management-calculator',
   templateUrl: './admin-management-calculator.component.html',
@@ -34,7 +38,7 @@ export class AdminManagementCalculatorComponent implements OnInit {
 
   abc: string;
 
-  constructor(private http: HttpClient, private calcformBuilder: FormBuilder, private coinUpdateService: CoinUpdateService,) { 
+  constructor(private http: HttpClient, private calcformBuilder: FormBuilder, private coinUpdateService: CoinUpdateService,private dialog: MatDialog) { 
     this.unsubscribe = new Subject();
     this.initForm();
 
@@ -109,6 +113,10 @@ export class AdminManagementCalculatorComponent implements OnInit {
           }
         }
       });
+  }
+
+  openDialogWithRef(ref: TemplateRef<any>) {
+    this.dialog.open(ref);
   }
 
 

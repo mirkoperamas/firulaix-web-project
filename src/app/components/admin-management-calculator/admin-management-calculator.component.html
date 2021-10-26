@@ -33,8 +33,18 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" class="yellow-border-button coin-send-button" (click)="addNewCoin()">Enviar</button>
+                        <button type="button" class="yellow-border-button coin-send-button" (click)="addNewCoin()" (click)="openDialogWithRef(adminChangeCoin)">Enviar</button>
                     </div>
+
+                    <ng-template #adminChangeCoin>
+                      <p matDialogContent class="alert-text">
+                        El tipo de cambio se ha actualizado
+                      </p>
+            
+                      <mat-dialog-actions align="end">
+                        <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
+                      </mat-dialog-actions>
+                    </ng-template>
                 </div>
                 <!-- {{coinImpAPI | json}} -->
               </div>
