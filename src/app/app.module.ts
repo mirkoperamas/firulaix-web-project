@@ -27,9 +27,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import{ LoadScriptsService } from './services/load-scripts.service';
 
+import { AdquirirComponent } from './components/adquirir/adquirir.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { ColaborarComponent } from './components/colaborar/colaborar.component';
-import { AdquiereComponent } from './components/adquiere/adquiere.component';
+import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
@@ -55,10 +55,10 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     AppComponent,
     NavigationComponent,
-    ColaborarComponent,
-    AdquiereComponent,
     InicioComponent,
     FooterComponent,
+    AdquirirComponent,
+    ColaboracionComponent,
     AdminManagementCalculatorComponent
   ],
   imports: [

@@ -28,10 +28,10 @@ interface HtmlInputEvent extends Event{
 
 @Component({
   selector: 'app-colaborar',
-  templateUrl: './colaborar.component.html',
-  styleUrls: ['./colaborar.component.css','../general-style-components.css']
+  templateUrl: './colaboracion.component.html',
+  styleUrls: ['./colaboracion.component.scss']
 })
-export class ColaborarComponent implements OnInit {
+export class ColaboracionComponent implements OnInit {
   
 
   convertorForm!: FormGroup;

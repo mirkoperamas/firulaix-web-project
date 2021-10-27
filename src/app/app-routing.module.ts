@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 
-import { AdquiereComponent } from './components/adquiere/adquiere.component' ;
-import { ColaborarComponent } from './components/colaborar/colaborar.component';
+import { AdquirirComponent } from './components/adquirir/adquirir.component' ;
+import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
 import  { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
@@ -15,12 +15,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'adquiere',
-    component: AdquiereComponent
+    path: 'adquirir',
+    component: AdquirirComponent
   },
   {
-    path: 'colaborar',
-    component: ColaborarComponent
+    path: 'colaboracion',
+    component: ColaboracionComponent
   },
   {
     path: 'inicio',
