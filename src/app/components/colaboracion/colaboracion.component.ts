@@ -29,7 +29,7 @@ interface HtmlInputEvent extends Event{
 @Component({
   selector: 'app-colaborar',
   templateUrl: './colaboracion.component.html',
-  styleUrls: ['./colaboracion.component.scss']
+  styleUrls: ['./colaboracion.component.scss', '../../app.component.scss']
 })
 export class ColaboracionComponent implements OnInit {
   

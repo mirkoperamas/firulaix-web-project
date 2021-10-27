@@ -3,3 +3,1179 @@
 }
 
 
+/* BANNER-STYLE */
+.banner-firulaix{
+  display: flex;
+  justify-content: center;
+}
+
+.banner-firulaix img{
+  width: 98%;
+}
+
+
+.container-fluid{
+  width: 85%;
+  max-width: 2800px;
+}
+
+
+
+/* SECTION-WHITE-STYLE */
+.contenido-main-white{
+  background-color: #fff;
+  width: 98%;
+  max-width: 2800px;
+  /* margin: 3rem auto 0 auto; */
+  margin: 0 auto;
+  border-radius: 30px;
+  padding: 5rem 0;
+}
+
+.main-text{
+  text-align: center;
+}
+
+.main-text p{
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: lighter;
+  color: #ffa500;
+}
+
+.main-text h1{
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 1.5rem 0;
+}
+
+
+
+/* SECTION-QR */
+
+#section-qr{
+  background-color: #fff;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+.content-qr{
+  width: 80%;
+  max-width: 2800px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.qr-text{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qr-text h2{
+  font-size: 23px;
+  margin-bottom: 3rem;
+}
+
+.qr-text p{
+  font-size: 20px;
+  line-height : 25px;
+  margin-bottom: 2rem;
+}
+
+.qr-text span{
+  color: #ffa500;
+}
+
+.qr-image{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.qr-image img{
+  width: 40%;
+}
+
+
+
+//POPUP-IMAGE
+.popup-width-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.popup-width-image img{
+  width: 10rem;
+}
+
+
+
+
+
+
+
+@media (min-width: 1px) and (max-width: 1700px){
+  .banner-image-content{
+      width: 35rem;
+      height: 35rem;
+  }
+
+  .master-calc{
+    width: 65%;
+}
+}
+
+
+@media (min-width: 1px) and (max-width: 1550px){
+
+  .content-buttons {
+      flex-direction: column;
+      width: 50%;
+      margin: 0 auto 1rem auto;
+  }
+
+  .button {
+      width: 100%;
+      margin: 0 0 2rem 0 ;
+    }
+
+
+  .section-content-cards mat-card-content{
+      flex-direction: column;
+  }
+
+  .section-content-cards img{
+      padding: 0 0 1rem 0;
+      margin-right: 0;
+  }
+
+  .instruction-card-title{
+      margin: .5rem auto;
+      padding: 0 .3rem;
+      height: 10rem;
+  }
+
+  .instruction-card-title h2{
+      font-size: 16px;
+  }
+
+  .instruction-card-title p{
+      font-size: 13px;
+  }
+
+
+
+
+  .card-roadmap-content{
+      padding: .2rem .7rem;
+  }
+
+
+  .t-q3{
+      top: 42%;
+    }
+    
+    .t-q4{
+      top: 62%;
+    }
+    
+    .t-q1{
+      top: 42%;
+    }
+    
+
+  .card-roadmap-circles{
+      padding: .2rem 0;
+  }
+
+  .circle-rd{
+      width: .7rem;
+      height: .7rem;
+  }
+
+  .card-roadmap-text h2{
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+  }
+
+  .card-roadmap-text span{
+      font-size: 10px;
+  }
+
+  .roadmap-text-content{
+      padding: .1rem .2rem;
+  }
+
+  .roadmap-text-content p{
+      font-size: 11px;
+      margin: 0;
+  }
+
+  .roadmap-text-content hr{
+      margin: .1rem
+    }
+}
+
+
+@media (min-width: 1px) and (max-width: 1300px){
+
+  
+  .button-section{
+      width: 22px;
+  }
+
+  .button-section p{
+      font-size: 8px;
+      width: 7px;
+      line-height: 10px;
+  }
+
+  
+  .main-graphic{
+      display: flex;
+      justify-content: center;
+  }
+
+  .main-graphic iframe{
+      width: 80%;
+      height: 50rem;
+  }
+
+
+  .qr-text h2{
+      font-size: 18px;
+      margin-bottom: 1rem;
+  }
+
+  .qr-text p{
+      font-size: 15px;
+      margin-bottom: .5rem;
+  }
+
+  .qr-image{
+      display: block;
+  }
+
+  .qr-image img{
+      width: 240px;
+      float: right;
+  }
+
+
+
+  .menu-content{
+      width: 95%;
+  }
+
+  .banner-content{
+      width: 95%;
+  }
+
+  .banner-text-ajust span{
+      font-size: 42px;
+    }
+
+  .banner-text-ajust h1 {
+      font-size: 32px;
+      line-height: 35px;
+      margin-bottom: 1.5rem;
+  }
+
+  .banner-text-ajust p {
+      font-size: 18px;
+      line-height: 30px;
+  }
+
+  .button-main {
+      padding: 0.5rem 2rem;
+  }
+
+
+  .banner-image-content{
+      width: 30rem;
+      height: 30rem;
+  }
+
+  .albergue{
+      width: 3.3rem;
+      left: 66%;
+      top: 42%;
+  }
+    
+  .huella{
+      width: 2.8rem;
+      left: 78%;
+      top: 60%;
+  }
+    
+  .firu-chip{
+      width: 3.1rem;
+  }
+    
+  .dog-card-1{
+      width: 3.5rem;
+  }
+    
+  .dog-card-2{
+      width: 3.5rem;
+  }
+    
+  .dog-card-3{
+      width: 3.5rem;
+  } 
+    
+  .dog-card-4{
+      width: 3.5rem;
+  }
+    
+  .hueso{
+      width: 3.3rem;
+  }
+    
+  .wallet{
+      width: 4.7rem;
+  }
+
+
+  .main-section-content{
+      width: 95%;
+  }
+
+  .column-text{
+      width: 100%;
+  }
+  
+  .mi-objetivo-image img{
+      width: 80%;
+  }
+
+
+  .section-content-cards{
+      width: 90%;
+  }
+
+  .section-content-cards mat-card{
+      padding: 2rem 1rem;
+  }
+
+  .column video {
+      width: 22rem;
+      height: 32rem;
+  }
+
+  .information-social{
+      flex-direction: column;
+  }
+
+  .information-social div{
+      margin-bottom: 1rem;
+  }
+
+  .footer-information a{
+      padding: 0;
+      padding-right: .5rem;
+  }
+
+  
+  .master-calc{
+      width: 85%;
+  }
+}
+
+
+@media(min-width: 1px) and (max-width: 1220px){
+  .form-text p{
+      font-size: 16px;
+      line-height: 32px;
+  }
+
+  .form-column{
+      padding: 0 .5rem;
+  }
+
+
+  .select-style{
+      margin-left: .5rem;
+    }
+
+  .graphic-item img {
+      width: 5.5rem;
+      margin-right: 1rem;
+  }
+  
+}
+
+
+@media(min-width: 1px) and (max-width: 1000px){
+  .content-forms{
+      flex-direction: column;
+  }
+
+  .form-column{
+      width: 90%;
+      padding: 0 2rem;
+  }
+
+  .second-text{
+      margin-top: 5rem;
+  }
+
+  .column-text h1{
+      font-size: 40px;
+      margin-bottom: 1rem;
+  }
+
+  .column-text h2{
+      font-size: 27px;
+  }
+
+  .column-text p{
+      font-size: 16px;
+      line-height: 26px;
+  }
+
+  .instructions-section{
+      flex-direction: column;
+  }
+
+  .instruction-collection{
+      width: 100%;
+      margin-bottom: 15rem;
+  }
+
+  .document-section-content{
+      padding: 8rem 0 0 0;
+  }
+
+  .document-section-title{
+      padding: 0 2rem;
+  }
+
+  .form-calc-graphic{
+      margin-bottom: 6rem;
+  }
+
+  .card-roadmap-circles{
+      margin: .01rem 0;
+  }
+
+  .circle-rd{
+      width: .2rem;
+      height: .2rem;
+  }
+
+  
+  .button:hover, .button-main:hover{
+      background-color: #fcc74d;
+      color: #fff;
+  }
+
+
+  .capitalizacion-card mat-card-title{
+      font-size: 20px;
+      letter-spacing: 0;
+  }
+
+  .capitalizacion-card mat-card-content{
+      font-size: 13px;
+  }
+
+
+
+
+  .roadmap-title p{
+      margin: 0;
+  }
+
+  .roadmap-title span {
+      font-size: 12px;
+  }
+
+  
+  .card-roadmap-content{
+      padding: 0 .2rem;
+  }
+
+
+  
+
+  .card-roadmap-text h2{
+      font-size: 10px;
+      line-height: 14px;
+  }
+
+  .card-roadmap-text span{
+      font-size: 7px;
+      margin: 0;
+      padding: 0;
+  }
+
+  .card-roadmap-text p{
+      margin: 0;
+  }
+
+  .roadmap-text-content{
+      margin: 0;
+      padding: 0;
+  }
+  .roadmap-text-content p{
+      font-size: 9px;
+      font-weight: normal;
+      padding: 0;
+      line-height: 12px;
+  }
+
+  .roadmap-text-content hr{
+      margin: .3rem 0;
+      padding: 0;
+  }
+}
+
+
+@media (min-width: 1px) and (max-width: 960px){
+
+  .main-text p{
+      font-size: 15px;
+  }
+
+  .main-text h1{
+      font-size: 25px;
+  }
+
+  .block-image{
+      width: 95px;
+      height: 95px;
+  }
+
+  .block-image img{
+      width: 80px;
+  }
+
+
+  .block{
+      margin-top: -3rem;
+      padding: 4rem 1rem;
+  }
+
+  .block h2{
+      font-size: 20px;
+      text-align: center;
+  }
+
+  .block hr{
+      margin: .5rem 0;
+  }
+
+  .block img{
+      max-width: 80%;
+      margin: 2rem 0;
+  }
+
+  .block p{
+      font-size: 15px;
+      margin-bottom: .5rem;
+  }
+
+
+
+  .footer-content{
+      flex-direction: column;
+  }
+
+  .footer-information{
+      width: 70%;
+      margin: 0 auto 3rem auto;
+  }
+
+  .footer-facebook{
+      margin: 0 auto;
+  }
+
+
+
+  .banner-image-content{
+      width: 22rem;
+      height: 22rem;
+  }
+
+
+  .banner-content {
+      padding: 1rem 0 8rem 0;
+    }
+
+
+  .graphic-item img {
+      width: 4.5rem;
+  }
+
+  .graphic-item h1 {
+      font-size: 25px;
+      margin: 0;
+  }
+
+
+  .card-image img{
+      width: 70%;
+  }
+
+  .column-text mat-list-item{
+      font-size: 14px;
+  }
+  
+  .calc-graphic-info{
+      width: 49%;
+  }
+
+  .graphic-info-coin p{
+      font-size: 12px;
+  }
+
+  .graphic-info-coin span{
+      font-size: 15px;
+  }
+
+  .coin-send-button{
+      margin-left: .5rem;
+    }
+}
+
+
+
+
+@media (min-width: 1px) and (max-width: 768px){
+
+  .main-graphic iframe{
+      width: 100%;
+      height: 40rem;
+  }
+
+  .qr-text h2{
+      font-size: 12px;
+      margin-bottom: .5rem;
+      line-height: 15px;
+  }
+
+  .qr-text p{
+      font-size: 9px;
+      margin-bottom: .2rem;
+      line-height: 15px;
+  }
+
+  .qr-image img{
+      width: 180px;
+      margin: auto 0;
+  }
+
+
+  .banner-content{
+      flex-direction: column;
+  }
+
+
+  .banner-column{
+      width: 100%;
+      align-items: center;
+  }
+
+
+  .banner-text-ajust{
+      width: 80%;
+      margin-bottom: 2rem;
+  }
+
+  .button-main {
+      padding: 0.3rem 1.5rem;
+      margin-right: .5rem;
+  }
+
+
+  #buttons-card-section{
+      padding-top: 0;
+  }
+
+  .main-section-content{
+      flex-direction: column;
+  }
+
+  .column{
+      width: 100%;
+  }
+
+  .mi-objetivo-image{
+      padding: 1rem 0;
+  }
+
+  .mi-objetivo-image img{
+      width: 50%;
+  }
+
+  .column-text{
+      width: 80%;
+  }
+
+  .section-content-cards{
+      flex-direction: column;
+  }
+
+  .section-content-cards mat-card {
+      width: 80%;
+      margin: 0 auto 2rem auto;
+      padding: 2rem;
+      border-radius: 3rem;
+  }
+
+
+  .banner-content{
+      margin-top: 5rem;
+  }
+
+  .section-content-cards{
+      padding-bottom: 4rem;
+  }
+
+  .column video {
+      width: 18rem;
+      height: 28rem;
+      margin-top: 2rem;
+  }
+
+  .column mat-card{
+      width: 65%;
+      min-width: 18rem;
+      margin-bottom: 3rem;
+  }
+
+  .card-image{
+      margin-bottom: 2rem;
+  }
+
+  .card-image img{
+      max-width: 18rem;
+      min-width: 10rem;
+  }
+
+  .card-text-ajust{
+      margin-bottom: .5rem;
+  }
+
+  .card-text p{
+      font-size: 15px;
+      line-height: 25px;
+  }
+
+  .fa-paint-brush {
+      font-size: 28px;
+      margin-right: 1rem;
+  }
+
+  .partners-content h1{
+      font-size: 18px;
+  }
+
+  .document-section-title{
+      padding: 0;
+  }
+  .document-section-title p{
+      font-size: 12px;
+  }
+  .document-section-title h1{
+      font-size: 28px;
+  }
+  .document-section-title h2{
+      font-size: 16px;
+  }
+
+  mat-panel-title{
+      font-size: 16px;
+  }
+
+  .banner-buttons{
+      display: block;
+  }
+
+  .button-main{
+      font-size: 15px;
+  }
+
+  .button-section{
+      width: 29px;
+  }
+
+  .button-section p{
+      font-size: 9px;
+      line-height: 10px;
+      width: 8px;
+  }
+
+
+  .instruction-card-images img{
+      max-width: 100%;
+  }
+
+
+  .instruction-card-images a{
+      max-width: 100%;
+    }
+
+  .roadmap-title p {
+      font-size: 10px;
+  }
+  .roadmap-title span {
+      font-size: 9px;
+  }
+  
+  .calc-graphic-info_content{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .calc-graphic-info{
+      width: 80%;
+  }
+
+  .calc-coin{
+      margin-top: 1.5rem;
+  }
+
+}
+
+
+
+
+@media (min-width: 1px) and (max-width: 650px){
+
+  .content-blocks{
+      margin-top: 5rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+  }
+
+  .block-contenedor{
+      width: 85%;
+  }
+
+  .block{
+      margin-bottom: 3rem;
+  }
+
+  .block img{
+      max-width: 60%;
+  }
+
+
+  .form-column{
+      width: 100%;
+      padding: 1rem;
+  }
+
+  .content-buttons {
+      width: 85%;
+  }
+
+  .content-graphics{
+      flex-direction: column;
+  }
+
+  .graphic-item{
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 2rem;
+  }
+
+
+
+
+  .graphic-item img {
+      width: 6rem;
+      margin-right: .5rem;
+    }
+
+    .graphic-item h1 {
+      font-size: 25px;
+    }
+
+    .graphic-item p {
+      font-size: 15px;
+    }
+
+
+    .camp-from{
+      display: block;
+    }
+
+
+    .select-style{
+      padding: .5rem .2rem; 
+      width: 10rem;
+      margin: 0 auto 1rem auto;
+    }
+
+
+  .footer-facebook{
+      width: 100%;
+  }
+
+  .footer-section-copyrigth p{
+      font-size: 14px;
+  }
+
+  .card-roadmap-circles{
+      padding: .01rem;
+  }
+
+  .t-q3{
+      top: 39%;
+    }
+    
+  .t-q4{
+      top: 59%;
+  }
+    
+  .t-q1{
+      top: 39%;
+  }
+
+
+  .card-roadmap-content{
+      border: 2px solid;
+      border-image-slice: 1;
+  }
+
+  .border-gradient {
+      border-image-source: linear-gradient(to left, #b83f39, #fd6b60);
+    }
+
+  .card-roadmap-text h2{
+      font-size: 6px;
+      line-height: 8px;
+  }
+
+  
+
+  .card-roadmap-text p{
+      font-size: 6px;
+      line-height: 7px;
+  }
+
+  .card-roadmap-text span{
+      font-size: 5px;
+      margin-bottom: .5rem;
+  }
+
+  .card-roadmap-text hr{
+      margin: .1rem 0;
+  }
+}
+
+
+
+
+@media (min-width: 1px) and (max-width: 576px){
+  
+
+  .main-graphic{
+      padding: 1rem 1rem;
+  }
+
+  .main-graphic iframe{
+      height: 35rem;
+  }
+
+  .main-text p{
+      font-size: 11px;
+  }
+
+  .main-text h1{
+      font-size: 18px;
+  }
+
+
+  .qr-text h2{
+      font-size: 10px;
+      margin-bottom: .5rem;
+      line-height: 15px;
+  }
+
+  .qr-text p{
+      font-size: 7px;
+      margin-bottom: .2rem;
+      line-height: 15px;
+  }
+
+  .qr-image img{
+      width: 150px;
+      margin: auto 0;
+  }
+
+
+  .banner-text-ajust{
+      width: 98%;
+      margin-bottom: 2rem;
+  }
+  
+
+
+  .column-text{
+      width: 100%;
+  }
+
+  .column-text h1{
+      font-size: 30px;
+  }
+  .column-text h2{
+      font-size: 18px;
+  }
+
+  .column-text p{
+      font-size: 15px;
+  }
+
+  .column-text mat-list-item{
+      font-size: 12px;
+      line-height: 18px;
+      margin: .2rem 0;
+  }
+
+  .footer-information{
+      width: 100%;
+
+  }
+
+  .roadmap-title{
+      flex-direction: column;
+  }
+
+  .roadmap-title p {
+      font-size: 10px;
+      line-height: 8px;
+  }
+  .roadmap-title span {
+      font-size: 7px;
+      margin-top: .5rem;
+  }
+
+  .image-content{
+      width: 90%;
+      height: 400px;
+      
+  }
+
+  .image-content img{
+      width: 100%;
+      height: 400px;
+  }
+
+  .button-login{
+      font-size: 9px;
+      padding: .3rem .4rem;
+      margin-left: .1rem;
+  }
+
+  .text-help{
+      font-style: italic;
+      font-size: 11px;
+      text-align: center;
+    }
+  .fa-paste{
+      font-size: 10px;
+  }
+}
+
+
+@media (min-width: 1px) and (max-width: 450px){
+
+  .image-content{
+      width: 98%;
+      
+  }
+
+  .buttons-card {
+      width: 95%;
+      padding: 1rem 0;
+  }
+
+  .content-buttons{
+      width: 100%;
+  }
+
+  .content-buttons div {
+      margin: 0;
+  }
+
+
+  .graphic-item img {
+      width: 5rem;
+      margin-right: .5rem;
+  }
+
+  .graphic-item h1 {
+      font-size: 18px;
+  }
+
+  .graphic-item p {
+      font-size: 12px;
+  }
+
+
+  .section-content-cards mat-card {
+      width: 95%;
+      margin: 0 auto 2rem auto;
+      padding: 2rem;
+      border-radius: 3rem;
+  }
+
+  .instruction-card-title{
+      padding: 0 .2rem;
+      height: 14rem;
+  }
+
+  .form-text-information{
+      width: 100%;
+  }
+
+  .form-text-information p{
+      font-size: 15px;
+    }
+
+    .calc-graphic-info{
+      width: 95%;
+  }
+}
+
+@media (min-height: 1px) and (max-height: 790px){
+  .button-section{
+      margin-bottom: .5rem;
+      height: calc(20% - .5rem);
+      width: 22px;
+  }
+
+  .button-section p{
+      width: 7px;
+      font-size: 8px;
+      line-height: 10px;
+  }
+}
+
+@media (min-height: 1px) and (max-height: 590px){
+  .button-section{
+      margin-bottom: .2rem;
+      height: calc(20% - .2rem);
+      width: 21px;
+  }
+
+  .button-section p{
+      width: 6px;
+      font-size: 6px;
+      line-height: 7px;
+  }
+}

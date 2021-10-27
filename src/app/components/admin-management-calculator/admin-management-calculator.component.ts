@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-admin-management-calculator',
   templateUrl: './admin-management-calculator.component.html',
-  styleUrls: ['./admin-management-calculator.component.scss']
+  styleUrls: ['./admin-management-calculator.component.scss', '../../app.component.scss']
 })
 export class AdminManagementCalculatorComponent implements OnInit {
   unsubscribe: Subject<void>;

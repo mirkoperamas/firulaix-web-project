@@ -94,8 +94,16 @@
   .graphic-info-coin span{
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     /* font-weight: bold; */
-    color: red;
     font-size: 20px;
+    color: green;
+  }
+
+  .dato-sunat{
+    color: red !important;
+  }
+
+  .dato-atlas{
+    color: green;
   }
 
   .calc-graphic-info_content{
