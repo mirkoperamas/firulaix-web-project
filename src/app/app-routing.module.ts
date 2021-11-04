@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
+import { NftGalleryComponent } from './components/nft-gallery/nft-gallery.component';
 
 import { AdquirirComponent } from './components/adquirir/adquirir.component' ;
 import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'admin-management-calculator',
     component: AdminManagementCalculatorComponent
+  },
+  {
+    path: 'nft-gallery',
+    component: NftGalleryComponent
   }
 
 ];
