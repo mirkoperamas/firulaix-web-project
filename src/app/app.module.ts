@@ -42,7 +42,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
-import { NftGalleryComponent } from './components/nft-gallery/nft-gallery.component';
 
 
 
@@ -60,8 +59,7 @@ export function HttpLoaderFactory(http: HttpClient){
     FooterComponent,
     AdquirirComponent,
     ColaboracionComponent,
-    AdminManagementCalculatorComponent,
-    NftGalleryComponent
+    AdminManagementCalculatorComponent
   ],
   imports: [
     BrowserModule,
