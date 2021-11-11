@@ -43,12 +43,29 @@
   color: #ffa500;
 }
 
+// .main-text h1{
+//   font-size: 30px;
+//   text-transform: uppercase;
+//   letter-spacing: 5px;
+//   margin: 1.5rem 0;
+// }
+
 .main-text h1{
-  font-size: 30px;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  margin: 1.5rem 0;
-}
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 1.5rem 0;
+    line-height: 45px;
+  }
+.main-text span{
+    font-size: 22px;
+    text-transform: none;
+    letter-spacing: 2px;
+    margin: 1.5rem 0;
+    line-height: 45px;
+    font-style: italic;
+    color: #6c757d;
+  }
 
 
 

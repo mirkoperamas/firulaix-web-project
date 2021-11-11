@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoadScriptsService } from './services/load-scripts.service';
 
 
 
@@ -11,7 +10,6 @@ import { LoadScriptsService } from './services/load-scripts.service';
 export class AppComponent {
 
 
-  constructor(private _CargaScripts: LoadScriptsService) {
-    _CargaScripts.Carga(["/meta-login"]);
+  constructor() {
   }
 }

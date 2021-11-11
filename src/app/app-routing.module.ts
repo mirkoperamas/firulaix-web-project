@@ -6,6 +6,7 @@ import { AdminManagementCalculatorComponent } from './components/admin-managemen
 import { AdquirirComponent } from './components/adquirir/adquirir.component' ;
 import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
 import  { InicioComponent } from './components/inicio/inicio.component';
+import  { MigracionComponent } from './components/migracion/migracion.component';
 
 const routes: Routes = [
 
@@ -14,17 +15,21 @@ const routes: Routes = [
     redirectTo: 'inicio',
     pathMatch: 'full'
   },
-  {
-    path: 'adquirir',
-    component: AdquirirComponent
-  },
-  {
-    path: 'colaboracion',
-    component: ColaboracionComponent
-  },
+  // {
+  //   path: 'adquirir',
+  //   component: AdquirirComponent
+  // },
+  // {
+  //   path: 'colaboracion',
+  //   component: ColaboracionComponent
+  // },
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+    path: 'migracion',
+    component: MigracionComponent
   },
   {
     path: 'admin-management-calculator',

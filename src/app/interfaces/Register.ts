@@ -1,6 +1,6 @@
 export interface Register{
     _id?: string;
-    op: number;
+    op: string;
     address: string;
     email: string;
     imagePath: string;
