@@ -186,5 +186,14 @@
     "Click dentro del recuadro para cargar una foto de tu voucher de pago": "Click inside the box to upload a photo of your payment voucher",
     "Enviar": "Send",
     "Gracias por su colaboración, recibira un email de confirmación.": "Thank you for your collaboration, you will receive a confirmation email.",
-    "Revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Check your inbox otherwise your 'spam' box."
+    "Revise su bandeja de entrada de lo contrario su bandeja 'spam'.": "Check your inbox otherwise your 'spam' box.",
+    "Próximamente": "Comming soon",
+    "Migración": "Migration",
+    "Los FIRU's en la red BSC tienen que ser devueltos a esta dirección:": "The FIRU's in the BSC network have to be returned to this address:",
+    "Ingrese los datos requeridos para enviarte el firulaix de la red Moonriver:": "Enter the data required to send you the firulaix of the Moonriver network:",
+    "Formulario de transacción": "Transaction form",
+    "Hash de transacción de BSC": "BSC transaction hash",
+    "Ingrese el numero de tx. del envio de sus FIRU's en BSC": "Enter the tx. number of sending your FIRU's in BSC",
+    "Click dentro del recuadro para cargar una foto de la transacción realizada": "Click inside the box to upload a photo of the transaction made",
+    "Realiza una captura de tu transacción como en el siguiente ejemplo:": "Capture your transaction as in the following example:"
 }
