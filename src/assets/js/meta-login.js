@@ -33,16 +33,16 @@ async function getAccount() {
 
     //Datos de Red
    const data = [{
-        chainId: '0x38',
-        chainName: 'Smart Chain',
+        chainId: '0x505',
+        chainName: 'moonriver',
         nativeCurrency:
             {
-                name: 'BNB',
-                symbol: 'BNB',
-                decimals: 18
+                name: 'MOVR',
+                symbol: 'MOVR',
+                // decimals: 18
             },
-        rpcUrls: ['https://bsc-dataseed.binance.org/'],
-        blockExplorerUrls: ['https://bscscan.com/'],
+        rpcUrls: ['https://rpc.moonriver.moonbeam.network'],
+        blockExplorerUrls: ['https://blockscout.moonriver.moonbeam.network/'],
     }]
 
     await ethereum.request({method: 'wallet_addEthereumChain', params:data}).catch()
