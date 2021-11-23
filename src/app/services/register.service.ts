@@ -18,7 +18,6 @@ export class RegisterService {
     fd.append('e_mail', email);
     fd.append('voucher', photo);
     return this.http.post(this.URI, fd);
-
   }
 
 }

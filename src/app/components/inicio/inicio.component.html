@@ -1,15 +1,3 @@
-<ng-template>
-  <h2 matDialogTitle>{{ "Contrato" | translate }}</h2>
-  <p matDialogContent class="alert-text">
-    alo si
-  </p>
-  <mat-dialog-actions align="end">
-    <button mat-flat-button color="warn" matDialogClose>
-      {{ "Cerrar" | translate }}
-    </button>
-  </mat-dialog-actions>
-</ng-template>
-
 <div style="width: 100%; display: flex; justify-content: flex-end">
   <div
     style="
@@ -73,12 +61,6 @@
         </p>
 
         <div class="banner-buttons">
-          <!-- <div>
-                        <a href="">
-                            <button mat-stroked-button color="accent" class="button-main">Conoce más</button>
-                        </a>
-                    </div> -->
-
           <div>
             <button
               mat-stroked-button
@@ -132,6 +114,19 @@
               </button>
             </mat-dialog-actions>
           </ng-template>
+
+
+        </div>
+
+        <div class="banner-blq">
+          <!-- <div>
+            <p>Firu amigos:</p>
+          </div> -->
+          <div class="banner-blq-images">
+            <div><a href="https://kusama.network/" target="_blank"><img src="./assets/images/kusama.png"></a></div>
+            <div><a href="https://moonbeam.network/networks/moonriver/" target="_blank"><img src="./assets/images/moonriver.png"></a></div>
+            <div><a href="https://dex.zenlink.pro/#/swap?invitationCode=53689C" target="_blank"><img src="./assets/images/zenlink.png"></a></div>
+          </div>
         </div>
       </div>
     </div>
@@ -181,27 +176,17 @@
   <div class="buttons-card">
     <div class="content-buttons">
       <div>
-        <a (click)="openDialogWithRef(comingSoon)">
+        <a href="https://dex.zenlink.pro/#/swap" target="_blank">
           <button mat-stroked-button color="accent" class="button">
-            {{ "Comprar ahora" | translate }}
+            {{ "Comprar ahora en Zenlist" | translate }}
           </button>
         </a>
       </div>
 
-      <ng-template #comingSoon>
-        <p matDialogContent class="alert-text">{{"Próximamente" | translate}}</p>
-
-        <mat-dialog-actions align="end">
-          <button mat-flat-button color="warn" matDialogClose>
-            {{ "Cerrar" | translate }}
-          </button>
-        </mat-dialog-actions>
-      </ng-template>
-
       <div>
-        <a (click)="openDialogWithRef(comingSoon)">
+        <a href="https://dex.zenlink.pro/#/pool" target="_blank">
           <button mat-stroked-button color="accent" class="button">
-            {{ "Agregar liquidez" | translate }}
+            {{ "Agregar liquidez en Zenlist" | translate }}
           </button>
         </a>
       </div>
@@ -212,15 +197,15 @@
           target="_blank"
         >
           <button mat-stroked-button color="accent" class="button">
-            Compruebe blockscout
+            {{"Compruebe blockscout" | translate}}
           </button>
         </a>
       </div>
 
       <div>
-        <a (click)="openDialogWithRef(comingSoon)">
+        <a href="https://blockscout.moonriver.moonbeam.network/tokens/0x2FBE6b6F1e3e2EFC69495F0c380A01c003e47225/token-holders" target="_blank">
           <button mat-stroked-button color="accent" class="button">
-            {{ "Ver soportes lp" | translate }}
+            {{"Ver token holders" | translate}}
           </button>
         </a>
       </div>
@@ -332,28 +317,27 @@
   <div class="main-section-content">
     <div class="column">
       <div class="column-text">
-        <h1>{{ "Adquiere tus firus" | translate }}</h1>
-        <h2>{{ "Calcula el monto de tus firus" | translate }}</h2>
+        <h1>{{ "Adquiere tus firu's" | translate }}</h1>
+        <h2>{{ "Calcula el monto de tus firu's" | translate }}</h2>
         <p>
-          {{ "Puedes adquirir tus firus en nuestro intercambio." | translate }}
+          {{ "Puedes adquirir tus firu's en nuestro intercambio." | translate }}
         </p>
         <div>
-          <button
-            mat-stroked-button
-            color="accent"
-            class="button-main"
-            routerLink="/adquiere"
-            (click)="openDialogWithRef(comingSoon)"
-          >
-            Exchange
-          </button>
+          <a href="https://dex.zenlink.pro/#/swap" target="_blank">
+            <button
+              mat-stroked-button
+              color="accent"
+              class="button-main">
+              Exchange
+            </button>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="column">
       <div>
-        <video autoplay loop controls>
+        <video autoplay loop [muted]="true">
           <source
             src="../.././../assets/video/firu-video.mp4"
             type="video/mp4"
@@ -604,7 +588,7 @@
                     {{ "ID de Cadena:" | translate }} <span>1285</span><br />
                     {{ "Símbolo:" | translate }} <span>MOVR</span><br />
                     {{ "URL del Explorador de bloques:" | translate }}
-                    <span>https://moomriver.subscan.io/</span>
+                    <span>https://blockscout.moonriver.moonbeam.network/</span>
                   </p>
                   <mat-dialog-actions align="end">
                     <button mat-flat-button color="warn" matDialogClose>
@@ -638,7 +622,7 @@
                 <h2>{{ "Red MOVR cargada" | translate }}</h2>
                 <p>
                   {{
-                    "Listo ahora puedes agregar el contacto inteligente de Inticoin en el paso 3."
+                    "Listo ahora puedes agregar el contrato inteligente de Firulaix en el paso 3."
                       | translate
                   }}
                 </p>
@@ -773,7 +757,7 @@
                 <h2>{{ "Ver Firu's" | translate }}</h2>
                 <p>
                   {{
-                    "En Metamask, has click en Add Tokens para acabar En Trust Wallet, arrastrar el slide a la derecha y listo ¡Eso es todo! Ahora ya puedes consultar el balance de tus tokens Firus's."
+                    "En Metamask, has click en Add Tokens para acabar En Trust Wallet, arrastrar el slide a la derecha y listo ¡Eso es todo! Ahora ya puedes consultar el balance de tus tokens Firu's."
                       | translate
                   }}
                 </p>
@@ -814,7 +798,7 @@
             <p>
               50%
               {{
-                "Está destinado para la liquidez de los pares en Apeswap."
+                "Está destinado para la liquidez de los pares en Zenlist."
                   | translate
               }}
             </p>
@@ -850,13 +834,13 @@
           <mat-list-item
             >50%
             {{
-              "fué Listado y se agregó liquidez en apeswap con 3 token en par con FIRU (BUSD-BNB-BANANA)."
+              "fué Listado y se agregó liquidez en Zenlist con 2 token en par con FIRU (USDC-MOVR)."
                 | translate
             }}</mat-list-item
           >
           <mat-divider></mat-divider>
           <mat-list-item
-            >0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2 - 36,000,000
+            >0x3B60DA2F434b6BD6a3B31D6425C0b2A8395c8850 - 36,000,000
             FIRU</mat-list-item
           >
           <mat-divider></mat-divider>
@@ -868,7 +852,7 @@
           >
           <mat-divider></mat-divider>
           <mat-list-item
-            >0x3B60DA2F434b6BD6a3B31D6425C0b2A8395c8850 - 24,000,000
+            >0x26BA543d6e01d6AFb3E6B34b02c1D2a63C13282c - 24,000,000
             FIRU</mat-list-item
           >
           <mat-divider></mat-divider>
@@ -893,7 +877,7 @@
       <mat-card-content>
         <div>
           {{
-            "Firulaix es un proyecto líder para petlover's dentro de la Binance Smart Chain, con los volúmenes de negociación más altos del mercado."
+            "Firulaix es un proyecto líder para petlover's dentro de la red Moonriver, con los volúmenes de negociación más altos del mercado."
               | translate
           }}
         </div>
@@ -905,7 +889,7 @@
       <mat-card-content>
         <div>
           {{
-            "¿Por qué pagar más? Firulaix se ejecuta en Binance Smart Chain, una cadena de bloques con costos de transacción mucho más bajos que Ethereum o Bitcoin. Las tarifas de negociación también son más bajas que las de otros intercambios descentralizados principales, ¡así que es una doble ganancia para usted!."
+            "¿Por qué pagar más? Firulaix se ejecuta en Moonriver, una cadena de bloques con costos de transacción mucho más bajos que Ethereum o Bitcoin. Las tarifas de negociación también son más bajas que las de otros intercambios descentralizados principales, ¡así que es una doble ganancia para usted!."
               | translate
           }}
         </div>
@@ -1169,8 +1153,8 @@
               </mat-expansion-panel-header>
               <p>
                 {{
-                  "Seleccione el botón 'Adquiere tus FIRU's.'" | translate
-                }}br>
+                  "Seleccione el botón Adquiere tus FIRU's." | translate
+                }}<br />
                 {{
                   "Elije la token que intercambiaras con los FIRU's en el cuadro de intercambio descentralizado. Elije el monto y el monto de FIRU´s se calculara de acuerdo al precio de mercado."
                     | translate
@@ -1179,7 +1163,7 @@
                   "Presione el botón 'Approve' si lo haces por primera vez, sino el botón de 'Swap' para realizar el intercambio."
                     | translate
                 }}<br />
-                <!-- {{"Si deseas hacerlo directamente de la plataforma Apeswap puedes" | translate}} <a href="https://app.apeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xE16d271322273a77BA5748DF4FD9209C4bEA541F" target="_blank"> {{"hacer click aquí." | translate}}</a></p> -->
+                <!-- {{"Si deseas hacerlo directamente de la plataforma Zenlist " | translate}} <a href="https://app.apeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xE16d271322273a77BA5748DF4FD9209C4bEA541F" target="_blank"> {{"hacer click aquí." | translate}}</a></p> -->
               </p></mat-expansion-panel
             >
 
@@ -1215,9 +1199,7 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p>
-                Un 40% de la capitalización de distribución de token´s FIRU,
-                servirá para el desarrollo del proyecto e irá avanzando de
-                acuerdo al capital recaudado.
+                {{"Un 40% de la capitalización de distribución de token´s FIRU, servirá para el desarrollo del proyecto e irá avanzando de acuerdo al capital recaudado. El capital restante será para líquidez, farming, staking de acuerdo a la sugerencia de la plataforma a listar (Zenlist) y un 10% para marketing y publicidad." | translate}}
               </p>
             </mat-expansion-panel>
 

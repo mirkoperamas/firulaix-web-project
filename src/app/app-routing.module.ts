@@ -19,10 +19,10 @@ const routes: Routes = [
   //   path: 'adquirir',
   //   component: AdquirirComponent
   // },
-  // {
-  //   path: 'colaboracion',
-  //   component: ColaboracionComponent
-  // },
+  {
+    path: 'colaboracion',
+    component: ColaboracionComponent
+  },
   {
     path: 'inicio',
     component: InicioComponent
