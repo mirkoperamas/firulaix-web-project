@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { takeUntil } from 'rxjs/operators';
 
-import { RegisterService } from '../../services/register.service';
+import { CollaborationService } from '../../services/collaboration.service';
 
 import { CoinUpdateService } from '../../services/coin-update.service';
 
@@ -17,6 +17,7 @@ import { TemplateRef } from '@angular/core';
 import { ReCaptcha2Component } from 'ngx-captcha';
 
 
+import { LoadScriptsService } from '../../services/load-scripts.service';
 
 
 
@@ -73,10 +74,12 @@ numOpPattern = /^\d*$/;
 
 
 
-  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private registerService: RegisterService, private sendFormBuilder: FormBuilder, private coinUpdateService: CoinUpdateService) {
+  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private collaborationService: CollaborationService, private sendFormBuilder: FormBuilder, private coinUpdateService: CoinUpdateService, private _CargaScripts: LoadScriptsService) {
 
     this.unsubscribe = new Subject();
     this.initForm();
+
+    _CargaScripts.Carga(["/meta-login"]);
    }
 
   
@@ -236,9 +239,9 @@ resultFiru(value?: string) {
     }
   }
 
-  uploadRegister(op: HTMLInputElement, address: HTMLInputElement, email: HTMLInputElement) {
-    this.registerService
-      .createRegister(op.value, address.value, email.value, this.file)
+  uploadCollaboration(op: HTMLInputElement, address: HTMLInputElement, email: HTMLInputElement) {
+    this.collaborationService
+      .createCollaboration(op.value, address.value, email.value, this.file)
       .subscribe(
         res => {
           console.log(res);

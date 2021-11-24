@@ -121,7 +121,7 @@
           <hr />
 
           <mat-card-content>
-            <form (submit)="uploadRegister(op, address, email)" [formGroup]="sendFormulary">
+            <form (submit)="uploadCollaboration(op, address, email)" [formGroup]="sendFormulary">
               <div class="form-register-camp">
                 <mat-form-field>
                   <input type="number" onkeydown="return event.keyCode !== 69" autocomplete="off" matInput placeholder="{{'Número de Operación' | translate}}" formControlName="opFormControl" #op/>
@@ -164,7 +164,7 @@
                  
                 </mat-form-field>
 
-                <button class="button-login yellow-border-button" id="metamask_login" type="button">
+                <button class="button-login yellow-border-button" id="collaboration_metamask_login" type="button">
                   {{"Conectar" | translate}}
                 </button>
 

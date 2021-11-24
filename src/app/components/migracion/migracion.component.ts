@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { takeUntil } from 'rxjs/operators';
 
-import { RegisterService } from '../../services/register.service';
+import { MigrationService } from '../../services/migration.service';
 
 import { CoinUpdateService } from '../../services/coin-update.service';
 
@@ -69,7 +69,7 @@ numOpPattern = /^\d*$/;
 
 
 
-  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private registerService: RegisterService, private sendFormBuilder: FormBuilder, private coinUpdateService: CoinUpdateService, private _CargaScripts: LoadScriptsService) {
+  constructor( private http: HttpClient, private router: Router, private dialog: MatDialog, private calcformBuilder: FormBuilder, private migrationService: MigrationService, private sendFormBuilder: FormBuilder, private coinUpdateService: CoinUpdateService, private _CargaScripts: LoadScriptsService) {
 
     this.initForm();
 
@@ -123,9 +123,9 @@ openDialogWithRef(ref: TemplateRef<any>) {
     }
   }
 
-  uploadRegister(op: HTMLInputElement, address: HTMLInputElement, email: HTMLInputElement) {
-    this.registerService
-      .createRegister(op.value, address.value, email.value, this.file)
+  uploadMigration(op: HTMLInputElement, address: HTMLInputElement, email: HTMLInputElement) {
+    this.migrationService
+      .createMigration(op.value, address.value, email.value, this.file)
       .subscribe(
         res => {
           console.log(res);

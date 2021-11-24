@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
-import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 
+import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 import { AdquirirComponent } from './components/adquirir/adquirir.component' ;
 import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
 import  { InicioComponent } from './components/inicio/inicio.component';

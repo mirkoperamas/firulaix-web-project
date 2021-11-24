@@ -64,7 +64,7 @@
 
         <mat-card-content>
           <form
-            (submit)="uploadRegister(op, address, email)"
+            (submit)="uploadMigration(op, address, email)"
             [formGroup]="sendFormulary"
           >
             <div class="form-register-camp">
@@ -140,7 +140,7 @@
 
               <button
                 class="button-login yellow-border-button"
-                id="metamask_login"
+                id="migration_metamask_login"
                 type="button"
               >
                 {{ "Conectar" | translate }}
@@ -333,33 +333,26 @@
 
 <section id="section-qr">
   <div class="content-qr">
-    <div class="qr-text">
-      <div>
-        <h2>
-          {{
-            "Puedes colaborar con nuestro proyecto depositando en:" | translate
-          }}
-        </h2>
-        <p>
-          <span>{{ "Dirección de recepción:" | translate }}</span
-          ><br />
-          0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2
-        </p>
-        <p>
-          <span>{{ "Token aceptado:" | translate }}</span
-          ><br />
-           BEP20 (BSC), Ethereum, Moonriver, Poligon.
-        </p>
-        <p style="margin-bottom: 0">
-          <span>{{ "Token preferido:" | translate }}</span
-          ><br />
-          FIRU
-        </p>
+      <div class="qr-text">
+          <div>
+              <h2>{{"Puedes colaborar con nuestro proyecto depositando en:" | translate}}</h2>
+              <p>
+                  <span>{{"Dirección de recepción:" | translate}}</span><br>
+                  0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2
+              </p>
+              <p>
+                  <span>{{"Token aceptado:" | translate}}</span><br>
+                  {{"Cualquier" | translate}} BEP20 - MOVR - BSC - POLYGON - ETH
+              </p>
+              <p style="margin-bottom: 0;">
+                  <span>{{"Token preferido:" | translate}}</span><br>
+                  FIRU
+              </p>
+          </div>      
       </div>
-    </div>
 
-    <div class="qr-image">
-      <img src="../../../assets/images/adquirir-page/firu-qr.jpg" alt="" />
-    </div>
-  </div>
+      <div class="qr-image">
+          <img src="../../../assets/images/adquirir-page/firu-qr.jpg" alt="">
+      </div>
+  </div> 
 </section>
