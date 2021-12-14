@@ -89,6 +89,7 @@ numOpPattern = /^\d*$/;
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
     this.convertorForm.controls.tipoMoneda.setValue('soles');
+    // this.convertorForm.controls.valorIngresado.disable();
     this.resultSunat();
 
 

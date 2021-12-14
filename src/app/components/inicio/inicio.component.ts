@@ -16,7 +16,7 @@ export class InicioComponent implements OnInit {
 
   panelOpenState = false;
 
-  copy = '0x2FBE6b6F1e3e2EFC69495F0c380A01c003e47225';
+  copy = '0x2fbe6b6f1e3e2efc69495f0c380a01c003e47225';
 
   title = 'angular-fragment';
 
