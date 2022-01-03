@@ -1,5 +1,8 @@
 .contenido{
-  background-color: #ffa500;
+//   background-color: #ffa500;
+background: #213e43;
+  padding: 2rem 0;
+  min-height: 100vh;
 }
 
 
@@ -23,12 +26,15 @@
 
 /* SECTION-WHITE-STYLE */
 .contenido-main-white{
-  background-color: #fff;
+//   background-color: #fff;
+background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(0.8rem);
   width: 98%;
   max-width: 2800px;
   /* margin: 3rem auto 0 auto; */
   margin: 0 auto;
   border-radius: 30px;
+  min-height: 100vh;
   padding: 5rem 0;
 }
 
