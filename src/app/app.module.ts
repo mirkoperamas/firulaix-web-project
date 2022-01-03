@@ -27,7 +27,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import{ LoadScriptsService } from './services/load-scripts.service';
 
-import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
@@ -41,6 +40,8 @@ import { AdminManagementCalculatorComponent } from './components/admin-managemen
 import { CompraVentaComponent } from './components/compra-venta/compra-venta.component';
 
 
+import { CompraVentaModule } from './components/compra-venta/compra-venta.module';
+
 
 
 
@@ -51,9 +52,8 @@ export function HttpLoaderFactory(http: HttpClient){
 @NgModule({
   declarations: [
     AppComponent,
-    ColaboracionComponent,
     AdminManagementCalculatorComponent,
-    CompraVentaComponent
+    CompraVentaComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ClipboardModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CompraVentaModule
   ],
   providers: [LoadScriptsService],
   bootstrap: [AppComponent]

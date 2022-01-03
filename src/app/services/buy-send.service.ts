@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BuySendService {
 
-   URI = 'https://firubuy-api.herokuapp.com/api/knox';
+   URI = 'https://firuswapfiatbuy-api.herokuapp.com/api/knox';
 
   constructor(private http: HttpClient) { }
 
