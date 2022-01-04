@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { takeUntil } from 'rxjs/operators';
 
-// import { CollaborationService } from '../../services/collaboration.service';
 
 import { BuySendService } from '../../../services/buy-send.service';
 

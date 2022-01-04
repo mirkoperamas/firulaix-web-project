@@ -68,7 +68,9 @@
       <hr />
 
       <mat-card-content>
-        <form [formGroup]="sendSellFormulary">
+        <form 
+        (submit)="uploadSell(numTr, bcpAccount, email)"
+        [formGroup]="sendSellFormulary">
           <div class="form-register-camp">
             <mat-form-field>
               <input
@@ -171,7 +173,7 @@
                 matInput
                 placeholder="Email"
                 formControlName="emailSellFormControl"
-                #emailSell
+                #email
               />
               <mat-error
                 *ngIf="
@@ -220,7 +222,7 @@
             (change)="onPhotoSellSelected($event)"
             accept="image/*"
             formControlName="imageSellFormControl"
-            #photoSellInput
+            #photoInput
           />
 
           <div class="image-content">
@@ -228,7 +230,7 @@
               id="imageY"
               [src]="photoSellSelected || 'assets/no-image-2.png'"
               class="img-fluid"
-              (click)="photoSellInput.click()"
+              (click)="photoInput.click()"
             />
           </div>
 
@@ -253,18 +255,18 @@
               mat-flat-button
               color="accent"
               [disabled]="sendSellFormulary.invalid"
-              (click)="openDialogWithRef(sellRegisterSend)"
+              (click)="openDialogWithRef(RegisterSend)"
             >
               Enviar
             </button>
           </div>
 
-          <ng-template #sellRegisterSend>
+          <ng-template #RegisterSend>
             <div class="popup-width-image">
               <img src="../../../assets/images/popup-firu-2.png" />
             </div>
             <p matDialogContent class="alert-text">
-              Gracias por su colaboración, recibira un email de confirmación.
+              Gracias por su venta, recibira un email de confirmación.
               <br />
               Revise su bandeja de entrada de lo contrario su bandeja 'spam'.
             </p>
