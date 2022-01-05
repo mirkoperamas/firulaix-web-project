@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { takeUntil } from 'rxjs/operators';
 
-
 import { SellSendService } from '../../../services/sell-send.service';
 
 import { CoinUpdateService } from '../../../services/coin-update.service';
+import { FiruValueService } from 'src/app/services/firu-value.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
 import { ReCaptcha2Component } from 'ngx-captcha';
@@ -26,6 +26,7 @@ export class VentaComponent implements OnInit {
   convertorForm!: FormGroup;
   unsubscribe: Subject<void>;
   ventaImpAPI: string;
+  firulaixValue: string;
   valorActualFiru!: number;
 
   photoSellSelected: string | ArrayBuffer;
@@ -50,7 +51,8 @@ export class VentaComponent implements OnInit {
     private calcformBuilder: FormBuilder,
     private sellSendService: SellSendService,
     private coinUpdateService: CoinUpdateService,
-    private sendSellFormBuilder: FormBuilder
+    private sendSellFormBuilder: FormBuilder,
+    private firuValueService: FiruValueService
   ) {
     this.unsubscribe = new Subject();
     this.initForm();
@@ -70,6 +72,15 @@ export class VentaComponent implements OnInit {
           (this.ventaImpAPI = coinres.data[coinres.data.length - 1].venta)
       );
 
+    this.firuValueService
+      .post()
+      .subscribe(
+        (firures) => (
+          (this.firulaixValue = firures.result.price),
+          console.log(this.firulaixValue)
+        )
+      );
+
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
@@ -82,7 +93,7 @@ export class VentaComponent implements OnInit {
           Validators.required,
           // Validators.minLength(16),
           Validators.maxLength(16),
-          Validators.pattern(this.numTrPattern)
+          Validators.pattern(this.numTrPattern),
         ],
       ],
       emailSellFormControl: [
@@ -122,23 +133,32 @@ export class VentaComponent implements OnInit {
               let tcambioSoles: any = (
                 +controls.valorIngresado / +tcSoles
               ).toFixed(4);
-
-              let variableSoles: any = (tcambioSoles * 10000).toFixed(0);
-
-              let resultSoles: any = variableSoles + '00000000000000';
-
-              this.resultFiru(resultSoles); //call service
+              this.convertorForm.patchValue(
+                {
+                  resultado: (
+                    parseFloat(this.firulaixValue) * parseFloat(tcambioSoles)
+                  ).toFixed(6),
+                },
+                {
+                  emitEvent: false,
+                }
+              );
 
               break;
 
             case 'dolares':
-              let tcDolares: any = (+controls.valorIngresado).toFixed(4);
+              let tcambioDolares: any = (+controls.valorIngresado).toFixed(5);
+              this.convertorForm.patchValue(
+                {
+                  resultado: (
+                    parseFloat(this.firulaixValue) * parseFloat(tcambioDolares)
+                  ).toFixed(5),
+                },
+                {
+                  emitEvent: false,
+                }
+              );
 
-              let variableDolares: any = (tcDolares * 10000).toFixed(0);
-
-              let resultDolares: any = variableDolares + '00000000000000';
-
-              this.resultFiru(resultDolares); //call service
               break;
 
             default:
@@ -150,30 +170,6 @@ export class VentaComponent implements OnInit {
 
   openDialogWithRef(ref: TemplateRef<any>) {
     this.dialog.open(ref);
-  }
-
-  getFiru(value?: string): Observable<any> {
-    const url =
-      'https://bsc.api.0x.org/swap/v1/quote?sellToken=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&buyToken=0xE16d271322273a77BA5748DF4FD9209C4bEA541F&sellAmount=' +
-      value +
-      '&excludedSources=BakerySwap';
-
-    return this.http.get<object>(url);
-  }
-
-  resultFiru(value?: string) {
-    this.getFiru(value).subscribe((valor) => {
-      this.valorActualFiru = valor.orders[1].makerAmount;
-      // console.log(this.valorActualFiru);
-      this.convertorForm.patchValue(
-        {
-          resultado: this.valorActualFiru / 100000000,
-        },
-        {
-          emitEvent: false,
-        }
-      );
-    });
   }
 
   onPhotoSellSelected(event): void {
