@@ -452,15 +452,15 @@ background-color: rgba(255, 255, 255, 0.397);
 }
 
 
-@media(min-width: 1px) and (max-width: 1000px){
+@media(min-width: 1px) and (max-width: 1100px){
   .content-forms{
       flex-direction: column;
   }
 
   .form-column{
-      width: 90%;
-      padding: 0 2rem;
-  }
+    width: 90%;
+    padding: 1rem;
+}
 
   .second-text{
       margin-top: 5rem;

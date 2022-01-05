@@ -14,14 +14,17 @@
         <mat-card-content>
           <form [formGroup]="convertorForm" (submit)="submit()">
             <div class="calc-graphic-camp">
-              <mat-form-field>
-                <input type="number" matInput formControlName="resultado" />
-              </mat-form-field>
+              <div class="camp-from">
+                <div class="border-button select-style">USDT</div>
+                <mat-form-field>
+                  <input matInput formControlName="valorIngresado" />
+                </mat-form-field>
+              </div>
             </div>
 
             <div class="calc-graphic-camp">
               <div class="camp-from">
-                <div class="yellow-border-button select-style">
+                <div class="border-button select-style">
                   <mat-select formControlName="tipoMoneda">
                     <mat-option value="soles">S/ Soles</mat-option>
                     <mat-option value="dolares">$ Dolares</mat-option>
@@ -33,7 +36,7 @@
                     type="number"
                     onkeydown="return event.keyCode !== 69"
                     matInput
-                    formControlName="valorIngresado"
+                    formControlName="resultado"
                     autocomplete="off"
                   />
                 </mat-form-field>
@@ -68,9 +71,10 @@
       <hr />
 
       <mat-card-content>
-        <form 
-        (submit)="uploadSell(numTr, bcpAccount, email)"
-        [formGroup]="sendSellFormulary">
+        <form
+          (submit)="uploadSell(numTr, bcpAccount, email)"
+          [formGroup]="sendSellFormulary"
+        >
           <div class="form-register-camp">
             <mat-form-field>
               <input
@@ -122,8 +126,8 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
-              type="number"
-              autocomplete="off"
+                type="number"
+                autocomplete="off"
                 matInput
                 placeholder="Cuenta de BCP"
                 [disabled]="true"
@@ -155,7 +159,8 @@
 
             <ng-template #infoAccount>
               <p matDialogContent class="alert-text">
-                ingrese el número de cuenta bcp donde quieras que te lleguen tus FIRU's
+                ingrese el número de cuenta bcp donde quieras que te lleguen tus
+                FIRU's
               </p>
 
               <mat-dialog-actions align="end">

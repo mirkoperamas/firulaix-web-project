@@ -127,8 +127,8 @@ export class CompraComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(this.firulaixValue) * parseFloat(tcambioSoles)
-                  ).toFixed(6),
+                    parseFloat(tcambioSoles)
+                  ).toFixed(5),
                 },
                 {
                   emitEvent: false,
@@ -142,7 +142,7 @@ export class CompraComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(this.firulaixValue) * parseFloat(tcambioDolares)
+                     parseFloat(tcambioDolares)
                   ).toFixed(5),
                 },
                 {
