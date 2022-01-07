@@ -26,6 +26,9 @@ export class VentaComponent implements OnInit {
   unsubscribe: Subject<void>;
   tipoCambioVenta: string;
 
+  tipoCambioCalculado: string;
+  tipoCambioImp: string;
+
   photoSellSelected: string | ArrayBuffer;
 
   file: File;
@@ -66,7 +69,11 @@ export class VentaComponent implements OnInit {
 
     this.tipoCambioService
       .getTipoCambio()
-      .subscribe((valueres) => (this.tipoCambioVenta = valueres.tc.bid));
+      .subscribe((valueres) => {
+        this.tipoCambioVenta = valueres.tc.bid;
+        this.tipoCambioCalculado = (parseFloat(this.tipoCambioVenta) + parseFloat(this.tipoCambioVenta)*0.023).toFixed(8);
+        this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+      });
 
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
@@ -120,15 +127,14 @@ export class VentaComponent implements OnInit {
         if (controls?.valorIngresado && controls?.tipoMoneda) {
           switch (controls?.tipoMoneda) {
             case 'soles':
-              let tcSoles: any = this.tipoCambioVenta;
+              let tcSoles: any = this.tipoCambioCalculado;
               let tcambioSoles: any = (
                 +controls.valorIngresado * +tcSoles
               ).toFixed(4);
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioSoles) +
-                    parseFloat(tcambioSoles) * 0.023
+                    parseFloat(tcambioSoles)
                   ).toFixed(5),
                 },
                 {
@@ -143,8 +149,7 @@ export class VentaComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioDolares) +
-                    parseFloat(tcambioDolares) * 0.023
+                    parseFloat(tcambioDolares) + parseFloat(tcambioDolares) * 0.023
                   ).toFixed(5),
                 },
                 {

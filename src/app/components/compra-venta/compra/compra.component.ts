@@ -27,6 +27,9 @@ export class CompraComponent implements OnInit {
   unsubscribe: Subject<void>;
   tipoCambioCompra: string;
 
+  tipoCambioCalculado: string;
+  tipoCambioImp: string;
+
   photoBuySelected: string | ArrayBuffer;
 
   file: File;
@@ -68,7 +71,12 @@ export class CompraComponent implements OnInit {
 
     this.tipoCambioService
       .getTipoCambio()
-      .subscribe((valueres) => (this.tipoCambioCompra = valueres.tc.ask));
+      .subscribe(
+        (valueres) => {
+          parseFloat(this.tipoCambioCompra = valueres.tc.ask);
+          this.tipoCambioCalculado = (parseFloat(this.tipoCambioCompra) + parseFloat(this.tipoCambioCompra)*0.01729).toFixed(8);
+          this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+        });
 
     // SEND BUY FORM
     this.sendBuyFormulary = this.sendBuyFormBuilder.group({
@@ -115,15 +123,14 @@ export class CompraComponent implements OnInit {
         if (controls?.valorIngresado && controls?.tipoMoneda) {
           switch (controls?.tipoMoneda) {
             case 'soles':
-              let tcSoles: any = this.tipoCambioCompra;
+              let tcSoles: any = this.tipoCambioCalculado;
               let tcambioSoles: any = (
                 +controls.valorIngresado / +tcSoles
               ).toFixed(4);
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioSoles) -
-                    parseFloat(tcambioSoles) * 0.017
+                    parseFloat(tcambioSoles)
                   ).toFixed(5),
                 },
                 {
@@ -137,8 +144,7 @@ export class CompraComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioDolares) -
-                    parseFloat(tcambioDolares) * 0.009
+                    parseFloat(tcambioDolares) - (parseFloat(tcambioDolares) * 0.009)
                   ).toFixed(5),
                 },
                 {
