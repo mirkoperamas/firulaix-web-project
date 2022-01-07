@@ -1,98 +1,127 @@
 <div class="contenido-main-white">
-    <div class="main-text" style="margin-bottom: 3rem;">
-        <h1>Master Firu</h1>
-    </div>
-    <div class="form-column master-calc">
-        <div class="form-calc-graphic">
-            <mat-card id="calculator" class="card-design">
-              <mat-card-header>
-                <mat-card-title>
-                  <p>{{"Calculadora firulaix" | translate}}</p>
-                </mat-card-title>
-                <mat-card-subtitle>
-                  <p>{{"Equivalencia en firu's" | translate}}</p>
-                </mat-card-subtitle>
-              </mat-card-header>
-              <hr />
-              <div class="calc-graphic-info_content">
-                <div class="calc-graphic-info">
-                    <div class="graphic-info-coin" style="width: 100%;">
-                        <div>
-                            <p>BUSD per FIRU: <span>{{valorActualImp}}</span></p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="calc-graphic-info calc-coin">
-                    <div class="graphic-info-coin">
-                        <div>
-                            <p>Compra: <span class="dato-sunat" matTooltip="Precio de COMPRA extraido del API-SUNAT">{{compraImp}}</span> - <span class="dato-atlas" matTooltip="Precio de COMPRA extraido del ATLAS">{{compraImpAPI}}</span></p> 
-                        </div>
-                        <div>
-                          <p>Venta: <span class="dato-sunat" matTooltip="Precio de VENTA extraido del API-SUNAT">{{ventaImp}}</span> - <span class="dato-atlas" matTooltip="Precio de VENTA extraido del ATLAS">{{ventaImpAPI}}</span></p> 
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" class="yellow-border-button coin-send-button" (click)="addNewCoin()" (click)="openDialogWithRef(adminChangeCoin)">Enviar</button>
-                    </div>
-
-                    <ng-template #adminChangeCoin>
-                      <p matDialogContent class="alert-text">
-                        El tipo de cambio se ha actualizado
-                      </p>
-            
-                      <mat-dialog-actions align="end">
-                        <button mat-flat-button color="warn" matDialogClose>{{"Cerrar" | translate}}</button>
-                      </mat-dialog-actions>
-                    </ng-template>
-                </div>
-                <!-- {{coinImpAPI | json}} -->
+  <div class="main-text" style="margin-bottom: 3rem">
+    <h1>Master Firu</h1>
+  </div>
+  <div class="form-column master-calc">
+    <div class="form-calc-graphic">
+      <mat-card id="calculator" class="card-design">
+        <mat-card-header>
+          <mat-card-title>
+            <p>{{ "Calculadora firulaix" | translate }}</p>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>{{ "Equivalencia en firu's" | translate }}</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <hr />
+        <div class="calc-graphic-info_content">
+          <div class="calc-graphic-info">
+            <div class="graphic-info-coin" style="width: 100%">
+              <div>
+                <p>
+                  BUSD per FIRU: <span>{{ valorActualImp }}</span>
+                </p>
               </div>
-              <mat-card-content>
-                <form
-                [formGroup]="convertorForm"
-                (submit)="submit()"
+            </div>
+          </div>
+
+          <div class="calc-graphic-info calc-coin">
+            <div class="graphic-info-coin">
+              <div>
+                <p>
+                  Compra:
+                  <span
+                    class="dato-sunat"
+                    matTooltip="Precio de COMPRA extraido del API-SUNAT"
+                    >{{ compraImp }}</span
+                  >
+                  -
+                  <span
+                    class="dato-atlas"
+                    matTooltip="Precio de COMPRA extraido del ATLAS"
+                    >{{ compraImpAPI }}</span
+                  >
+                </p>
+              </div>
+              <div>
+                <p>
+                  Venta:
+                  <span
+                    class="dato-sunat"
+                    matTooltip="Precio de VENTA extraido del API-SUNAT"
+                    >{{ ventaImp }}</span
+                  >
+                  -
+                  <span
+                    class="dato-atlas"
+                    matTooltip="Precio de VENTA extraido del ATLAS"
+                    >{{ ventaImpAPI }}</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                class="yellow-border-button coin-send-button"
+                (click)="addNewCoin()"
+                (click)="openDialogWithRef(adminChangeCoin)"
               >
-                  <div class="calc-graphic-camp">
-                    <p>{{"De:" | translate}}</p>
-                    <div class="camp-from">
-                        <div class="yellow-border-button select-style">
-                          <mat-select formControlName="tipoMoneda">
-                            <mat-option value="soles">S/ Soles</mat-option>
-                            <mat-option value="dolares">$ {{"Dolares" | translate}}</mat-option>
-                          </mat-select>
-                        </div>
-        
-                          <mat-form-field>
-                            <input
-                              type="number"
-                              onkeydown="return event.keyCode !== 69"
-                              matInput
-                              formControlName="valorIngresado"
-                              autocomplete="off"
-                            />
-                          </mat-form-field>
-        
-                      </div>
-                  </div>
-        
-                  <div class="calc-graphic-camp">
-                      <p>{{"Para:" | translate}}</p>
-                      <mat-form-field>
-                        <input
-                          type="number"
-                          matInput
-                          formControlName="resultado"
-                        />
-                      </mat-form-field>
-                  </div>
+                Enviar
+              </button>
+            </div>
 
-                  <div>
+            <ng-template #adminChangeCoin>
+              <p matDialogContent class="alert-text">
+                El tipo de cambio se ha actualizado
+              </p>
 
-                  </div>
-                </form>
-              </mat-card-content>
-            </mat-card>
+              <mat-dialog-actions align="end">
+                <button mat-flat-button color="warn" matDialogClose>
+                  {{ "Cerrar" | translate }}
+                </button>
+              </mat-dialog-actions>
+            </ng-template>
+          </div>
+          <!-- {{coinImpAPI | json}} -->
         </div>
+        <mat-card-content>
+          <form [formGroup]="convertorForm" (submit)="submit()">
+            <div class="calc-graphic-camp">
+              <p>{{ "De:" | translate }}</p>
+              <div class="camp-from">
+                <div class="yellow-border-button select-style">
+                  <mat-select formControlName="tipoMoneda">
+                    <mat-option value="soles">S/ Soles</mat-option>
+                    <mat-option value="dolares"
+                      >$ {{ "Dolares" | translate }}</mat-option
+                    >
+                  </mat-select>
+                </div>
+
+                <mat-form-field>
+                  <input
+                    type="number"
+                    onkeydown="return event.keyCode !== 69"
+                    matInput
+                    formControlName="valorIngresado"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="calc-graphic-camp">
+              <p>{{ "Para:" | translate }}</p>
+              <mat-form-field>
+                <input type="number" matInput formControlName="resultado" />
+              </mat-form-field>
+            </div>
+
+            <div></div>
+          </form>
+        </mat-card-content>
+      </mat-card>
     </div>
+  </div>
 </div>

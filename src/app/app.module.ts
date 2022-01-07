@@ -27,22 +27,20 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import{ LoadScriptsService } from './services/load-scripts.service';
 
-import { AdquirirComponent } from './components/adquirir/adquirir.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { ColaboracionComponent } from './components/colaboracion/colaboracion.component';
-import { InicioComponent } from './components/inicio/inicio.component';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import {MatDialogModule} from '@angular/material/dialog';
-import { FooterComponent } from './components/footer/footer.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
+import { CompraVentaComponent } from './components/compra-venta/compra-venta.component';
 
+
+import { CompraVentaModule } from './components/compra-venta/compra-venta.module';
 
 
 
@@ -54,12 +52,8 @@ export function HttpLoaderFactory(http: HttpClient){
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    InicioComponent,
-    FooterComponent,
-    AdquirirComponent,
-    ColaboracionComponent,
-    AdminManagementCalculatorComponent
+    AdminManagementCalculatorComponent,
+    CompraVentaComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient){
     ClipboardModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CompraVentaModule
   ],
   providers: [LoadScriptsService],
   bootstrap: [AppComponent]

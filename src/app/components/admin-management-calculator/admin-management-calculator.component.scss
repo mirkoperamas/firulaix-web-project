@@ -1,158 +1,153 @@
-.form-column{
+.form-column {
   width: 48%;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.card-design{
-    background-color: #ffa600b0;
-    border-radius: 15px;
-  }
-  
-  
-  .card-design mat-card-header{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .card-design mat-card-title p{
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 20px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #00000094;
-  }
-  
-  .card-design mat-card-subtitle p{
-    font-size: 10px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #ff0000;
-  }
+.card-design {
+  background-color: #ffa600b0;
+  border-radius: 15px;
+}
 
+.card-design mat-card-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 
-  .calc-graphic-camp{
-    border-radius: 15px;
-    width: 98%;
-    margin: 3rem auto 3rem auto;
-    -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    padding: 1rem 2rem;
-    background-color: #f9f9f9;
-  }
-  
-  
-  .calc-graphic-camp p{
-    color: rgba(0, 0, 0, 0.26);
-  }
+.card-design mat-card-title p {
+  padding: 1.5rem 0 0.5rem 0;
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #00000094;
+}
 
-  .calc-graphic-camp input{
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-    font-size: 40px;
-    color: #fff;
-    text-align: center;
-  }
+.card-design mat-card-subtitle p {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #ff0000;
+}
 
-  #calculator mat-form-field{
-    background-color: #cccccc;
-    width: 100%;
-    border-radius: 15px;
-    padding: 0 4rem;
-    margin: 0 auto;
-  }
+.calc-graphic-camp {
+  border-radius: 15px;
+  width: 98%;
+  margin: 3rem auto 3rem auto;
+  -webkit-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  padding: 1rem 2rem;
+  background-color: #f9f9f9;
+}
 
-  .yellow-border-button{
-    border: 1px solid #ffbd25;
-    border-radius: 15px;
-    text-align: center;
-    /* margin-left: 1rem; */
-    -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    background-color: transparent;
-  }
-  
+.calc-graphic-camp p {
+  color: rgba(0, 0, 0, 0.26);
+}
 
-  .graphic-info-coin{
-    width: 75%;
-    height: 4rem;
-    background-color: #cccccc;
-    border-radius: 10px;
-    display: flex;
-    /* align-items: center; */
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 .5rem;
-  }
+.calc-graphic-camp input {
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+}
 
-  .graphic-info-coin p, .graphic-info-coin span{
-    margin: 0;
-  }
+#calculator mat-form-field {
+  background-color: #cccccc;
+  width: 100%;
+  border-radius: 15px;
+  padding: 0 4rem;
+  margin: 0 auto;
+}
 
-  .graphic-info-coin span{
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-    /* font-weight: bold; */
-    font-size: 20px;
-    color: green;
-  }
+.yellow-border-button {
+  border: 1px solid #ffbd25;
+  border-radius: 15px;
+  text-align: center;
+  /* margin-left: 1rem; */
+  -webkit-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  background-color: transparent;
+}
 
-  .dato-sunat{
-    color: red !important;
-  }
+.graphic-info-coin {
+  width: 75%;
+  height: 4rem;
+  background-color: #cccccc;
+  border-radius: 10px;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
 
-  .dato-atlas{
-    color: green;
-  }
+.graphic-info-coin p,
+.graphic-info-coin span {
+  margin: 0;
+}
 
-  .calc-graphic-info_content{
-    display: flex; 
-    justify-content: space-between;
-  }
+.graphic-info-coin span {
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  /* font-weight: bold; */
+  font-size: 20px;
+  color: green;
+}
 
-  .calc-graphic-info{
-    background-color: #f9f9f9; 
-    display: flex; 
-    padding: 1rem; 
-    border-radius: 15px; 
-    width: 48%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.dato-sunat {
+  color: red !important;
+}
 
+.dato-atlas {
+  color: green;
+}
 
-  .camp-from{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.calc-graphic-info_content {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .yellow-border-button{
-    border: 1px solid #ffbd25;
-    border-radius: 15px;
-    text-align: center;
-    /* margin-left: 1rem; */
-    -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.18);
-    background-color: transparent;
-    padding: .2rem 1rem;
-  }
+.calc-graphic-info {
+  background-color: #f9f9f9;
+  display: flex;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .select-style{
-    padding: 2rem .5rem; 
-    width: 10rem;
-    margin-right: 1rem;
-  }
+.camp-from {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .coin-send-button{
-    height: 4rem;
-    margin-left: 1.2rem;
-  }
+.yellow-border-button {
+  border: 1px solid #ffbd25;
+  border-radius: 15px;
+  text-align: center;
+  /* margin-left: 1rem; */
+  -webkit-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.18);
+  background-color: transparent;
+  padding: 0.2rem 1rem;
+}
 
-  
+.select-style {
+  padding: 2rem 0.5rem;
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.coin-send-button {
+  height: 4rem;
+  margin-left: 1.2rem;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -160,7 +155,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
-

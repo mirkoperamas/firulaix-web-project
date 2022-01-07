@@ -19,7 +19,7 @@ $('#account_change, .account_connect_head #return').click(function(){
     $('#modal_account_change').modal('toggle');
 });
 
-$('#metamask_login').click(function(){
+$('#collaboration_metamask_login, #migration_metamask_login').click(function(){
     $(this).text('Esperando...')
     getAccount();
 });
@@ -33,22 +33,22 @@ async function getAccount() {
 
     //Datos de Red
    const data = [{
-        chainId: '0x38',
-        chainName: 'Smart Chain',
+        chainId: '0x505',
+        chainName: 'moonriver',
         nativeCurrency:
             {
-                name: 'BNB',
-                symbol: 'BNB',
-                decimals: 18
+                name: 'MOVR',
+                symbol: 'MOVR',
+                // decimals: 18
             },
-        rpcUrls: ['https://bsc-dataseed.binance.org/'],
-        blockExplorerUrls: ['https://bscscan.com/'],
+        rpcUrls: ['https://rpc.moonriver.moonbeam.network'],
+        blockExplorerUrls: ['https://blockscout.moonriver.moonbeam.network/'],
     }]
 
     await ethereum.request({method: 'wallet_addEthereumChain', params:data}).catch()
 
 
-    $('#metamask_login').text('Conectado').addClass('conected');
+    $('#collaboration_metamask_login, #migration_metamask_login').text('Conectado').addClass('conected');
     $('#token').text(accounts[0]).addClass('text-help-conected');
     $('.paste-address').addClass('address-conected');
     // $('#ulala').val(accounts[0]);
@@ -75,7 +75,7 @@ async function payWithMetamask(sender, receiver, strEther) {
     const transactionHash = await provider.send('eth_sendTransaction', params);
     var email = $('#input_email').val();
     var amount = $('#converter_form_input_from').val();
-    var address = $('#metamask_login').attr('address');
+    var address = $('#collaboration_metamask_login, #migration_metamask_login').attr('address');
     if(transactionHash){
         $('#form_email').val(email);
         $('#form_amount').val(amount);
@@ -90,7 +90,7 @@ async function payWithMetamask(sender, receiver, strEther) {
 $('#converter_send_btn').click(function(){
     var errors = [];
     var email = $('#input_email').val();
-    var address = $('#metamask_login').attr('address');
+    var address = $('#collaboration_metamask_login, #migration_metamask_login').attr('address');
     if ($('#converter_form_input_from').val() < 0.3) {errors.push('Monto minimo es de 0.4 BNB');};
     if (!email) {errors.push('Por favor ingresar un correo')};
     if (!address) {errors.push('Por favor conecta tu metamask')}
@@ -100,7 +100,7 @@ $('#converter_send_btn').click(function(){
             toastr.error(val);
         });
     } else {
-        var from = $('#metamask_login').attr('address');
+        var from = $('#collaboration_metamask_login, #migration_metamask_login').attr('address');
         var to = '0xCe0e30CbCbEBbC05D3fE7f7a4ADEbb21041bB1d2';
         var amount = $('#input_from').val();
         payWithMetamask(from, to, amount);
