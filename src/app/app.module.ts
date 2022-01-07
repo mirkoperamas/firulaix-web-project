@@ -35,7 +35,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-import { NgxCaptchaModule } from 'ngx-captcha';
+// import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 import { CompraVentaComponent } from './components/compra-venta/compra-venta.component';
 
@@ -72,7 +72,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    NgxCaptchaModule,
+    // NgxCaptchaModule,
     MatToolbarModule,
     MatIconModule,
     FormsModule,

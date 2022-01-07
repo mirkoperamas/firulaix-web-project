@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NgxCaptchaModule } from 'ngx-captcha';
+// import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { RecaptchaModule } from 'ng-recaptcha';
@@ -19,7 +19,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxCaptchaModule,
+    // NgxCaptchaModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
