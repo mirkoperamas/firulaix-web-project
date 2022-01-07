@@ -7,7 +7,7 @@
             <p>Calculadora Firulaix</p>
           </mat-card-title>
           <mat-card-subtitle>
-            <p>Compra</p>
+            <p>Compra: {{tipoCambioCompra}}</p>
           </mat-card-subtitle>
         </mat-card-header>
         <hr />
@@ -78,7 +78,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
-                type="number"
+                type="text"
                 onkeydown="return event.keyCode !== 69"
                 autocomplete="off"
                 matInput
@@ -123,6 +123,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
+                type="text"
                 autocomplete="off"
                 matInput
                 placeholder="Address"
@@ -167,6 +168,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
+                type="text"
                 autocomplete="off"
                 matInput
                 placeholder="Email"
@@ -232,7 +234,7 @@
             />
           </div>
 
-          <!-- <div
+          <div
               style="
                 display: flex;
                 align-items: center;
@@ -241,12 +243,32 @@
               "
             >
               <ngx-recaptcha2
-                #captchaElem
+                #captchaElem1
                 [siteKey]="siteKey"
-                formControlName="recaptchaFormControl"
+                formControlName="recaptchaBuyFormControl"
               >
               </ngx-recaptcha2>
-            </div> -->
+            </div>
+
+
+
+
+          <!-- <div
+            [hidden]="captcha"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 2rem 0;
+            "
+          >
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfWwvYdAAAAABKZU-3-wv-J76sGf8wSnUJ4bJo2" formControlName="recaptchaBuyFormControl"></re-captcha>
+
+            
+          </div>
+          
+          <div [hidden]="!captcha"></div> -->
+
 
           <div class="button-formulary">
             <button

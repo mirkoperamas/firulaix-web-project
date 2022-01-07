@@ -7,11 +7,10 @@ import { takeUntil } from 'rxjs/operators';
 
 import { SellSendService } from '../../../services/sell-send.service';
 
-import { CoinUpdateService } from '../../../services/coin-update.service';
-import { FiruValueService } from 'src/app/services/firu-value.service';
+import { TipoCambioService } from '../../../services/tipo-cambio.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
-import { ReCaptcha2Component } from 'ngx-captcha';
+// import { ReCaptcha2Component } from 'ngx-captcha';
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -25,9 +24,7 @@ interface HtmlInputEvent extends Event {
 export class VentaComponent implements OnInit {
   convertorForm!: FormGroup;
   unsubscribe: Subject<void>;
-  ventaImpAPI: string;
-  firulaixValue: string;
-  valorActualFiru!: number;
+  tipoCambioVenta: string;
 
   photoSellSelected: string | ArrayBuffer;
 
@@ -36,13 +33,14 @@ export class VentaComponent implements OnInit {
 
   sendSellFormulary: FormGroup;
 
-  @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
+  // @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
   emailPattern =
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
-  numOpPattern = /^\d*$/;
-  numTrPattern = /^\d*$/;
+  numTrPattern = /^[0-9]+$/;
+
+  captcha: string;
 
   constructor(
     private http: HttpClient,
@@ -50,12 +48,13 @@ export class VentaComponent implements OnInit {
     private dialog: MatDialog,
     private calcformBuilder: FormBuilder,
     private sellSendService: SellSendService,
-    private coinUpdateService: CoinUpdateService,
     private sendSellFormBuilder: FormBuilder,
-    private firuValueService: FiruValueService
+    private tipoCambioService: TipoCambioService
   ) {
     this.unsubscribe = new Subject();
     this.initForm();
+
+    this.captcha = '';
   }
 
   ngOnInit() {
@@ -65,35 +64,23 @@ export class VentaComponent implements OnInit {
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     // this.convertorForm.controls.valorIngresado.disable();
 
-    this.coinUpdateService
-      .getCoinUpdate()
-      .subscribe(
-        (coinres) =>
-          (this.ventaImpAPI = coinres.data[coinres.data.length - 1].venta)
-      );
-
-    this.firuValueService
-      .post()
-      .subscribe(
-        (firures) => (
-          (this.firulaixValue = firures.result.price),
-          console.log(this.firulaixValue)
-        )
-      );
+    this.tipoCambioService
+      .getTipoCambio()
+      .subscribe((valueres) => (this.tipoCambioVenta = valueres.tc.bid));
 
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
         '',
-        [Validators.required, Validators.pattern(this.numTrPattern)],
+        [Validators.required, Validators.minLength(66), Validators.maxLength(66)],
       ],
       bcpAccountFormControl: [
         '',
         [
           Validators.required,
-          // Validators.minLength(16),
-          Validators.maxLength(16),
           Validators.pattern(this.numTrPattern),
+          Validators.minLength(16),
+          Validators.maxLength(16),
         ],
       ],
       emailSellFormControl: [
@@ -101,14 +88,18 @@ export class VentaComponent implements OnInit {
         [Validators.required, Validators.pattern(this.emailPattern)],
       ],
       imageSellFormControl: ['', [Validators.required]],
-      // recaptchaSellFormControl: ['', [Validators.required]],
+      recaptchaSellFormControl: ['', [Validators.required]],
     });
     // this.sendSellFormulary.disable();
   }
 
+  resolved(captchaResponse: string){
+    this.captcha = captchaResponse;
+  }
+
   // CAPTCHA KEY
   siteKey: string = '6LfLp9wdAAAAAE6q8oH8HCvvW00tMlceGq6Iafgz';
-  // siteKey2: string = "6Lcc8dscAAAAAHLqRIyxw4EhHhbPw-pZatfzKZir";
+
 
   submit() {
     console.warn(this.convertorForm.controls);
@@ -129,14 +120,15 @@ export class VentaComponent implements OnInit {
         if (controls?.valorIngresado && controls?.tipoMoneda) {
           switch (controls?.tipoMoneda) {
             case 'soles':
-              let tcSoles: any = this.ventaImpAPI;
+              let tcSoles: any = this.tipoCambioVenta;
               let tcambioSoles: any = (
-                +controls.valorIngresado / +tcSoles
+                +controls.valorIngresado * +tcSoles
               ).toFixed(4);
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioSoles)
+                    parseFloat(tcambioSoles) +
+                    parseFloat(tcambioSoles) * 0.023
                   ).toFixed(5),
                 },
                 {
@@ -151,7 +143,8 @@ export class VentaComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioDolares)
+                    parseFloat(tcambioDolares) +
+                    parseFloat(tcambioDolares) * 0.023
                   ).toFixed(5),
                 },
                 {
@@ -164,6 +157,15 @@ export class VentaComponent implements OnInit {
             default:
               break;
           }
+        } else {
+          this.convertorForm.patchValue(
+            {
+              resultado: '0.00',
+            },
+            {
+              emitEvent: false,
+            }
+          );
         }
       });
   }
@@ -196,7 +198,7 @@ export class VentaComponent implements OnInit {
           this.sendSellFormulary.reset();
           (<HTMLImageElement>document.querySelector('#imageY')).src =
             this.imageY;
-          this.captchaElem.resetCaptcha();
+          // this.captchaElem.resetCaptcha();
         },
         (err) => console.log(err)
       );

@@ -7,7 +7,7 @@
             <p>Calculadora firulaix</p>
           </mat-card-title>
           <mat-card-subtitle>
-            <p>Venta</p>
+            <p>Venta: {{tipoCambioVenta}}</p>
           </mat-card-subtitle>
         </mat-card-header>
         <hr />
@@ -78,7 +78,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
-                type="number"
+                type="text"
                 onkeydown="return event.keyCode !== 69"
                 autocomplete="off"
                 matInput
@@ -126,7 +126,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
-                type="number"
+                type="text"
                 autocomplete="off"
                 matInput
                 placeholder="Cuenta de BCP"
@@ -174,6 +174,7 @@
           <div class="form-register-camp">
             <mat-form-field>
               <input
+                type="text"
                 autocomplete="off"
                 matInput
                 placeholder="Email"
@@ -248,12 +249,36 @@
             "
           >
             <ngx-recaptcha2
-              #captchaElem
-              [siteKey]="siteKey"
-              formControlName="recaptchaFormControl"
+              #captchaElem2
+              [siteKey]="siteKey2"
+              formControlName="recaptchaSellFormControl"
             >
             </ngx-recaptcha2>
           </div> -->
+
+
+
+
+          <!-- <div
+            [hidden]="captcha"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 2rem 0;
+            "
+          >
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfWwvYdAAAAABKZU-3-wv-J76sGf8wSnUJ4bJo2" formControlName="recaptchaBuyFormControl"></re-captcha>
+
+            
+          </div>
+          
+          <div [hidden]="!captcha"></div> -->
+
+
+          <!-- <ngx-recaptcha2 id="two" #captchaElement [siteKey]="siteKey" formControlName="recaptchaSellFormControl"></ngx-recaptcha2> -->
+
+
 
           <div class="button-formulary">
             <button

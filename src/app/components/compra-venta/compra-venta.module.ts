@@ -10,6 +10,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 @NgModule({
   declarations: [CompraComponent, VentaComponent],
@@ -24,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatDialogModule,
     MatButtonModule,
+    RecaptchaModule
   ],
   exports: [CompraComponent, VentaComponent],
 })

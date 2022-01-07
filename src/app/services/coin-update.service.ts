@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class CoinUpdateService {
   URI = 'https://firubuy-api.herokuapp.com/api/firu/tipo_cambio';
 
-  URI2 = 'https://api.zenlink.pro/rpc';
 
   constructor(private http: HttpClient) {}
 
