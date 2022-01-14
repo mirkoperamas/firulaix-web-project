@@ -88,9 +88,16 @@
 
       <mat-card-content>
         <form
-          (submit)="uploadBuy(numOp, address, email)"
+          (submit)="uploadBuy(numOp, address, email, tCambio)"
           [formGroup]="sendBuyFormulary"
         >
+
+        <input 
+          type="text"
+          formControlName="tCambioFormControl"
+          #tCambio
+        />
+
           <div class="form-register-camp">
             <mat-form-field>
               <input

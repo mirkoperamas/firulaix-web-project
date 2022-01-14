@@ -91,6 +91,7 @@ export class CompraComponent implements OnInit {
       ],
       imageBuyFormControl: ['', [Validators.required]],
       recaptchaBuyFormControl: ['', [Validators.required]],
+      // tCambioFormControl: [`${this.tipoCambioImp}`]
     });
     // this.sendBuyFormulary.disable();
   }
@@ -188,10 +189,11 @@ export class CompraComponent implements OnInit {
   uploadBuy(
     numOp: HTMLInputElement,
     address: HTMLInputElement,
-    email: HTMLInputElement
+    email: HTMLInputElement,
+    tCambio: HTMLInputElement
   ) {
     this.buySendService
-      .createBuySend(numOp.value, address.value, email.value, this.file)
+      .createBuySend(numOp.value, address.value, email.value, this.file, tCambio.value)
       .subscribe(
         (res) => {
           console.log(res);
