@@ -73,13 +73,19 @@ export class VentaComponent implements OnInit {
         this.tipoCambioVenta = valueres.tc.bid;
         this.tipoCambioCalculado = (parseFloat(this.tipoCambioVenta) + parseFloat(this.tipoCambioVenta)*0.023).toFixed(8);
         this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+
+        this.sendSellFormulary.patchValue(
+          {
+            tCambioFormControl: this.tipoCambioImp
+          }
+        )
       });
 
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
         '',
-        [Validators.required, Validators.minLength(66), Validators.maxLength(66)],
+        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
       ],
       bcpAccountFormControl: [
         '',
@@ -95,7 +101,9 @@ export class VentaComponent implements OnInit {
         [Validators.required, Validators.pattern(this.emailPattern)],
       ],
       imageSellFormControl: ['', [Validators.required]],
-      recaptchaSellFormControl: ['', [Validators.required]],
+
+      // recaptchaSellFormControl: ['', [Validators.required]],
+      tCambioFormControl: ['', [Validators.required]]
     });
     // this.sendSellFormulary.disable();
   }
@@ -193,17 +201,15 @@ export class VentaComponent implements OnInit {
   uploadSell(
     numTr: HTMLInputElement,
     bcpAccount: HTMLInputElement,
-    email: HTMLInputElement
+    email: HTMLInputElement,
+    tCambio: HTMLInputElement
   ) {
     this.sellSendService
-      .createSellSend(numTr.value, bcpAccount.value, email.value, this.file)
+      .createSellSend(numTr.value, bcpAccount.value, email.value, this.file, tCambio.value)
       .subscribe(
         (res) => {
           console.log(res);
-          this.sendSellFormulary.reset();
-          (<HTMLImageElement>document.querySelector('#imageY')).src =
-            this.imageY;
-          // this.captchaElem.resetCaptcha();
+          window.location.reload();
         },
         (err) => console.log(err)
       );

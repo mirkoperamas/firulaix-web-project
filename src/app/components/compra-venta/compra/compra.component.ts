@@ -37,6 +37,8 @@ export class CompraComponent implements OnInit {
 
   sendBuyFormulary: FormGroup;
 
+  aeiou: string;
+
   // @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
 
@@ -73,10 +75,17 @@ export class CompraComponent implements OnInit {
       .getTipoCambio()
       .subscribe(
         (valueres) => {
-          parseFloat(this.tipoCambioCompra = valueres.tc.ask);
+          this.tipoCambioCompra = valueres.tc.ask;
           this.tipoCambioCalculado = (parseFloat(this.tipoCambioCompra) + parseFloat(this.tipoCambioCompra)*0.01729).toFixed(8);
           this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+
+          this.sendBuyFormulary.patchValue(
+            {
+              tCambioFormControl: this.tipoCambioImp
+            }
+          )
         });
+
 
     // SEND BUY FORM
     this.sendBuyFormulary = this.sendBuyFormBuilder.group({
@@ -90,12 +99,13 @@ export class CompraComponent implements OnInit {
         [Validators.required, Validators.pattern(this.emailPattern)],
       ],
       imageBuyFormControl: ['', [Validators.required]],
-      recaptchaBuyFormControl: ['', [Validators.required]],
-      // tCambioFormControl: [`${this.tipoCambioImp}`]
+      // recaptchaBuyFormControl: ['', [Validators.required]],
+      tCambioFormControl: ['', [Validators.required]]
     });
     // this.sendBuyFormulary.disable();
   }
 
+  
 
   resolved(captchaResponse: string){
     this.captcha = captchaResponse;
@@ -197,10 +207,7 @@ export class CompraComponent implements OnInit {
       .subscribe(
         (res) => {
           console.log(res);
-          this.sendBuyFormulary.reset();
-          (<HTMLImageElement>document.querySelector('#imageX')).src =
-            this.imageX;
-          // this.captchaElem.resetCaptcha();
+          window.location.reload();
         },
         (err) => console.log(err)
       );

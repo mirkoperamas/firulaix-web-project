@@ -72,9 +72,18 @@
 
       <mat-card-content>
         <form
-          (submit)="uploadSell(numTr, bcpAccount, email)"
+          (submit)="uploadSell(numTr, bcpAccount, email, tCambio)"
           [formGroup]="sendSellFormulary"
         >
+
+        <input 
+          type="text"
+          formControlName="tCambioFormControl"
+          #tCambio
+          style="display: none;"
+        />
+
+
           <div class="form-register-camp">
             <mat-form-field>
               <input
@@ -82,7 +91,7 @@
                 onkeydown="return event.keyCode !== 69"
                 autocomplete="off"
                 matInput
-                placeholder="Número de transacción"
+                placeholder="Hash de transacción"
                 formControlName="trFormControl"
                 #numTr
               />
@@ -93,7 +102,7 @@
                   sendSellFormulary.get('trFormControl').value != 0
                 "
               >
-                Debe ingresar un número de transacción válido
+                Debe ingresar un hash de transacción válido
               </mat-error>
 
               <mat-error
