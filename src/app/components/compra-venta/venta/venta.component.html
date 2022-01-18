@@ -249,21 +249,23 @@
             />
           </div>
 
-          <!-- <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin: 2rem 0;
-            "
+          <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+          "
+        >
+          <!-- <ngx-recaptcha2
+            #captchaElem1
+            [siteKey]="siteKey"
+            formControlName="recaptchaBuyFormControl"
           >
-            <ngx-recaptcha2
-              #captchaElem2
-              [siteKey]="siteKey2"
-              formControlName="recaptchaSellFormControl"
-            >
-            </ngx-recaptcha2>
-          </div> -->
+          </ngx-recaptcha2> -->
+
+          <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptchaFormControl"></re-captcha>
+        </div>
 
 
 

@@ -10,7 +10,6 @@ import { SellSendService } from '../../../services/sell-send.service';
 import { TipoCambioService } from '../../../services/tipo-cambio.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
-// import { ReCaptcha2Component } from 'ngx-captcha';
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -36,14 +35,12 @@ export class VentaComponent implements OnInit {
 
   sendSellFormulary: FormGroup;
 
-  // @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
-
   emailPattern =
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
   numTrPattern = /^[0-9]+$/;
 
-  captcha: string;
+  token: string|undefined;
 
   constructor(
     private http: HttpClient,
@@ -57,7 +54,7 @@ export class VentaComponent implements OnInit {
     this.unsubscribe = new Subject();
     this.initForm();
 
-    this.captcha = '';
+    this.token = undefined;
   }
 
   ngOnInit() {
@@ -67,25 +64,24 @@ export class VentaComponent implements OnInit {
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     // this.convertorForm.controls.valorIngresado.disable();
 
-    this.tipoCambioService
-      .getTipoCambio()
-      .subscribe((valueres) => {
-        this.tipoCambioVenta = valueres.tc.bid;
-        this.tipoCambioCalculado = (parseFloat(this.tipoCambioVenta) + parseFloat(this.tipoCambioVenta)*0.023).toFixed(8);
-        this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+    this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
+      this.tipoCambioVenta = valueres.tc.bid;
+      this.tipoCambioCalculado = (
+        parseFloat(this.tipoCambioVenta) +
+        parseFloat(this.tipoCambioVenta) * 0.023
+      ).toFixed(8);
+      this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
 
-        this.sendSellFormulary.patchValue(
-          {
-            tCambioFormControl: this.tipoCambioImp
-          }
-        )
+      this.sendSellFormulary.patchValue({
+        tCambioFormControl: this.tipoCambioImp,
       });
+    });
 
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
         '',
-        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+        [Validators.required, Validators.minLength(64), Validators.maxLength(64)],
       ],
       bcpAccountFormControl: [
         '',
@@ -102,19 +98,11 @@ export class VentaComponent implements OnInit {
       ],
       imageSellFormControl: ['', [Validators.required]],
 
-      // recaptchaSellFormControl: ['', [Validators.required]],
-      tCambioFormControl: ['', [Validators.required]]
+      tCambioFormControl: ['', [Validators.required]],
+      recaptchaFormControl: ['', [Validators.required]]
     });
     // this.sendSellFormulary.disable();
   }
-
-  resolved(captchaResponse: string){
-    this.captcha = captchaResponse;
-  }
-
-  // CAPTCHA KEY
-  siteKey: string = '6LfLp9wdAAAAAE6q8oH8HCvvW00tMlceGq6Iafgz';
-
 
   submit() {
     console.warn(this.convertorForm.controls);
@@ -141,9 +129,7 @@ export class VentaComponent implements OnInit {
               ).toFixed(4);
               this.convertorForm.patchValue(
                 {
-                  resultado: (
-                    parseFloat(tcambioSoles)
-                  ).toFixed(5),
+                  resultado: parseFloat(tcambioSoles).toFixed(5),
                 },
                 {
                   emitEvent: false,
@@ -157,7 +143,8 @@ export class VentaComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioDolares) + parseFloat(tcambioDolares) * 0.023
+                    parseFloat(tcambioDolares) +
+                    parseFloat(tcambioDolares) * 0.023
                   ).toFixed(5),
                 },
                 {
@@ -205,7 +192,13 @@ export class VentaComponent implements OnInit {
     tCambio: HTMLInputElement
   ) {
     this.sellSendService
-      .createSellSend(numTr.value, bcpAccount.value, email.value, this.file, tCambio.value)
+      .createSellSend(
+        numTr.value,
+        bcpAccount.value,
+        email.value,
+        this.file,
+        tCambio.value
+      )
       .subscribe(
         (res) => {
           console.log(res);

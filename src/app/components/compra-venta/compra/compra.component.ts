@@ -10,8 +10,6 @@ import { BuySendService } from '../../../services/buy-send.service';
 import { TipoCambioService } from '../../../services/tipo-cambio.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
-// import { ReCaptcha2Component } from 'ngx-captcha';
-
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -39,15 +37,12 @@ export class CompraComponent implements OnInit {
 
   aeiou: string;
 
-  // @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
-
-
   emailPattern =
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
   numOpPattern = /^[0-9]+$/;
 
-  captcha: string;
+  token: string|undefined;
 
   constructor(
     private http: HttpClient,
@@ -61,7 +56,7 @@ export class CompraComponent implements OnInit {
     this.unsubscribe = new Subject();
     this.initForm();
 
-    this.captcha = '';
+    this.token = undefined;
   }
 
   ngOnInit() {
@@ -71,27 +66,29 @@ export class CompraComponent implements OnInit {
     this.convertorForm.controls.tipoMoneda.setValue('soles');
     // this.convertorForm.controls.valorIngresado.disable();
 
-    this.tipoCambioService
-      .getTipoCambio()
-      .subscribe(
-        (valueres) => {
-          this.tipoCambioCompra = valueres.tc.ask;
-          this.tipoCambioCalculado = (parseFloat(this.tipoCambioCompra) + parseFloat(this.tipoCambioCompra)*0.01729).toFixed(8);
-          this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
+    this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
+      this.tipoCambioCompra = valueres.tc.ask;
+      this.tipoCambioCalculado = (
+        parseFloat(this.tipoCambioCompra) +
+        parseFloat(this.tipoCambioCompra) * 0.01729
+      ).toFixed(8);
+      this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
 
-          this.sendBuyFormulary.patchValue(
-            {
-              tCambioFormControl: this.tipoCambioImp
-            }
-          )
-        });
-
+      this.sendBuyFormulary.patchValue({
+        tCambioFormControl: this.tipoCambioImp,
+      });
+    });
 
     // SEND BUY FORM
     this.sendBuyFormulary = this.sendBuyFormBuilder.group({
       opFormControl: [
         '',
-        [Validators.required, Validators.pattern(this.numOpPattern), Validators.minLength(8), Validators.maxLength(8)],
+        [
+          Validators.required,
+          Validators.pattern(this.numOpPattern),
+          Validators.minLength(8),
+          Validators.maxLength(8),
+        ],
       ],
       addressFormControl: ['', [Validators.required, Validators.minLength(42)]],
       emailBuyFormControl: [
@@ -99,21 +96,11 @@ export class CompraComponent implements OnInit {
         [Validators.required, Validators.pattern(this.emailPattern)],
       ],
       imageBuyFormControl: ['', [Validators.required]],
-      // recaptchaBuyFormControl: ['', [Validators.required]],
-      tCambioFormControl: ['', [Validators.required]]
+      tCambioFormControl: ['', [Validators.required]],
+      recaptchaFormControl: ['', [Validators.required]]
     });
     // this.sendBuyFormulary.disable();
   }
-
-  
-
-  resolved(captchaResponse: string){
-    this.captcha = captchaResponse;
-  }
-
-
-  // CAPTCHA KEY
-  siteKey: string = '6LfWwvYdAAAAABKZU-3-wv-J76sGf8wSnUJ4bJo2';
 
   submit() {
     console.warn(this.convertorForm.controls);
@@ -140,9 +127,7 @@ export class CompraComponent implements OnInit {
               ).toFixed(4);
               this.convertorForm.patchValue(
                 {
-                  resultado: (
-                    parseFloat(tcambioSoles)
-                  ).toFixed(5),
+                  resultado: parseFloat(tcambioSoles).toFixed(5),
                 },
                 {
                   emitEvent: false,
@@ -155,7 +140,8 @@ export class CompraComponent implements OnInit {
               this.convertorForm.patchValue(
                 {
                   resultado: (
-                    parseFloat(tcambioDolares) - (parseFloat(tcambioDolares) * 0.009)
+                    parseFloat(tcambioDolares) -
+                    parseFloat(tcambioDolares) * 0.009
                   ).toFixed(5),
                 },
                 {
@@ -203,7 +189,13 @@ export class CompraComponent implements OnInit {
     tCambio: HTMLInputElement
   ) {
     this.buySendService
-      .createBuySend(numOp.value, address.value, email.value, this.file, tCambio.value)
+      .createBuySend(
+        numOp.value,
+        address.value,
+        email.value,
+        this.file,
+        tCambio.value
+      )
       .subscribe(
         (res) => {
           console.log(res);
@@ -213,6 +205,8 @@ export class CompraComponent implements OnInit {
       );
     return false;
   }
+
+
 
   ngOnDestroy() {
     this.unsubscribe.next();

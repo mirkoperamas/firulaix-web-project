@@ -10,7 +10,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { RecaptchaModule } from 'ng-recaptcha';
+// import { RecaptchaModule } from 'ng-recaptcha';
+
+
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha'
+import { environment } from '../../../environments/environment';
+
 
 
 @NgModule({
@@ -26,8 +31,18 @@ import { RecaptchaModule } from 'ng-recaptcha';
     MatSelectModule,
     MatDialogModule,
     MatButtonModule,
-    RecaptchaModule
+    // RecaptchaModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
   exports: [CompraComponent, VentaComponent],
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptcha.siteKey,
+      } as RecaptchaSettings,
+    },
+  ],
 })
 export class CompraVentaModule {}
