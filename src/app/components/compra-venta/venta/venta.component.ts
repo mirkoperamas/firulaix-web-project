@@ -81,7 +81,7 @@ export class VentaComponent implements OnInit {
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
         '',
-        [Validators.required, Validators.minLength(64), Validators.maxLength(64)],
+        [Validators.required, Validators.minLength(66), Validators.maxLength(66)],
       ],
       bcpAccountFormControl: [
         '',
