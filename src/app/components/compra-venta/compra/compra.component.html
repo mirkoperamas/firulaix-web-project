@@ -1,21 +1,29 @@
 <div class="content-forms">
   <div class="form-column">
     <div class="form-text">
-      <p>Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras siguientes cuentas del banco:</p>
-      <div class="form-text-information" style="margin: 4rem auto 4rem auto;">
-          <div>
-            <p><span> BCP NRO. CTA SOLES: </span>193-05291854-0-06</p><hr>
-            <p><span> BCP NRO. CCI SOLES: </span>00219310529185400613</p><hr>
-          </div>
-          <div>
-            <p><span> BCP NRO. CTA DOLARES: </span>193-05291860-1-12</p><hr>
-            <p><span> BCP NRO. CCI DOLARES: </span>00219310529186011211</p><hr>
-          </div>
-          <div>
-            <p><span>SWIFT: </span>BCPLPEPL</p><hr>
-          </div>
+      <p>
+        Puedes colaborar con nuestro proyecto haciendo un depósito a nuestras
+        siguientes cuentas del banco:
+      </p>
+      <div class="form-text-information" style="margin: 4rem auto 4rem auto">
+        <div>
+          <p><span> BCP NRO. CTA SOLES: </span>193-05291854-0-06</p>
+          <hr />
+          <p><span> BCP NRO. CCI SOLES: </span>00219310529185400613</p>
+          <hr />
+        </div>
+        <div>
+          <p><span> BCP NRO. CTA DOLARES: </span>193-05291860-1-12</p>
+          <hr />
+          <p><span> BCP NRO. CCI DOLARES: </span>00219310529186011211</p>
+          <hr />
+        </div>
+        <div>
+          <p><span>SWIFT: </span>BCPLPEPL</p>
+          <hr />
+        </div>
       </div>
-  </div>
+    </div>
     <div class="form-calc-graphic">
       <mat-card id="calculator" class="card-design">
         <mat-card-header>
@@ -23,7 +31,7 @@
             <p>Calculadora Firulaix</p>
           </mat-card-title>
           <mat-card-subtitle>
-            <p>Compra: {{tipoCambioImp}}</p>
+            <p>Compra: {{ tipoCambioImp }}</p>
           </mat-card-subtitle>
         </mat-card-header>
         <hr />
@@ -91,13 +99,12 @@
           (submit)="uploadBuy(numOp, address, email, tCambio)"
           [formGroup]="sendBuyFormulary"
         >
-
-        <input 
-          type="text"
-          formControlName="tCambioFormControl"
-          #tCambio
-          style="display: none;"
-        />
+          <input
+            type="text"
+            formControlName="tCambioFormControl"
+            #tCambio
+            style="display: none"
+          />
 
           <div class="form-register-camp">
             <mat-form-field>
@@ -259,28 +266,6 @@
           </div>
 
           <div
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 2rem 0;
-              "
-            >
-              <!-- <ngx-recaptcha2
-                #captchaElem1
-                [siteKey]="siteKey"
-                formControlName="recaptchaBuyFormControl"
-              >
-              </ngx-recaptcha2> -->
-
-              <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptchaFormControl"></re-captcha>
-            </div>
-
-
-
-
-          <!-- <div
-            [hidden]="captcha"
             style="
               display: flex;
               align-items: center;
@@ -288,13 +273,12 @@
               margin: 2rem 0;
             "
           >
-            <re-captcha (resolved)="resolved($event)" siteKey="6LfWwvYdAAAAABKZU-3-wv-J76sGf8wSnUJ4bJo2" formControlName="recaptchaBuyFormControl"></re-captcha>
-
-            
+            <re-captcha
+              id="recaptcha"
+              name="recaptcha"
+              formControlName="recaptchaFormControl"
+            ></re-captcha>
           </div>
-          
-          <div [hidden]="!captcha"></div> -->
-
 
           <div class="button-formulary">
             <button
@@ -323,20 +307,13 @@
             </mat-dialog-actions>
           </ng-template>
         </form>
-
-        
-
       </mat-card-content>
     </mat-card>
 
     <form #form="ngForm">
       <div class="row mt-3">
-        <div class="col-sm-12 mb-2">
-          
-         
-        </div>
+        <div class="col-sm-12 mb-2"></div>
       </div>
-
     </form>
   </div>
 </div>

@@ -40,8 +40,6 @@ export class VentaComponent implements OnInit {
 
   numTrPattern = /^[0-9]+$/;
 
-  token: string|undefined;
-
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -53,8 +51,6 @@ export class VentaComponent implements OnInit {
   ) {
     this.unsubscribe = new Subject();
     this.initForm();
-
-    this.token = undefined;
   }
 
   ngOnInit() {
@@ -81,7 +77,11 @@ export class VentaComponent implements OnInit {
     this.sendSellFormulary = this.sendSellFormBuilder.group({
       trFormControl: [
         '',
-        [Validators.required, Validators.minLength(66), Validators.maxLength(66)],
+        [
+          Validators.required,
+          Validators.minLength(66),
+          Validators.maxLength(66),
+        ],
       ],
       bcpAccountFormControl: [
         '',
@@ -99,7 +99,7 @@ export class VentaComponent implements OnInit {
       imageSellFormControl: ['', [Validators.required]],
 
       tCambioFormControl: ['', [Validators.required]],
-      recaptchaFormControl: ['', [Validators.required]]
+      recaptchaFormControl: ['', [Validators.required]],
     });
     // this.sendSellFormulary.disable();
   }

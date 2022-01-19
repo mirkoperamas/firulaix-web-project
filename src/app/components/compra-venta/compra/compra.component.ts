@@ -42,8 +42,6 @@ export class CompraComponent implements OnInit {
 
   numOpPattern = /^[0-9]+$/;
 
-  token: string|undefined;
-
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -55,8 +53,6 @@ export class CompraComponent implements OnInit {
   ) {
     this.unsubscribe = new Subject();
     this.initForm();
-
-    this.token = undefined;
   }
 
   ngOnInit() {
@@ -97,7 +93,7 @@ export class CompraComponent implements OnInit {
       ],
       imageBuyFormControl: ['', [Validators.required]],
       tCambioFormControl: ['', [Validators.required]],
-      recaptchaFormControl: ['', [Validators.required]]
+      recaptchaFormControl: ['', [Validators.required]],
     });
     // this.sendBuyFormulary.disable();
   }
@@ -205,8 +201,6 @@ export class CompraComponent implements OnInit {
       );
     return false;
   }
-
-
 
   ngOnDestroy() {
     this.unsubscribe.next();
