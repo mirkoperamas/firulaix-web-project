@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha'
-import { environment } from '../../../environments/environment';
+// import { environment } from '../../../environments/environment';
 
 
 
@@ -36,13 +36,5 @@ import { environment } from '../../../environments/environment';
     RecaptchaFormsModule,
   ],
   exports: [CompraComponent, VentaComponent],
-  providers: [
-    {
-      provide: RECAPTCHA_SETTINGS,
-      useValue: {
-        siteKey: environment.recaptcha.siteKey,
-      } as RecaptchaSettings,
-    },
-  ],
 })
 export class CompraVentaModule {}
