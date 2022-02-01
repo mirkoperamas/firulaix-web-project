@@ -227,15 +227,6 @@
               <div class="image-content">
                 <img id="imagex" [src]="photoSelected || 'assets/no-image-2.png'" class="img-fluid" (click)="photoInput.click()">
               </div>
-
-              <div style="display: flex; align-items: center; justify-content: center; margin: 2rem 0;">
-                <ngx-recaptcha2 #captchaElem
-                  [siteKey]="siteKey"
-                  formControlName="recaptchaFormControl">
-                </ngx-recaptcha2>
-              </div>
-              
-
               
               <div class="button-formulary">
                 <button mat-flat-button color="accent" [disabled]="sendFormulary.invalid" (click)="openDialogWithRef(registerSend)"> 

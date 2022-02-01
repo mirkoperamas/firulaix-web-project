@@ -14,7 +14,6 @@ import { CoinUpdateService } from '../../services/coin-update.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TemplateRef } from '@angular/core';
-import { ReCaptcha2Component } from 'ngx-captcha';
 
 
 import { LoadScriptsService } from '../../services/load-scripts.service';
@@ -59,10 +58,6 @@ imageX = 'assets/no-image-2.png';
 
 
 
-@ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
-
-
-
 emailPattern = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
 numOpPattern = /^\d*$/;
@@ -85,7 +80,6 @@ numOpPattern = /^\d*$/;
       emailFormControl: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       addressFormControl: ['', [Validators.required, Validators.minLength(42)]],
       imageFormControl: ['', [Validators.required]],
-      recaptchaFormControl: ['', [Validators.required]],
     });
 
     // this.sendFormulary.disable();
@@ -131,7 +125,6 @@ openDialogWithRef(ref: TemplateRef<any>) {
           console.log(res);
           this.sendFormulary.reset();
           (<HTMLImageElement>document.querySelector("#imagex")).src = this.imageX;
-          this.captchaElem.resetCaptcha();
         },
         err => console.log(err)
       );

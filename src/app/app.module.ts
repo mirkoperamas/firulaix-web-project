@@ -40,7 +40,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-import { NgxCaptchaModule } from 'ngx-captcha';
 import { AdminManagementCalculatorComponent } from './components/admin-management-calculator/admin-management-calculator.component';
 import { MigracionComponent } from './components/migracion/migracion.component';
 
@@ -80,7 +79,6 @@ export function HttpLoaderFactory(http: HttpClient){
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    NgxCaptchaModule,
     MatToolbarModule,
     MatIconModule,
     FormsModule,
