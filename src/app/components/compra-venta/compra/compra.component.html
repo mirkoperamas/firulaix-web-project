@@ -60,7 +60,12 @@
 
             <div class="calc-graphic-camp">
               <div class="camp-from">
-                <div class="border-button select-style">USDT</div>
+                <div class="border-button select-style">
+                  <mat-select formControlName="tipoMoneda">
+                    <mat-option value="soles">USDT</mat-option>
+                    <mat-option value="dolares">FIRU</mat-option>
+                  </mat-select>
+                </div>
                 <mat-form-field>
                   <input matInput formControlName="resultado" />
                 </mat-form-field>
