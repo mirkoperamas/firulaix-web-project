@@ -11,6 +11,7 @@ import { TipoCambioService } from '../../../services/tipo-cambio.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
 
+
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
@@ -47,10 +48,11 @@ export class VentaComponent implements OnInit {
     private calcformBuilder: FormBuilder,
     private sellSendService: SellSendService,
     private sendSellFormBuilder: FormBuilder,
-    private tipoCambioService: TipoCambioService
+    private tipoCambioService: TipoCambioService,
   ) {
     this.unsubscribe = new Subject();
     this.initForm();
+
   }
 
   ngOnInit() {

@@ -25,9 +25,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 
-import{ LoadScriptsService } from './services/load-scripts.service';
-
-
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import {MatDialogModule} from '@angular/material/dialog';
@@ -87,7 +84,7 @@ export function HttpLoaderFactory(http: HttpClient){
     MatTooltipModule,
     CompraVentaModule
   ],
-  providers: [LoadScriptsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

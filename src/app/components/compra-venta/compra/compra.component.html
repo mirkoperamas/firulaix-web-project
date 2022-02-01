@@ -42,7 +42,7 @@
                 <div class="border-button select-style">
                   <mat-select formControlName="tipoMoneda">
                     <mat-option value="soles">S/ Soles</mat-option>
-                    <mat-option value="dolares">$ Dolares</mat-option>
+                    <!-- <mat-option value="dolares">$ Dolares</mat-option> -->
                   </mat-select>
                 </div>
 
@@ -61,9 +61,9 @@
             <div class="calc-graphic-camp">
               <div class="camp-from">
                 <div class="border-button select-style">
-                  <mat-select formControlName="tipoMoneda">
-                    <mat-option value="soles">USDT</mat-option>
-                    <mat-option value="dolares">FIRU</mat-option>
+                  <mat-select formControlName="tipoToken">
+                    <mat-option value="usdt">USDT</mat-option>
+                    <mat-option value="firu">FIRU</mat-option>
                   </mat-select>
                 </div>
                 <mat-form-field>
@@ -87,6 +87,8 @@
           el día hábil más próximo.
         </p>
       </div>
+
+      <button (click)="contractToken()" ></button>
     </div>
   </div>
 
