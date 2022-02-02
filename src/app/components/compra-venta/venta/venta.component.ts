@@ -11,6 +11,8 @@ import { TipoCambioService } from '../../../services/tipo-cambio.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateRef } from '@angular/core';
 
+import Web3 from "web3";
+
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -24,7 +26,7 @@ interface HtmlInputEvent extends Event {
 export class VentaComponent implements OnInit {
   convertorForm!: FormGroup;
   unsubscribe: Subject<void>;
-  tipoCambioVenta: string;
+  tipoCambioVenta: number;
 
   tipoCambioCalculado: string;
   tipoCambioImp: string;
@@ -59,15 +61,16 @@ export class VentaComponent implements OnInit {
     // SUBSCRIBE FORM
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
-    this.convertorForm.controls.tipoMoneda.setValue('soles');
+    // this.convertorForm.controls.tipoMoneda.setValue('soles');
+    this.convertorForm.controls.tipoToken.setValue('usdt');
     // this.convertorForm.controls.valorIngresado.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
       this.tipoCambioVenta = valueres.tc.bid;
       this.tipoCambioCalculado = (
-        parseFloat(this.tipoCambioVenta) +
-        parseFloat(this.tipoCambioVenta) * 0.023
-      ).toFixed(8);
+        this.tipoCambioVenta +
+        (this.tipoCambioVenta * 0.023)
+      ).toFixed(6);
       this.tipoCambioImp = parseFloat(this.tipoCambioCalculado).toFixed(4);
 
       this.sendSellFormulary.patchValue({
@@ -106,6 +109,19 @@ export class VentaComponent implements OnInit {
     // this.sendSellFormulary.disable();
   }
 
+
+  getAmountOutMin (web3, contract, tokens, amount, decimals0, decimals1){
+    const BigNumber = web3.utils.BN;
+    const amountBig =  new BigNumber(amount * (Number(`1e+${decimals0}`)));
+    return new Promise((resolve,reject) => {
+        contract.methods.getAmountOutMin(tokens, amountBig).call(function (error, result) {
+            resolve(result  / (Number(`1e+${decimals1}`)));
+        }).catch((error) => {
+            reject(error)
+        })
+    });
+}
+
   submit() {
     console.warn(this.convertorForm.controls);
   }
@@ -113,7 +129,8 @@ export class VentaComponent implements OnInit {
   initForm(): void {
     this.convertorForm = this.calcformBuilder.group({
       valorIngresado: ['', [Validators.required]],
-      tipoMoneda: ['', [Validators.required]],
+      // tipoMoneda: ['', [Validators.required]],
+      tipoToken: ['', [Validators.required]],
       resultado: ['', [Validators.required]],
     });
   }
@@ -122,16 +139,16 @@ export class VentaComponent implements OnInit {
     this.convertorForm.valueChanges
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((controls) => {
-        if (controls?.valorIngresado && controls?.tipoMoneda) {
-          switch (controls?.tipoMoneda) {
-            case 'soles':
-              let tcSoles: any = this.tipoCambioCalculado;
-              let tcambioSoles: any = (
-                +controls.valorIngresado * +tcSoles
-              ).toFixed(4);
+        if (controls?.valorIngresado && controls?.tipoToken) {
+          switch (controls?.tipoToken) {
+            case 'usdt':
+              let tcUsdtSoles: number = parseFloat(this.tipoCambioCalculado);
+              let tcambioUsdtSoles: string = (
+                +controls.valorIngresado * +tcUsdtSoles
+              ).toFixed(5);
               this.convertorForm.patchValue(
                 {
-                  resultado: parseFloat(tcambioSoles).toFixed(5),
+                  resultado: tcambioUsdtSoles,
                 },
                 {
                   emitEvent: false,
@@ -140,19 +157,27 @@ export class VentaComponent implements OnInit {
 
               break;
 
-            case 'dolares':
-              let tcambioDolares: any = (+controls.valorIngresado).toFixed(5);
-              this.convertorForm.patchValue(
-                {
-                  resultado: (
-                    parseFloat(tcambioDolares) +
-                    parseFloat(tcambioDolares) * 0.023
-                  ).toFixed(5),
-                },
-                {
-                  emitEvent: false,
-                }
-              );
+            case 'firu':
+              const web3 = new Web3("https://rpc.moonriver.moonbeam.network");
+
+    const contract = new web3.eth.Contract([{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"}],"name":"getAmountOutMin","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountOut","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForETH","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForTokens","outputs":[],"stateMutability":"nonpayable","type":"function"}], "0x11b1c2956F207F5e0eeaa98dfCF2BF0f901a82e4");
+
+
+          let tcFiruSoles: number = parseFloat(this.tipoCambioCalculado);
+
+              this.getAmountOutMin(web3, contract, ["0x2fbe6b6f1e3e2efc69495f0c380a01c003e47225","0x98878b06940ae243284ca214f92bb71a2b032b8a", "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D"], +controls.valorIngresado, 8, 6).then((resolve: number) => {
+                let IMP_RES: string = (resolve * tcFiruSoles).toFixed(5);
+
+                this.convertorForm.patchValue(
+                  {
+                    resultado: IMP_RES,
+                  },
+                  {
+                    emitEvent: false,
+                  }
+                );
+              });
+
 
               break;
 
@@ -162,7 +187,7 @@ export class VentaComponent implements OnInit {
         } else {
           this.convertorForm.patchValue(
             {
-              resultado: '0.00',
+              resultado: '0.000',
             },
             {
               emitEvent: false,
