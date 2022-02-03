@@ -39,9 +39,12 @@
           <form [formGroup]="convertorForm" (submit)="submit()">
             <div class="calc-graphic-camp">
               <div class="camp-from" style="position: relative">
-                <div class="border-button" style="position: absolute; z-index: 100; top: 25%; right: 2%; padding: .4rem .6rem; background-color: rgba(255, 255, 255, 0.582); cursor: pointer">
+                <button 
+                class="border-button" 
+                (click)="pasteToBuy()"
+                style="position: absolute; z-index: 100; top: 25%; right: 2%; padding: .4rem .6rem; background-color: rgba(255, 255, 255, 0.582)">
                   <mat-icon> local_grocery_store</mat-icon>
-                </div>
+                </button>
                 
                 <div class="border-button select-style">    
                   S/ Soles
@@ -65,8 +68,8 @@
               <div class="camp-from">
                 <div class="border-button select-style">
                   <mat-select formControlName="tipoToken">
-                    <mat-option value="usdt" selected>USDT</mat-option>
-                    <mat-option value="firu">FIRU</mat-option>
+                    <mat-option value="USDT" selected>USDT</mat-option>
+                    <mat-option value="FIRU">FIRU</mat-option>
                   </mat-select>
                 </div>
                 <mat-form-field>
@@ -106,7 +109,7 @@
 
       <mat-card-content>
         <form
-          (submit)="uploadBuy(numOp, address, email, tCambio)"
+          (submit)="uploadBuy(numOp, address, email, tCambio, amount, token)"
           [formGroup]="sendBuyFormulary"
         >
           <input
@@ -168,7 +171,6 @@
                 autocomplete="off"
                 matInput
                 placeholder="Address"
-                [disabled]="true"
                 formControlName="addressFormControl"
                 #address
               />

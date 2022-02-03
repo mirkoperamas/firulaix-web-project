@@ -62,7 +62,8 @@ export class VentaComponent implements OnInit {
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
     // this.convertorForm.controls.tipoMoneda.setValue('soles');
-    this.convertorForm.controls.tipoToken.setValue('usdt');
+    this.convertorForm.controls.tipoToken.setValue('USDT');
+    this.sendSellFormulary.controls.tokenFormControl.disable();
     // this.convertorForm.controls.valorIngresado.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
@@ -77,6 +78,33 @@ export class VentaComponent implements OnInit {
         tCambioFormControl: this.tipoCambioImp,
       });
     });
+  }
+
+
+  getAmountOutMin (web3, contract, tokens, amount, decimals0, decimals1){
+    const BigNumber = web3.utils.BN;
+    const amountBig =  new BigNumber(amount * (Number(`1e+${decimals0}`)));
+    return new Promise((resolve,reject) => {
+        contract.methods.getAmountOutMin(tokens, amountBig).call(function (error, result) {
+            resolve(result  / (Number(`1e+${decimals1}`)));
+        }).catch((error) => {
+            reject(error)
+        })
+    });
+}
+
+  submit() {
+    console.warn(this.convertorForm.controls);
+  }
+
+  initForm(): void {
+    this.convertorForm = this.calcformBuilder.group({
+      valorIngresado: ['', [Validators.required]],
+      // tipoMoneda: ['', [Validators.required]],
+      tipoToken: ['', [Validators.required]],
+      resultado: ['', [Validators.required]],
+    });
+
 
     // SEND SELL FORM
     this.sendSellFormulary = this.sendSellFormBuilder.group({
@@ -105,34 +133,11 @@ export class VentaComponent implements OnInit {
 
       tCambioFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
+
+      amountFormControl: ['', [Validators.required]],
+      tokenFormControl: ['', [Validators.required]]
     });
-    // this.sendSellFormulary.disable();
-  }
 
-
-  getAmountOutMin (web3, contract, tokens, amount, decimals0, decimals1){
-    const BigNumber = web3.utils.BN;
-    const amountBig =  new BigNumber(amount * (Number(`1e+${decimals0}`)));
-    return new Promise((resolve,reject) => {
-        contract.methods.getAmountOutMin(tokens, amountBig).call(function (error, result) {
-            resolve(result  / (Number(`1e+${decimals1}`)));
-        }).catch((error) => {
-            reject(error)
-        })
-    });
-}
-
-  submit() {
-    console.warn(this.convertorForm.controls);
-  }
-
-  initForm(): void {
-    this.convertorForm = this.calcformBuilder.group({
-      valorIngresado: ['', [Validators.required]],
-      // tipoMoneda: ['', [Validators.required]],
-      tipoToken: ['', [Validators.required]],
-      resultado: ['', [Validators.required]],
-    });
   }
 
   subscribeToForm(): void {
@@ -141,7 +146,7 @@ export class VentaComponent implements OnInit {
       .subscribe((controls) => {
         if (controls?.valorIngresado && controls?.tipoToken) {
           switch (controls?.tipoToken) {
-            case 'usdt':
+            case 'USDT':
               let tcUsdtSoles: number = parseFloat(this.tipoCambioCalculado);
               let tcambioUsdtSoles: string = (
                 +controls.valorIngresado * +tcUsdtSoles
@@ -157,7 +162,7 @@ export class VentaComponent implements OnInit {
 
               break;
 
-            case 'firu':
+            case 'FIRU':
               const web3 = new Web3("https://rpc.moonriver.moonbeam.network");
 
     const contract = new web3.eth.Contract([{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"}],"name":"getAmountOutMin","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountOut","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForETH","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForTokens","outputs":[],"stateMutability":"nonpayable","type":"function"}], "0x11b1c2956F207F5e0eeaa98dfCF2BF0f901a82e4");
@@ -216,7 +221,9 @@ export class VentaComponent implements OnInit {
     numTr: HTMLInputElement,
     bcpAccount: HTMLInputElement,
     email: HTMLInputElement,
-    tCambio: HTMLInputElement
+    tCambio: HTMLInputElement,
+    amount: HTMLInputElement,
+    token: HTMLInputElement
   ) {
     this.sellSendService
       .createSellSend(
@@ -224,7 +231,9 @@ export class VentaComponent implements OnInit {
         bcpAccount.value,
         email.value,
         this.file,
-        tCambio.value
+        tCambio.value,
+        amount.value,
+        token.value
       )
       .subscribe(
         (res) => {
@@ -235,6 +244,23 @@ export class VentaComponent implements OnInit {
       );
     return false;
   }
+
+  pasteToSell(){
+
+    // console.log(this.convertorForm.value);
+    this.sendSellFormulary.patchValue(
+      {
+        amountFormControl: this.convertorForm.value.valorIngresado,
+        tokenFormControl: this.convertorForm.value.tipoToken,
+
+      },
+      {
+        emitEvent: false
+      }
+    );
+  }
+  
+
 
   ngOnDestroy() {
     this.unsubscribe.next();

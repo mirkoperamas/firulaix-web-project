@@ -67,7 +67,9 @@ export class CompraComponent implements OnInit {
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
     // this.convertorForm.controls.tipoMoneda.setValue('soles');
-    this.convertorForm.controls.tipoToken.setValue('usdt');
+    this.convertorForm.controls.tipoToken.setValue('USDT');
+
+    this.sendBuyFormulary.controls.tokenFormControl.disable();
     // this.convertorForm.controls.valorIngresado.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
@@ -82,11 +84,31 @@ export class CompraComponent implements OnInit {
         tCambioFormControl: this.tipoCambioImp,
       });
     });
+  }
 
+  getAmountOutMin (web3, contract, tokens, amount, decimals0, decimals1){
+    const BigNumber = web3.utils.BN;
+    const amountBig =  new BigNumber(amount * (Number(`1e+${decimals0}`)));
+    return new Promise((resolve,reject) => {
+        contract.methods.getAmountOutMin(tokens, amountBig).call(function (error, result) {
+            resolve(result  / (Number(`1e+${decimals1}`)));
+        }).catch((error) => {
+            reject(error)
+        })
+    });
+}
 
+  submit() {
+    // console.warn(this.convertorForm.controls);
+  }
 
-
-
+  initForm(): void {
+    this.convertorForm = this.calcformBuilder.group({
+      valorIngresado: ['', [Validators.required]],
+      // tipoMoneda: ['', [Validators.required]],
+      tipoToken: ['', [Validators.required]],
+      resultado: ['', [Validators.required]],
+    });
 
 
     // SEND BUY FORM
@@ -112,42 +134,17 @@ export class CompraComponent implements OnInit {
       amountFormControl: ['', [Validators.required]],
       tokenFormControl: ['', [Validators.required]]
     });
-    // this.sendBuyFormulary.disable();
-
-  }
-
-  getAmountOutMin (web3, contract, tokens, amount, decimals0, decimals1){
-    const BigNumber = web3.utils.BN;
-    const amountBig =  new BigNumber(amount * (Number(`1e+${decimals0}`)));
-    return new Promise((resolve,reject) => {
-        contract.methods.getAmountOutMin(tokens, amountBig).call(function (error, result) {
-            resolve(result  / (Number(`1e+${decimals1}`)));
-        }).catch((error) => {
-            reject(error)
-        })
-    });
-}
-
-  submit() {
-    console.warn(this.convertorForm.controls);
-  }
-
-  initForm(): void {
-    this.convertorForm = this.calcformBuilder.group({
-      valorIngresado: ['', [Validators.required]],
-      // tipoMoneda: ['', [Validators.required]],
-      tipoToken: ['', [Validators.required]],
-      resultado: ['', [Validators.required]],
-    });
   }
 
   subscribeToForm(): void {
     this.convertorForm.valueChanges
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((controls) => {
+        // console.log(controls?.valorIngresado);
+
         if (controls?.valorIngresado && controls?.tipoToken) {
           switch (controls?.tipoToken) {
-            case 'usdt': 
+            case 'USDT': 
               let tcSolesUsdt: number = parseFloat(this.tipoCambioCalculado);
               let tcambioSolesUsdt: string = (
                 +controls.valorIngresado / +tcSolesUsdt
@@ -162,7 +159,7 @@ export class CompraComponent implements OnInit {
               );
               break;
 
-            case 'firu':
+            case 'FIRU':
               // let tcambioFiru: any = (+controls.valorIngresado).toFixed(5);
 
               const web3 = new Web3("https://rpc.moonriver.moonbeam.network");
@@ -226,7 +223,9 @@ export class CompraComponent implements OnInit {
     numOp: HTMLInputElement,
     address: HTMLInputElement,
     email: HTMLInputElement,
-    tCambio: HTMLInputElement
+    tCambio: HTMLInputElement,
+    amount: HTMLInputElement,
+    token: HTMLInputElement
   ) {
     this.buySendService
       .createBuySend(
@@ -234,7 +233,9 @@ export class CompraComponent implements OnInit {
         address.value,
         email.value,
         this.file,
-        tCambio.value
+        tCambio.value,
+        amount.value,
+        token.value
       )
       .subscribe(
         (res) => {
@@ -245,6 +246,22 @@ export class CompraComponent implements OnInit {
       );
     return false;
   }
+
+  pasteToBuy(){
+
+    // console.log(this.convertorForm.value);
+    this.sendBuyFormulary.patchValue(
+      {
+        amountFormControl: this.convertorForm.value.valorIngresado,
+        tokenFormControl: this.convertorForm.value.tipoToken,
+
+      },
+      {
+        emitEvent: false
+      }
+    );
+  }
+  
 
   ngOnDestroy() {
     this.unsubscribe.next();

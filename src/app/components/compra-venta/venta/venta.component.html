@@ -14,11 +14,18 @@
         <mat-card-content>
           <form [formGroup]="convertorForm" (submit)="submit()">
             <div class="calc-graphic-camp">
-              <div class="camp-from">
+              <div class="camp-from" style="position: relative">
+                <button 
+                class="border-button" 
+                (click)="pasteToSell()"
+                style="position: absolute; z-index: 100; top: 25%; right: 2%; padding: .4rem .6rem; background-color: rgba(255, 255, 255, 0.582)">
+                  <mat-icon> local_grocery_store</mat-icon>
+                </button>
+
                 <div class="border-button select-style">
                   <mat-select formControlName="tipoToken">
-                    <mat-option value="usdt" selected>USDT</mat-option>
-                    <mat-option value="firu" disabled>FIRU</mat-option>
+                    <mat-option value="USDT" selected>USDT</mat-option>
+                    <mat-option value="FIRU" disabled>FIRU</mat-option>
                   </mat-select>
                 </div>
                 <mat-form-field>
@@ -77,7 +84,7 @@
 
       <mat-card-content>
         <form
-          (submit)="uploadSell(numTr, bcpAccount, email, tCambio)"
+          (submit)="uploadSell(numTr, bcpAccount, email, tCambio, amount, token)"
           [formGroup]="sendSellFormulary"
         >
           <input
@@ -142,7 +149,6 @@
                 autocomplete="off"
                 matInput
                 placeholder="Cuenta de BCP"
-                [disabled]="true"
                 formControlName="bcpAccountFormControl"
                 #bcpAccount
               />
@@ -217,6 +223,65 @@
               <p matDialogContent class="alert-text">
                 Digite un email válido para enviarle la información de la
                 transacción de sus FIRU's
+              </p>
+
+              <mat-dialog-actions align="end">
+                <button mat-flat-button color="warn" matDialogClose>
+                  Cerrar
+                </button>
+              </mat-dialog-actions>
+            </ng-template>
+          </div>
+
+          <div class="form-register-camp" style="flex-direction: column;">
+            <div style="width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 1rem; padding: 0 4rem;">
+              <div style="width: 100%">
+                <mat-form-field>
+                    <input
+                        type="text"
+                        autocomplete="off"
+                        matInput
+                        placeholder="Cantidad"
+                        formControlName="amountFormControl"
+                        #amount
+                      />
+                    <mat-error
+                      *ngIf="sendSellFormulary.get('amountFormControl').value == 0"
+                    >
+                      Este campo es requerido
+                    </mat-error>
+                </mat-form-field>
+              </div>
+  
+  
+              <div style="width: 100%">
+                <mat-form-field>
+                  <input
+                        type="text"
+                        autocomplete="off"
+                        matInput
+                        placeholder="Token"
+                        formControlName="tokenFormControl"
+                        #token
+                      />
+                </mat-form-field>
+              </div>
+            </div>
+            <div style="padding: 1.5rem 0; color: #ff0000; font-style: italic;">
+              <p>* Este monto será tomado como referencia de los montos del cambio y del depósito</p>
+            </div>
+
+            <div style="position: absolute; left: 8%; top: 17%; color: #aaaaaa">
+              <mat-icon> local_grocery_store</mat-icon>
+            </div>
+
+            <div class="button-help" (click)="openDialogWithRef(infoAmountToken)">
+              <i class="fas fa-info"></i>
+            </div>
+
+            <ng-template #infoAmountToken>
+              <p matDialogContent class="alert-text">
+                Presione el botón <mat-icon> local_grocery_store</mat-icon> de la calculadora para actualizar estos campos
               </p>
 
               <mat-dialog-actions align="end">
