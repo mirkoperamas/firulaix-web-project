@@ -108,6 +108,9 @@ export class CompraComponent implements OnInit {
       imageBuyFormControl: ['', [Validators.required]],
       tCambioFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
+
+      amountFormControl: ['', [Validators.required]],
+      tokenFormControl: ['', [Validators.required]]
     });
     // this.sendBuyFormulary.disable();
 
@@ -124,16 +127,6 @@ export class CompraComponent implements OnInit {
         })
     });
 }
-
-  contractToken(){
-    
-
-    
-    
-
-  }
-
-  
 
   submit() {
     console.warn(this.convertorForm.controls);
@@ -154,7 +147,7 @@ export class CompraComponent implements OnInit {
       .subscribe((controls) => {
         if (controls?.valorIngresado && controls?.tipoToken) {
           switch (controls?.tipoToken) {
-            case 'usdt':
+            case 'usdt': 
               let tcSolesUsdt: number = parseFloat(this.tipoCambioCalculado);
               let tcambioSolesUsdt: string = (
                 +controls.valorIngresado / +tcSolesUsdt

@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 // import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 // import { RecaptchaModule } from 'ng-recaptcha';
 
 
@@ -34,6 +35,7 @@ import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSet
     // RecaptchaModule,
     RecaptchaModule,
     RecaptchaFormsModule,
+    MatIconModule
   ],
   exports: [CompraComponent, VentaComponent],
 })
