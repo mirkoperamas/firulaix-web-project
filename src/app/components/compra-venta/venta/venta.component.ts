@@ -41,7 +41,8 @@ export class VentaComponent implements OnInit {
   emailPattern =
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
-  numTrPattern = /^[0-9]+$/;
+  bcpPattern = /^[0-9]+$/;
+  numAmountPattern = /^[0-9]+([.][0-9]+)?$/;
 
   constructor(
     private http: HttpClient,
@@ -61,10 +62,8 @@ export class VentaComponent implements OnInit {
     // SUBSCRIBE FORM
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
-    // this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.convertorForm.controls.tipoToken.setValue('USDT');
     this.sendSellFormulary.controls.tokenFormControl.disable();
-    // this.convertorForm.controls.valorIngresado.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
       this.tipoCambioVenta = valueres.tc.bid;
@@ -94,13 +93,12 @@ export class VentaComponent implements OnInit {
 }
 
   submit() {
-    console.warn(this.convertorForm.controls);
+    // console.warn(this.convertorForm.controls);
   }
 
   initForm(): void {
     this.convertorForm = this.calcformBuilder.group({
       valorIngresado: ['', [Validators.required]],
-      // tipoMoneda: ['', [Validators.required]],
       tipoToken: ['', [Validators.required]],
       resultado: ['', [Validators.required]],
     });
@@ -120,7 +118,7 @@ export class VentaComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(this.numTrPattern),
+          Validators.pattern(this.bcpPattern),
           Validators.minLength(16),
           Validators.maxLength(16),
         ],
@@ -134,8 +132,8 @@ export class VentaComponent implements OnInit {
       tCambioFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
 
-      amountFormControl: ['', [Validators.required]],
-      tokenFormControl: ['', [Validators.required]]
+      amountFormControl: ['', [Validators.required, Validators.pattern(this.numAmountPattern)]],
+      tokenFormControl: ['USDT', [Validators.required]]
     });
 
   }

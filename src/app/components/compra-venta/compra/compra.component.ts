@@ -45,6 +45,7 @@ export class CompraComponent implements OnInit {
     /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
   numOpPattern = /^[0-9]+$/;
+  numAmountPattern = /^[0-9]+([.][0-9]+)?$/;
 
   constructor(
     private http: HttpClient,
@@ -66,11 +67,8 @@ export class CompraComponent implements OnInit {
     // SUBSCRIBE FORM
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
-    // this.convertorForm.controls.tipoMoneda.setValue('soles');
     this.convertorForm.controls.tipoToken.setValue('USDT');
-
     this.sendBuyFormulary.controls.tokenFormControl.disable();
-    // this.convertorForm.controls.valorIngresado.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
       this.tipoCambioCompra = valueres.tc.ask;
@@ -105,7 +103,6 @@ export class CompraComponent implements OnInit {
   initForm(): void {
     this.convertorForm = this.calcformBuilder.group({
       valorIngresado: ['', [Validators.required]],
-      // tipoMoneda: ['', [Validators.required]],
       tipoToken: ['', [Validators.required]],
       resultado: ['', [Validators.required]],
     });
@@ -131,8 +128,8 @@ export class CompraComponent implements OnInit {
       tCambioFormControl: ['', [Validators.required]],
       recaptchaFormControl: ['', [Validators.required]],
 
-      amountFormControl: ['', [Validators.required]],
-      tokenFormControl: ['', [Validators.required]]
+      amountFormControl: ['', [Validators.required, Validators.pattern(this.numAmountPattern)]],
+      tokenFormControl: ['USDT', [Validators.required]]
     });
   }
 
@@ -140,7 +137,6 @@ export class CompraComponent implements OnInit {
     this.convertorForm.valueChanges
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((controls) => {
-        // console.log(controls?.valorIngresado);
 
         if (controls?.valorIngresado && controls?.tipoToken) {
           switch (controls?.tipoToken) {
@@ -160,7 +156,6 @@ export class CompraComponent implements OnInit {
               break;
 
             case 'FIRU':
-              // let tcambioFiru: any = (+controls.valorIngresado).toFixed(5);
 
               const web3 = new Web3("https://rpc.moonriver.moonbeam.network");
 
@@ -249,7 +244,6 @@ export class CompraComponent implements OnInit {
 
   pasteToBuy(){
 
-    // console.log(this.convertorForm.value);
     this.sendBuyFormulary.patchValue(
       {
         amountFormControl: this.convertorForm.value.valorIngresado,

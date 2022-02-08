@@ -123,7 +123,6 @@
             <mat-form-field>
               <input
                 type="text"
-                onkeydown="return event.keyCode !== 69"
                 autocomplete="off"
                 matInput
                 placeholder="Número de Operación"
@@ -257,7 +256,7 @@
               <div style="width: 100%">
                 <mat-form-field>
                     <input
-                        type="text"
+                        type="string"
                         autocomplete="off"
                         matInput
                         placeholder="Cantidad"
@@ -269,6 +268,15 @@
                     >
                       Este campo es requerido
                     </mat-error>
+
+                    <mat-error
+                *ngIf="
+                  sendBuyFormulary.get('amountFormControl').invalid &&
+                  sendBuyFormulary.get('amountFormControl').value != 0
+                "
+              >
+                Debe ingresar un monto válido
+              </mat-error>
                 </mat-form-field>
               </div>
   
@@ -371,8 +379,9 @@
               <img src="../../../assets/images/popup-firu-2.png" />
             </div>
             <p matDialogContent class="alert-text">
-              Gracias por su compra, recibira un email de confirmación. Revise
-              su bandeja de entrada de lo contrario su bandeja 'spam'.
+              Gracias por su compra, recibira un email de confirmación. 
+              <br />
+              Revise su bandeja de entrada de lo contrario su bandeja 'spam'.
             </p>
 
             <mat-dialog-actions align="end">
