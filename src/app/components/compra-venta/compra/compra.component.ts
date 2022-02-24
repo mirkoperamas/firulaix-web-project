@@ -67,7 +67,7 @@ export class CompraComponent implements OnInit {
     // SUBSCRIBE FORM
     this.subscribeToForm();
     this.convertorForm.controls.resultado.disable();
-    this.convertorForm.controls.tipoToken.setValue('USDT');
+    this.convertorForm.controls.tipoToken.setValue('MOVR');
     this.sendBuyFormulary.controls.tokenFormControl.disable();
 
     this.tipoCambioService.getTipoCambio().subscribe((valueres) => {
@@ -129,7 +129,7 @@ export class CompraComponent implements OnInit {
       recaptchaFormControl: ['', [Validators.required]],
 
       amountFormControl: ['', [Validators.required, Validators.pattern(this.numAmountPattern)]],
-      tokenFormControl: ['USDT', [Validators.required]]
+      tokenFormControl: ['FIRU', [Validators.required]]
     });
   }
 
@@ -140,34 +140,45 @@ export class CompraComponent implements OnInit {
 
         if (controls?.valorIngresado && controls?.tipoToken) {
           switch (controls?.tipoToken) {
-            case 'USDT': 
-              let tcSolesUsdt: number = parseFloat(this.tipoCambioCalculado);
-              let tcambioSolesUsdt: string = (
-                +controls.valorIngresado / +tcSolesUsdt
-              ).toFixed(5);
+            case 'MOVR': 
+
+            const web3ForMOVR = new Web3("https://rpc.moonriver.moonbeam.network");
+
+            const contractForMOVR = new web3ForMOVR.eth.Contract([{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"}],"name":"getAmountOutMin","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountOut","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForETH","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForTokens","outputs":[],"stateMutability":"nonpayable","type":"function"}], "0x11b1c2956F207F5e0eeaa98dfCF2BF0f901a82e4");
+  
+            let VALUE_MOVR: string = (
+              +controls.valorIngresado
+            ).toFixed(5);
+
+
+            this.getAmountOutMin(web3ForMOVR, contractForMOVR, ["0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D","0x98878b06940ae243284ca214f92bb71a2b032b8a"], VALUE_MOVR, 6, 18).then((resolve: number) => {
+              let IMP_RES = resolve.toFixed(5);
+              
               this.convertorForm.patchValue(
                 {
-                  resultado: tcambioSolesUsdt,
+                  resultado: IMP_RES,
                 },
                 {
                   emitEvent: false,
                 }
               );
+            });
+
+
               break;
 
             case 'FIRU':
 
-              const web3 = new Web3("https://rpc.moonriver.moonbeam.network");
+              const web3ForFIRU = new Web3("https://rpc.moonriver.moonbeam.network");
 
-    const contract = new web3.eth.Contract([{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"}],"name":"getAmountOutMin","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountOut","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForETH","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForTokens","outputs":[],"stateMutability":"nonpayable","type":"function"}], "0x11b1c2956F207F5e0eeaa98dfCF2BF0f901a82e4");
+              const contractForFIRU = new web3ForFIRU.eth.Contract([{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"}],"name":"getAmountOutMin","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountOut","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_token","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForETH","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_path","type":"address[]"},{"internalType":"uint256","name":"_amountIn","type":"uint256"},{"internalType":"uint256","name":"_amountOutMin","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"swapExactTokensForTokens","outputs":[],"stateMutability":"nonpayable","type":"function"}], "0x11b1c2956F207F5e0eeaa98dfCF2BF0f901a82e4");
     
-      let tcSolesFiru: number = parseFloat(this.tipoCambioCalculado);
-      let tcambioSolesFiru: string = (
-        +controls.valorIngresado / +tcSolesFiru
-      ).toFixed(5);
+              let VALUE_FIRU: string = (
+                +controls.valorIngresado
+              ).toFixed(5);
 
 
-              this.getAmountOutMin(web3, contract, ["0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D","0x98878b06940ae243284ca214f92bb71a2b032b8a", "0x2fbe6b6f1e3e2efc69495f0c380a01c003e47225"], tcambioSolesFiru, 6, 8).then((resolve: number) => {
+              this.getAmountOutMin(web3ForFIRU, contractForFIRU, ["0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D","0x98878b06940ae243284ca214f92bb71a2b032b8a", "0x2fbe6b6f1e3e2efc69495f0c380a01c003e47225"], VALUE_FIRU, 6, 8).then((resolve: number) => {
                 let IMP_RES = resolve.toFixed(5);
                 
                 this.convertorForm.patchValue(
